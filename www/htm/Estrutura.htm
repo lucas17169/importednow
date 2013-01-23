@@ -655,6 +655,20 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 		$("input#Pais").attr("value", aux_Pais);
 
 		document.getElementById("CEP").onchange();
+		document.getElementById("Nome").onchange();
+		document.getElementById("CPF").onchange();
+		document.getElementById("Data").onchange();
+		document.getElementById("RazaoSocial").onchange();
+		document.getElementById("CNPJ").onchange();
+		document.getElementById("IE").onchange();
+		document.getElementById("Contato").onchange();
+		document.getElementById("DDD").onchange();
+		document.getElementById("Telefone").onchange();
+		document.getElementById("DDDCel").onchange();
+		document.getElementById("Celular").onchange();
+		document.getElementById("Numero").onchange();
+		document.getElementById("Complemento").onchange();
+		document.getElementById("Referencia").onchange();
 		
 		if (!novo_cadastro){
 			if (aux_BotSexoMasc){
@@ -1330,28 +1344,28 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 								<tr id="mod_linha_1" >
 									<td width="200" height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Razão Social da Empresa<span class="sinal_campo_obrigatorio">*</span>:</td>
 									<td>
-										<input type='text' name='RazaoSocial' id='RazaoSocial' maxlength='100' size='40' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9.\'\&-@,&]{2,50}$','linha1')"  style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;">
+										<input type='text' name='RazaoSocial' id='RazaoSocial' maxlength='100' size='40' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9.\'\&-@,&]{2,50}$','linha1')"  style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;">
 										<img class='HintIMG' id='linha1' name='linha1' style="float:left; margin-left:1px" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_1" />
 									</td>
 								</tr>
 								<tr id="mod_linha_2" >
 									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">CNPJ<span class="sinal_campo_obrigatorio">*</span>:</td>
 									<td>
-										<input type='text' name='CNPJ' id='CNPJ' maxlength='18' class='FCampos' onkeyup="FormataCNPJ(this,18,event)" onblur="formatCpfCnpj007(this, null, true)" onchange="ValidaCampo(this,'^[0-9_\.,\-/\]{18}$','linha2')" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+										<input type='text' name='CNPJ' id='CNPJ' maxlength='18' class='FCampos' onkeyup="FormataCNPJ(this,18,event)" onblur="formatCpfCnpj007(this, null, true)" onchange="ValidaCampo008(this,'^[0-9_\.,\-/\]{18}$','linha2')" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
 										<img class='HintIMG' id='linha2' name='linha2' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_2" />
 									</td>
 								</tr>
 								<tr id="mod_linha_3" >
 									<td height="25" align="right" class="subtitulo_cadastro_modificado2">Inscrição Estadual:</td>
 									<td>
-										<input type='text' name='IE' id='IE' maxlength='19' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{2,15}$','linha3')" onkeydown='return CancelTab();'  style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+										<input type='text' name='IE' id='IE' maxlength='19' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{2,15}$','linha3')" onkeydown='return CancelTab();'  style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
 										<img class='HintIMG' id='linha3' name='linha3' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_3" />
 									</td>
 								</tr>
 								<tr id="mod_linha_4" >
 									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Responsável<span class="sinal_campo_obrigatorio">*</span>:</td>
 									<td>
-										<input type='text' name='Contato' id='Contato' maxlength='30' size='20' class='FCampos' onchange="ValidaCampo(this,'','linha4')"  style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+										<input type='text' name='Contato' id='Contato' maxlength='30' size='20' class='FCampos' onchange="ValidaCampo008(this,'','linha4')"  style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
 										<img class='HintIMG' id='linha4' name='linha4' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_4" />
 									</td>
 								</tr>
@@ -1362,14 +1376,14 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 								<tr id="mod_linha_5" >
 									<td width="200" height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Nome Completo<span class="sinal_campo_obrigatorio">*</span>:</td>
 									<td>
-										<input type='text' name='Nome' id='Nome' maxlength='50' size='40' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ]{2,50}$','linha5')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;">
+										<input type='text' name='Nome' id='Nome' maxlength='50' size='40' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ]{2,50}$','linha5')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;">
 										<img class='HintIMG' id='linha5' name='linha5' style="margin-left:1px;float:left; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_5"/>
 									</td>
 								</tr>
 								<tr id="mod_linha_6" >
 									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado" id="CamposObrigCPF">CPF<span class="sinal_campo_obrigatorio">*</span>:</td>
 									<td>
-										<input type='text' name='CPF' id='CPF' maxlength='14' class='FCampos' onkeyPress="FormataCpf(this,event)" onchange="ValidaCampo(this,'^[0-9_\.,\-\]{14,15}$','linha6')" onblur="formatCpfCnpj007(this, null, null)" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+										<input type='text' name='CPF' id='CPF' maxlength='14' class='FCampos' onkeyPress="FormataCpf(this,event)" onchange="ValidaCampo008(this,'^[0-9_\.,\-\]{14,15}$','linha6')" onblur="formatCpfCnpj007(this, null, null)" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
 										<a href="#" onclick="abrePopup(1);" class="duvidas_cadastro_modificado" style="float:left; position: relative; top: 5px; ">&gt; <span style="text-decoration:underline;">Porque pedimos o seu CPF?</span></a>
 										<img class='HintIMG' id='linha6' name='linha6' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_6" />
 									</td>
@@ -1419,18 +1433,18 @@ Calendar.setup(
 				<tr id="mod_linha_9" >
 					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Telefone Preferencial<span class="sinal_campo_obrigatorio">*</span>:</td>
 					<td>
-						<input type='Text' name='DDD' id='DDD' maxlength='3' size='3' class='FCampos' onchange="ValidaCampo(this,'^[0-9]{2,5}$','linha16')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;">
+						<input type='Text' name='DDD' id='DDD' maxlength='3' size='3' class='FCampos' onchange="ValidaCampo008(this,'^[0-9]{2,5}$','linha16')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;">
 						<img class='HintIMG' id='linha16' name='linha16' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_9" />
-						&nbsp; <input type='Text' name='Telefone' id='Telefone' maxlength='15' size='12' class='FCampos' onchange="ValidaCampo(this,'','linha17')" style="float:left; width: 95px; padding: 6px; border: 0; background-image: url('imagens/bg_input4.gif'); background-repeat: no-repeat; margin-left: 15px;">
+						&nbsp; <input type='Text' name='Telefone' id='Telefone' maxlength='15' size='12' class='FCampos' onchange="ValidaCampo008(this,'','linha17')" style="float:left; width: 95px; padding: 6px; border: 0; background-image: url('imagens/bg_input4.gif'); background-repeat: no-repeat; margin-left: 15px;">
 						<img class='HintIMG' id='linha17' name='linha17' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_9" />
 					</td>
 				</tr>
 				<tr id="mod_linha_10" >
 					<td height="25" align="right" class="subtitulo_cadastro_modificado2">Telefone Alternativo:</td>
 					<td>
-						<input type='Text' name='DDDCel' id='DDDCel' maxlength='3' size='3' class='FCampos' onchange="ValidaCampo(this,'^[0-9]{2,5}$','linha27')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;">
+						<input type='Text' name='DDDCel' id='DDDCel' maxlength='3' size='3' class='FCampos' onchange="ValidaCampo008(this,'^[0-9]{2,5}$','linha27')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;">
 						<img class='HintIMG' id='linha27' name='linha27' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_10" />
-						&nbsp; <input type='Text' name='Celular' id='Celular' maxlength='15' size='12' class='FCampos' onchange="ValidaCampo(this,'','linha20')" style="float:left; width: 95px; padding: 6px; border: 0; background-image: url('imagens/bg_input4.gif'); background-repeat: no-repeat;margin-left: 15px;">
+						&nbsp; <input type='Text' name='Celular' id='Celular' maxlength='15' size='12' class='FCampos' onchange="ValidaCampo008(this,'','linha20')" style="float:left; width: 95px; padding: 6px; border: 0; background-image: url('imagens/bg_input4.gif'); background-repeat: no-repeat;margin-left: 15px;">
 						<img class='HintIMG' id='linha20' name='linha20' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_10" />
 					</td>
 				</tr>
@@ -1443,7 +1457,7 @@ Calendar.setup(
 				<tr id="mod_linha_11" >
 					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">CEP<span class="sinal_campo_obrigatorio">*</span>:</td>
 					<td>
-						<input type='Text' name='CEP' id='CEP' maxlength='8' size='10' class='FCampos' onblur="PegaCep007(this.value);" onkeypress='ChkNumero(event)' onchange="ValidaCampo(this,'^[0-9]{8,8}$','linha14'); validaResto();" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+						<input type='Text' name='CEP' id='CEP' maxlength='8' size='10' class='FCampos' onblur="PegaCep007(this.value);" onkeypress='ChkNumero(event)' onchange="ValidaCampo008(this,'^[0-9]{8,8}$','linha14'); validaResto();" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
 						<a class="duvidas_cadastro_modificado" href="http://www.buscacep.correios.com.br/" target="_blank" style=" position: relative; top: 5px; float:left;">&gt; <span style="text-decoration:underline">Não sei meu CEP</span></a>
 						<img class='HintIMG' id='linha14' name='linha14' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_11"/>
 						<input type="hidden" name="EnderecoCepID" id="EnderecoCepID" />
@@ -1460,21 +1474,21 @@ Calendar.setup(
 				<tr id="mod_linha_13" >
 					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Número<span class="sinal_campo_obrigatorio">*</span>:</td>
 					<td>
-						<input type='Text' name='Numero' id='Numero' maxlength='6' class='FCampos' size='4' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$','linha21')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;"/>
+						<input type='Text' name='Numero' id='Numero' maxlength='6' class='FCampos' size='4' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$','linha21')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;"/>
 						<img class='HintIMG' id='linha21' name='linha21' style="float: left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_13"/>
 					</td>
 				</tr>
 				<tr id="mod_linha_14" >
 					<td height="25" align="right" class="subtitulo_cadastro_modificado2">Complemento:</td>
 					<td>
-						<input type='Text' name='Complemento' id='Complemento' maxlength='72' size='40' class='FCampos' onchange="ValidaCampo(this,'','linha10')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;" />
+						<input type='Text' name='Complemento' id='Complemento' maxlength='72' size='40' class='FCampos' onchange="ValidaCampo008(this,'','linha10')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;" />
 						<img class='HintIMG' id='linha10' name='linha10' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_14"/>
 					</td>
 				</tr>
 				<tr id="mod_linha_15" >
 					<td height="25" align="right" class="subtitulo_cadastro_modificado2">Referência:</td>
 					<td>
-						<input type='Text' name='Referencia' id='Referencia' maxlength='100' size='20' class='FCampos' onchange="ValidaCampo(this,'','linha11')" style="float:left; margin-left:1px; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat" />
+						<input type='Text' name='Referencia' id='Referencia' maxlength='100' size='20' class='FCampos' onchange="ValidaCampo008(this,'','linha11')" style="float:left; margin-left:1px; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat" />
 						<img class='HintIMG' id='linha11' name='linha11' style="float:left; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_15"/>
 					</td>
 				</tr>
@@ -1527,7 +1541,7 @@ Calendar.setup(
 				<tr id="mod_linha_20" >
 					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Senha<span class="sinal_campo_obrigatorio">*</span>:</td>
 					<td>
-						<input type='password' name='Senha' id='Senha' maxlength='20' size='20' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z 0-9]{6,20}$','linha24')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+						<input type='password' name='Senha' id='Senha' maxlength='20' size='20' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z 0-9]{6,20}$','linha24')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
 						<img class='HintIMG' id='linha24' name='linha24' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_20"/>
 						<span class="dicas_cadastro_modificado"  style="top: 6px; position: relative;" >&nbsp;Mínimo de 6 caracteres</span>
 					</td>
@@ -1535,7 +1549,7 @@ Calendar.setup(
 				<tr id="mod_linha_21" >
 					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Confirmar senha<span class="sinal_campo_obrigatorio">*</span>:</td>
 					<td>
-						<input type='password' name='ConfirmaSenha' id='ConfirmaSenha' maxlength='20' size='20' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z 0-9]{6,20}$','linha26')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+						<input type='password' name='ConfirmaSenha' id='ConfirmaSenha' maxlength='20' size='20' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z 0-9]{6,20}$','linha26')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
 						<img class='HintIMG' id='linha26' name='linha26' style="float:left;margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_21"/>
 					</td>
 				</tr>
