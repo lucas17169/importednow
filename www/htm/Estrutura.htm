@@ -205,6 +205,13 @@ function ValidaCampo008(PObj, PRegExp, PLinha)
 
 	function ValidaCampo007(PObj, PRegExp, PLinha)
 	{
+		if (PObj.value == ""){
+			document.images[PLinha].width = 1;
+			document.images[PLinha].height = 1;			
+			document.images[PLinha].src = VImgValOK;				
+			return 0;
+		}
+		
 		data = PObj.value.split("/");
 		VOK = (data.length == 3);
 		
@@ -729,7 +736,7 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 		var keyCode = evt.keyCode ? evt.keyCode :
 		evt.charCode ? evt.charCode : evt.which;
 
-		if ((keyCode < 48) || (keyCode > 58)){
+		if (((keyCode < 48) || (keyCode > 58)) && (keyCode != 8) && (keyCode != 37) && (keyCode != 39) && (keyCode != 46)){
 				evt.preventDefault(); 
 				return false;
 		}
@@ -753,6 +760,7 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 	$(document).ready(function(){
 		$("table#tbProduto").css({'margin-right':'0px','width':'730px'});
 		alteracoesNoCadastro();
+		$('.DS_EstruturaCorpo > table:first').css('margin-left','-3px');
 	})
 	
 </script>
@@ -1394,7 +1402,7 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado" nowrap="nowrap" id="DataNascDotCad">Data de Nascimento<span class="sinal_campo_obrigatorio">*</span>:</td>
 									<td>
 										<input type="text" name="Data" id="Data" maxlength="10" class="FCampos" onkeypress="FormataData(this,event);captureKeys(event);" onchange="ValidaCampo007(this,'','linha22')" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
-										<span class="dicas_cadastro_modificado"  style="top: 6px; position: relative;float:left;" >&nbsp;"dd/mm/aaaa"&nbsp;</span>
+										<span class="dicas_cadastro_modificado"  style="top: 8px; position: relative;float:left;" >&nbsp;"dd/mm/aaaa"&nbsp;</span>
 										<img class='HintIMG' id='linha22' name='linha22' style="margin-left:1px;float:left; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_7" />
 <script>
 Calendar.setup(
