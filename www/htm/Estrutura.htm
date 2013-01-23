@@ -395,6 +395,17 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 	function Validacao007()
 	{	
 	
+		console.log(document.getElementById("Email").value);
+
+		document.getElementById("Email").value = document.getElementById('variavel_email').innerHTML;
+		document.getElementById('Ramal').value = "000";
+		document.getElementById('RamalFax').value = "000";
+		document.getElementById('Ramo').value = "xxxxxxxxxxx";
+		document.getElementById('Prof').value = "xxxxxxxxxxx";
+		document.getElementById('RG').value = "00000000000";
+		document.getElementById('DDDFax').value = "00";
+		document.getElementById('Fax').value = "00000000";
+	
 			if (VTemCampoExtra1 == true)
 			{
 				var VStrCampo1 = "|CampoExtra1"
@@ -1541,13 +1552,13 @@ Calendar.setup(
 			</table>
 		</tr>
 	</table>
+	<input type='hidden' name='Ramal' id='Ramal' class='FCampos' value="000" />
+	<input type='hidden' name='RamalFax' id='RamalFax' class='FCampos' value="000" />
 	<input type='hidden' name='Ramo' id='Ramo' class='FCampos' value="xxxxxxxxxxx" />
 	<input type='hidden' name='Prof' id='Prof' class='FCampos' value="xxxxxxxxxxx" />
 	<input type='hidden' name='RG' id='RG' class='FCampos' value="00000000000" />
-	<input type='hidden' name='DDDFax' id='DDDFax' class='FCampos' value="00" />
+	<input type='hidden' name='DDDFax' id='DDDFax' class='FCampos' value="10" />
 	<input type='hidden' name='Fax' id='Fax' class='FCampos' value="000000000" />
-	<input type='hidden' name='Ramal' id='Ramal' class='FCampos' value="000" />
-	<input type='hidden' name='RamalFax' id='RamalFax' class='FCampos' value="000" />
 	
 <br />	
 	<table id="tabelaBotoes" width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
