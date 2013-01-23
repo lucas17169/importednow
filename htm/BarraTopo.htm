@@ -1,0 +1,347 @@
+<link rel="stylesheet" href="##CaminhoDir##htm/home.css" />
+<script type="text/javascript" src="https://www.dotstore.com.br/dotstore/inc/extras/jquery.min.js"></script>
+<script type="text/javascript">
+	_delay = 1;
+    
+    function getParam(n){
+    	return (location.search.match(new RegExp(n + '=([^?&=]+)')) || [])[1] || '';
+	}
+	jQuery(document).ready(function ()
+    {
+		var search = location.search;
+		var path = location.pathname;
+        
+        _dot = RegExp("^/48799_importadoagora/[a-zA-Z]+");
+        _norm = RegExp("^/[a-zA-Z]+");        
+        
+        
+	
+		/*.blur(function(){
+			if(jQuery(this).val()==""){
+				jQuery(this).val("Estou procurando por..."); 
+			}
+        });*/
+		
+		//jQuery("select#Departamentos").html("<option selected='selected'>Em toda a loja</option>");
+		jQuery(".DS_EstruturaCorpo table").each(function()
+		{																
+			jQuery(this).removeAttr('width');
+		});
+        //_status = jQuery("span#statusLogin").html();
+        //if(_status == "")
+        //{
+        //    jQuery("span#statusLogin").html("Visitante! Fa&ccedil;a seu <a href='##CaminhoDir##?Menu=Cadastro'>login</a> ou <a href='##CaminhoDir##?Menu=Cadastro'>cadastre-se</a>");
+        //}
+		
+        jQuery("#DS_AreaClientes").children().find('li:first-child').next().remove();
+        
+        _men = getParam("Menu") != undefined ? getParam("Menu") : '';
+        switch(_men)
+        {
+            case "Carrinho":
+                jQuery("tr#TbCepFreteCalcT").css("background","url('http://www.importadoagora.com.br/imagens/FundoCarrinhoRodape.png') no-repeat scroll 0 -3px transparent");
+                jQuery("td.CarrinhoTit:first").css("border-radius","10px 0 0 0").parent().css("background","none repeat scroll 0 0 #FFFFFF");
+				setTimeout(function(){
+				jQuery("input#Ok2").click(function(){
+					//jQuery("fieldset#Frete > label.Texto:first").append("7 a 10 dias &uacute;teis");
+					//jQuery("fieldset#Frete > label.Texto:nth-child(6)").append("1 a 3 dias &uacute;teis");
+				})},800);
+                setTimeout(function()
+                {
+                    jQuery("tr.CarrinhoFundoProduto").each(function()
+                    {
+                        jQuery(this).find("td:eq(0) > a > img").each(function()
+                        {
+                            jQuery(this).removeAttr("width").removeAttr("height");
+                            _w = jQuery(this).width();
+                            _h = jQuery(this).height();
+                            if(_w >= _h)
+                            {
+                                jQuery(this).css("width","170px");
+                            }
+                            else
+                            {
+                                jQuery(this).css("height","170px");
+                            }
+                        });
+                    });
+                    jQuery("tr.CarrinhoFundoProduto").each(function()
+                    {
+                        jQuery(this).find("td:eq(0) > a > img").parent().each(function()
+                        {
+                            _img = jQuery(this).html();
+                            jQuery(this).find("img").remove();
+                            jQuery(this).css({"vertical-align":"middle"}).append("<p style='margin: 0;height: 100%; vertical-align: middle; display: inline-block;'>"+_img+"</p>");
+                        
+                        });
+                    });
+                    
+                    jQuery("#CarrinhoCross").css({"width":"700px","display":"block","padding-left":"0px"})
+                    jQuery("#CarrinhoCross > table > tbody > tr:eq(1) > td > table > tbody > tr").each(function()
+                    {
+                        jQuery(this).find("td").each(function()
+                        {
+                        
+                            jQuery(this).find("table > tbody > tr > td:first > a > img").each(function(k)
+                            {
+                                //alert(k);
+                                jQuery(this).removeAttr("width").removeAttr("height");
+                                _w = jQuery(this).width();
+                                _h = jQuery(this).height();
+                                if(_w >= _h)
+                                {
+                                    jQuery(this).css("width","170px");
+                                }
+                                else
+                                {
+                                    jQuery(this).css("height","170px");
+                                }
+                            });
+                            jQuery(this).find("table > tbody > tr > td:first > a > img").each(function()
+                            {
+                                _img = jQuery(this).html();
+                                jQuery(this).find("img").remove();
+                                jQuery(this).css({"vertical-align":"middle"}).append("<p style='margin: 0;height: 100%; vertical-align: middle; display: inline-block;'>"+_img+"</p>");
+                                
+                            });
+                            jQuery(this).find("table > tbody > tr > td:first").each(function()
+                            {
+                                $(this).css({"text-align":"center"})
+                            })
+                            jQuery(this).find("table > tbody > tr > td:eq(1)").each(function()
+                            {
+                                $(this).css({"width":"170px","display":"block"});
+                                $(this).children("table").css({"width":"170px","display":"block"})
+                            })
+                            jQuery(this).find("table > tbody > tr > td:eq(1) > table > tbody > tr:eq(3) > td").each(function()
+                            {
+                                $(this).css({"margin-left":"auto","margin-right":"auto","float":"none","width":"120px","text-align":"center","display":"block"})
+                            })
+                        })
+                    })
+                    
+                    
+                },_delay);
+                
+                break;
+        }
+		
+        
+        
+		var __td = new Array();
+		jQuery("td#CarrinhoCross > table > tbody > tr:eq(1) > td:first > table > tbody > tr").each(function(j)
+		{
+			jQuery(this).children("td").each(function(k)
+			{
+				__td[j*3 + k] = jQuery(this).html();
+			});
+		});
+			
+		jQuery("td#CarrinhoCross > table > tbody > tr:eq(1) > td:first > table > tbody").html("");
+		
+		for(i=0;i<__td.length;i++)
+		{
+			//jQuery("td#CarrinhoCross > table > tbody > tr:eq(1) > td:first > table").append("<tr>"+__td[i]+__td[i+1]+"</tr>");
+			if (i+1 >= __td.length)
+			{
+				jQuery("td#CarrinhoCross > table > tbody > tr:eq(1) > td:first > table > tbody").append("<tr><td width='50%'>"+__td[i]+"</td></tr>");
+			}
+			else
+			{
+				jQuery("td#CarrinhoCross > table > tbody > tr:eq(1) > td:first > table > tbody").append("<tr><td width='50%'>"+__td[i]+"</td><td width='50%'>"+__td[i+1]+"</td></tr>");
+				i++;
+			}
+		}
+		/*
+		jQuery("div.DSL_ValorDe > div > span").each(function()
+		{
+			if (jQuery(this).html() == "")
+			{
+				jQuery(this).html("R$");
+				jQuery(this).css('visibility','hidden');
+				//jQuery(this).parent().parent().css({'margin':'4px 0 0'});
+				//jQuery(this).parent().html("");
+			}
+		});*/
+		
+        
+        
+	});
+</script>
+<div id="DS_TopoGeral">
+    <div class="topoinside">
+        <div class="menuwrap">
+            <!--<ul class="bemvindo">Bem-vindo, <span id="statusLogin">##ClienteNome##</span>.-->
+                <script>
+                //document.write("Visitante! Fa&ccedil;a seu <a href='##CaminhoDir##?Menu=Cadastro'>login</a> ou <a href='##CaminhoDir##?Menu=Cadastro'>cadastre-se</a><br />");
+                </script>
+            </ul>
+            
+            
+            
+            <ul class="bemvindo">
+                <div id="Login">
+    				<script>						
+                        <!--
+                        hoje = new Date();
+                        var vstrsaudacao = ''						
+                        if((hoje.getHours() >=6) && (hoje.getHours() <=11)) {
+                             vstrsaudacao = ("Bom dia");
+                        }
+                        else if((hoje.getHours() >=12) && (hoje.getHours() <=17)) {
+                            vstrsaudacao = ("Boa tarde");
+                        }
+                        else if((hoje.getHours() >=18)) {
+                            vstrsaudacao = ("Boa noite");
+                        }
+                        // -->		
+                        if(vstrsaudacao=='')
+                        {
+                            vstrsaudacao = 'Bom dia'
+                        }
+                         vstrsaudacao = 'Bem Vindo';
+                            var VStr = "##AreaClientes##"
+                            if(VStr != "")
+                            {
+                                document.write(vstrsaudacao+", <b>##ClienteNome##</b> <b>(<a href=##CaminhoDir##Default.asp?Menu=Sair>sair</a>)</b> ")
+                            }
+                            else
+                            {
+                                document.write("<span>"+vstrsaudacao+", <b>Visitante</b>! </span><span>Fa&ccedil;a seu <b><a href=##CaminhoDir##Default.asp?Menu=Cadastro>login</a></b> ou <b><a href=##CaminhoDir##Default.asp?Menu=Cadastro>cadastre-se</a></b>.")					
+                            }      	
+                    </script>
+    
+                </div><!-- fim do Login -->
+            </ul>
+            <ul id="DSL_Menutopo">
+                <!--<li><a href="##CaminhoDir##?Menu=PaginaInicial" title="" class="DSL_ColorTxt02">##Texto % cod=17##</a></li>
+                <li>|</li>
+                <li><a href="##CaminhoDir##?Menu=Pedidos" title="" class="DSL_ColorTxt02">##Texto % cod=18##</a></li>
+                <li>|</li>
+                <li><a href="##CaminhoDir##?Menu=Cadastro" title="" class="DSL_ColorTxt02">##Texto % cod=19##</a></li>
+                <li>|</li>
+                <li><a href="##CaminhoDir##?Menu=FaleConosco" title="" class="DSL_ColorTxt02">##Texto % cod=20##</a></li>
+                <li>|</li>
+                <li><a href="##CaminhoDir##?Menu=Carrinho" title="" class="DSL_ColorTxt02"><img src="##CaminhoDir##imagens/CarrinhodeCompras.png" alt="" title="" class="DSL_CarrinhodeCompras" /></a></li>-->
+                <li><a href="http://www.importadoagora.com.br/pagina/9241/Quem-somos" title="" class="DSL_ColorTxt02">Institucional</a></li>
+                <li class="divide">|</li>
+                <li><a href="##CaminhoDir##?Menu=Pedidos" title="" class="DSL_ColorTxt02">Meus pedidos</a></li>
+                <li class="divide">|</li>
+                <li><a href="##CaminhoDir##pagina/9229/Como-comprar" title="" class="DSL_ColorTxt02">Como comprar</a></li>
+                <li class="divide">|</li>
+                <li><a href="##CaminhoDir##?Menu=FaleConosco" title="" class="DSL_ColorTxt02">Fale conosco</a></li>
+            </ul>
+        </div>
+        
+        <div class="logowrap">
+            <div id="DSL_Logotipo"><a href="##CaminhoDir##?Menu=PaginaInicial" title="">##Logotipo##</a></div>
+            <div class="endtopo">
+                <p>(51) 3013.0544</p>
+                <p>atendimento@importadoagora.com.br</p>
+            </div>
+        </div>
+        
+      <div class="DSL_ClearBoth"></div>
+        
+        <div id="DSL_BarraTopo" class="corPrimaria">
+                <div class="DSL_FloatLeft">##Busca % botao='imagens/fundook.png' ~ cod=t,d ~ class=DSL_FloatLeft,DSL_FloatLeft ~ alinha=h##</div>
+				<script type="text/javascript">
+					jQuery("input#BTexto").val("Estou procurando por...")
+					.focus(function(){
+						if(jQuery(this).val()=="Estou procurando por..."){
+							jQuery(this).val("");
+						}									 
+					});
+					//jQuery("select#Departamentos").html("<option selected='selected'>Em toda a loja</option>");
+					
+					jQuery('select#Departamentos').each(function(){
+
+						var title = jQuery(this).attr('title');
+
+						if( jQuery('option:selected', this).val() != '' ) title = jQuery('option:selected',this).text();
+
+						jQuery(this)
+
+							.css({'z-index':10,'opacity':0})
+
+							.after('<div class="dropmask">' + title + '</div>')
+
+							.change(function(){
+
+								val = jQuery('option:selected',this).text();
+
+								jQuery(this).next().text(val);
+
+							})
+					});
+					_option = jQuery("select#Departamentos").css("text-align","center").children("option").get(0);
+					jQuery(_option).html("Em toda loja");
+					jQuery("div.dropmask").html(jQuery(_option).html());
+				</script>
+                <div class="carrinhobloco">
+                    <div class="carrinhoinfo">
+                        <p>
+                            <a href="##CaminhoDir##?Menu=Carrinho">
+                                Meu Carrinho<br />
+                            </a>
+                        </p>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="DSL_ClearBoth"></div>
+    </div>
+</div>
+
+<div class="menucentralwrap">
+    <div class="menucentral">##Departamentos##</div>
+    <!--
+    <div class="submenuwrap">
+        <div class="submenucentral">##Secoes##</div>
+        <div class="submenuborda"></div>
+    </div>
+    -->
+    <div class="slogantopo">
+        <div class="slogandiv">
+        	<a href="http://importadoagora.com.br/pagina/9235/Prazos-de-Entrega">
+            	<img src="http://www.importadoagora.com.br/imagens/estoque.png" alt="Produto em Estoque" />
+            	<p style="margin-left:15px;">PRODUTOS<br /> EM ESTOQUE</p>
+            </a>
+        </div>
+        <div class="slogandiv">
+        	<a href="http://importadoagora.com.br/pagina/9235/Prazos-de-Entrega">
+            	<img src="http://www.importadoagora.com.br/imagens/entrega.png" alt="Entrega Imediata" />
+            	<p style="margin-left:20px;">ENVIO<br /> 
+            	  IMEDIATO</p>
+            </a>
+        </div>
+        <div class="slogandiv">
+        	<a href="http://importadoagora.com.br/pagina/9241/Quem-somos">
+            	<img src="http://www.importadoagora.com.br/imagens/qualidade.png" alt="Produtos de Alta Qualidade" />
+            	<p>PRODUTOS DE<br /> ALTA QUALIDADE</p>
+            </a>
+        </div>
+        <div class="slogandiv" style="margin-right:0 !important;">
+        	<a href="http://importadoagora.com.br/pagina/9241/Quem-somos">
+            	<img src="http://www.importadoagora.com.br/imagens/notafiscal.png" alt="Emitimos Nota Fiscal" />
+            	<p>EMITIMOS<br />NOTA FISCAL</p>
+            </a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+		var search = location.search;
+		var path = location.pathname;
+		
+		if(!(search=="?Menu=PaginaInicial" || (search=="" && path == "/") || /*!_dot.test(path)*/ path == "/48799_importadoagora/" || (search=="" && path == undefined)))
+		{
+			jQuery(".slogantopo").remove();
+			jQuery(".menucentralwrap").css('min-height','50px');
+		}
+		        jQuery("td.TabelaDepartamento").each(function()
+        {
+        jQuery(this).children("a").css("vertical-align","middle");
+            _a = jQuery(this).html();
+            jQuery(this).html("<p style='display: table-cell !important; height:36px; vertical-align:middle; width:200px;'>"+_a+"</p>");
+        });
+</script>

@@ -1,0 +1,161 @@
+<script>
+
+function setImage(thumbName) 
+{
+	var tmpImg;
+	tmpImg = thumbName.src;
+	thumbName.src = document.mainImg.src;
+	document.mainImg.src = tmpImg;
+}
+
+</script>
+<table name="TabConteudoeRodape" width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2" height="7" valign="top"><img src="imagens/shim.gif" width="1" height="7"></td>
+	</tr>
+	<tr>
+		<td valign="top" width="10" height="">&nbsp;</td>
+		<td valign="top">
+			<table name="TabTitProd" width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top">
+						<table width=100% name="TabListaProdutos" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="81%" valign="top">
+									<table width="100%" border="0" align="center" cellpadding="0" cellspacing="15">
+										<tr>
+											<td colspan="2"><span class="TXTNomeProduto">##NomeProduto##</span><span class="TXTRefProduto"> (ref. ##RefProduto##)</span></td>
+										</tr>
+										<tr>
+												<td colspan="2"><span class="TXTDescCurtaProduto">##TXTAdicionalProduto##</span></td>
+										</tr>
+										<tr>
+											<td valign="top">
+												<table width="100%" border="0" cellspacing="5" cellpadding="0">
+													<tr valign="top">
+														<td>
+															<table border="0" cellpadding="0" cellspacing="0">
+																<tr>
+																	<td align="center">##ProdutoIMGAmpliada##</td>
+																</tr>
+																<tr>
+																  <td align="center" valign="top"><img src="../imagens/shim.gif" width="1" height="10" /></td>
+															  </tr>
+																<tr>
+																	<td align="center" valign="top">##ProdutoFotos##</td>
+																</tr>
+																<tr>
+																  <td align="center" valign="top"><img src="../imagens/shim.gif" width="1" height="10" /></td>
+															  </tr>
+																<tr>
+																  <td align="center" valign="top">##BotaoAmpliar##</td>
+															  </tr>
+															</table>														</td>
+													</tr>
+											</table>											</td>
+											<td width="100%" valign="top">
+												<table width="100%" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td valign="top">
+															<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td width="78%" >##DescricaoCurta##</td>
+																	<td width="22%" align="right" valign="top">##Fabricante % img##</td>
+																</tr>
+															</table>														</td>
+													</tr>
+												<tr>
+													<td height="10">&nbsp;</td>
+												</tr>
+												<tr>
+													<td>
+														<table width="100%" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td valign="top">
+																	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+																		<tr valign="top">
+																			<td width="82%">
+																				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																					<tr>
+																					  <td><span class="PrecoProdutoDe">##ProdutoValorDe##</span></td>
+																					  </tr>
+																					<tr>
+																					  <td><span class="PrecoProdutoPor">##ProdutoValorPor##</span></td>
+																					  </tr>
+																					<tr>
+																						<td>&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td height="25">##SubProduto##</td>
+																					</tr>
+																					<tr>
+																						<td height="25">##LinkAvisoDisp##</td>
+																					</tr>
+																					<tr>
+																						<td height="25">##LinkIndique##</td>
+																					</tr>
+																					<tr>
+																							<td height="25">##URLApoio##</td>
+																					</tr>
+																				</table>																			</td>
+																			<td width="18%" rowspan="3" valign="top">
+																				<table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
+																					<div align="right">
+																					##BotaoLancamento##
+																					##BotaoFreteGratis##																					</div>
+																					<tr>
+																						<td height="40" valign="middle"><div align="right">##BotaoComprar##</div></td>
+																					</tr>
+																					<tr>
+																						<td height="30" valign="bottom"><div align="right">##BotaoListaDesejos##</div></td>
+																					</tr>
+																					<tr>
+																						<td height="10" valign="bottom"><div align="right"></div></td>
+																					</tr>
+																					<tr>
+																						<td height="25" valign="bottom"><div align="right">##BotaoListaCasamento##</div></td>
+																					</tr>
+																				</table>																			</td>
+																		</tr>
+																	</table>																</td>
+															</tr>
+														</table>													</td>
+												</tr>
+											</table>										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0">
+									<tr valign="top">
+										<td valign="top">
+											<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<script>
+													var VStr = "##DescricaoLonga##"
+													if(VStr != ""){document.write("<tr><td valign='top'><b style='font-size:14px; font-weight:bold; font-family:Arial;'>Descri&ccedil;&atilde;o</b></td></tr><tr><td valign='top' style='border-top:dashed #CCCCCC 1px;'>&nbsp;</td></tr><tr><td valign='top'>"+VStr+"</td></tr><tr><td valign='top'>&nbsp;</td></tr>")};
+													var VStr = "##Especificacao##"
+													if(VStr != ""){document.write("<tr><td valign='top'><b style='font-size:14px; font-weight:bold; font-family:Arial;'>Especifica&ccedil;&otilde;es</b></td></tr><tr><td valign='top' style='border-top:dashed #CCCCCC 1px;'>&nbsp;</td></tr><tr><td valign='top'>"+VStr+"</td></tr><tr><td valign='top'>&nbsp;</td></tr>")};
+													var VStr = "##DadoTecnico##"
+													if(VStr != ""){document.write("<tr><td valign='top'><b style='font-size:14px; font-weight:bold; font-family:Arial;'>Dados t&eacute;cnicos</b></td></tr><tr><td valign='top' style='border-top:dashed #CCCCCC 1px;'>&nbsp;</td></tr><tr><td valign='top'>"+VStr+"</td></tr><tr><td valign='top'>&nbsp;</td></tr>")};
+													var VStr = "##TXTPrazoEntrega##"
+													if(VStr != ""){document.write("<tr><td valign='top'><b style='font-size:14px; font-weight:bold; font-family:Arial;'>Prazo para entrega</b></td></tr><tr><td valign='top' style='border-top:dashed #CCCCCC 1px;'>&nbsp;</td></tr><tr><td valign='top'>"+VStr+"</td></tr><tr><td valign='top'>&nbsp;</td></tr>")};
+												</script>														
+												<tr><td valign='top'><b style='font-size:14px; font-weight:bold; font-family:Arial;'><label id="TituloCrossSelling"></label></b></td></tr><tr><td valign='top' style='border-top:dashed #CCCCCC 1px;'>&nbsp;</td></tr><tr><td valign='top' id="ProdutosCrossSelling">##CrossSelling##</td></tr><tr><td valign='top'>&nbsp;</td></tr>
+												<script>												
+													if(document.getElementById('ProdutosCrossSelling').innerHTML != ""){document.getElementById('TituloCrossSelling').innerHTML = 'Aproveite também'};													
+												</script>												
+											</table>
+										</td>
+										<td width="19%" align="center" valign="top">##FormasPagamento##</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+</table>				

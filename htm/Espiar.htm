@@ -1,0 +1,230 @@
+<script>
+   var tabLinks = new Array();
+   var contentDivs = new Array();
+	 
+	function ScreenSet()
+	{
+		if(document.getElementById('ValorDe_##ProdutoID % cod=n##')!=undefined)
+		{		
+			if(document.getElementById('ValorDe_##ProdutoID % cod=n##')!='')
+			{
+				if(document.getElementById('ValorDe_##ProdutoID % cod=n##').innerHTML!='')
+				{
+					document.getElementById('StrValorDe').innerHTML = 'de:&nbsp;'
+				}
+			}		
+		}
+		if(	document.getElementById('txtConteudoAbaDescricao') != undefined)
+		{
+			if(	document.getElementById('txtConteudoAbaDescricao').innerHTML == '')			
+			{
+				document.getElementById('txtConteudoAbaDescricao').innerHTML = 'Informa&ccedil;&atilde;o n&atilde;o dispon&iacute;vel.'
+			}
+		}
+		if(	document.getElementById('txtConteudoAbaEspecificacao') != undefined)
+		{
+			if(	document.getElementById('txtConteudoAbaEspecificacao').innerHTML == '')			
+			{
+				document.getElementById('txtConteudoAbaEspecificacao').innerHTML = 'Informa&ccedil;&atilde;o n&atilde;o dispon&iacute;vel.'
+			}
+		}		
+		if(	document.getElementById('txtConteudoAbaInformacoes') != undefined)
+		{
+			if(	document.getElementById('txtConteudoAbaInformacoes').innerHTML == '')			
+			{
+				document.getElementById('txtConteudoAbaInformacoes').innerHTML = 'Informa&ccedil;&atilde;o n&atilde;o dispon&iacute;vel.'
+			}
+		}		
+		AobjectsEspiar = document.getElementsByTagName("A");	
+		for (var i = 0; i < AobjectsEspiar.length; i++)	
+		{
+			if(AobjectsEspiar[i].onclick==undefined)
+			{
+				AobjectsEspiar[i].target = '_parent'
+			}
+		}
+  	// Pega todas as tabs e as divs conteÃºdo da pÃ¡gina
+    var tabListItems = document.getElementById('uldivAbaMenu').childNodes;
+    for ( var i = 0; i < tabListItems.length; i++ )
+		{
+    	if ( tabListItems[i].nodeName == "LI" )
+			{
+					var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+					var id = getHash( tabLink.getAttribute('href') );
+					tabLinks[id] = tabLink;
+					if(document.getElementById( id ) != undefined)
+					{
+						contentDivs[id] = document.getElementById( id );
+					}
+       }
+     } 
+     // Adiciona eventos onclick as tabs e destaca a primeira aba
+     var i = 0;
+     for ( var id in tabLinks )
+		 {
+     		tabLinks[id].onclick = OpenTag;
+      	tabLinks[id].onfocus = function() { this.blur() };
+      	if ( i == 0 ) tabLinks[id].className = 'selected';
+	      i++;
+     } 
+     // Oculta todas as divs conteÃºdo, exceto a primeira
+      var i = 0;
+      for ( var id in contentDivs )
+			{
+        if ( i != 0 ) contentDivs[id].className = 'divAbaMenuConteudo hide';
+        i++;
+      }
+    }
+		
+	function OpenTag()
+	{
+  	var selectedId = getHash( this.getAttribute('href') );
+    // Destaca a tab selecionada e remove o destaque das outras
+    // Mostra a div com o conteÃºdo relacionado e oculta as outras
+    for ( var id in contentDivs )
+		{
+    	if ( id == selectedId )
+			{
+      	tabLinks[id].className = 'selected';
+        contentDivs[id].className = 'divAbaMenuConteudo';
+      }
+			else
+			{
+      	tabLinks[id].className = '';
+       	contentDivs[id].className = 'divAbaMenuConteudo hide';
+       }
+     }
+     // Faz com que o browser n&atilde;o siga o link
+     return false;
+  }		
+	
+	function getFirstChildWithTagName( element, tagName )
+	{
+		for ( var i = 0; i < element.childNodes.length; i++ )
+		{
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		}
+	}	
+	
+	function getHash( url )
+	{
+		var hashPos = url.lastIndexOf ( '#' );
+		return url.substring( hashPos + 1 );
+	}	
+	
+	alert("teste");
+	
+</script>
+
+<style>
+body{margin:0px; padding:0px; font-family:Arial, Helvetica, sans-serif;}
+#EspiarGeral{width:572px; min-height:407px; height:407px;}
+html>body #EspiarGeral {
+height: auto;
+} 
+#TopoEspiar{width:572px; width:576px!important; height:30px; height:31px!important; background-color:#999999;}
+#ConteudoEspiar{width:572px; border:2px solid #999999; display:table;}
+
+#divAbaMenu{line-height:29px; width:564px;}
+#uldivAbaMenu { list-style-type: none; margin: 0px 0 0 0; float:left;}
+.divAbaMenu ul {margin:0px; padding: 0px 0px 0px 10px; }
+#uldivAbaMenu li a {padding:5px 17px 0px 0px;padding-top:0px;padding-bottom:0px;height:20px;}	
+.divAbaMenu ul li {display:inline; font-size:12px; color:#FFFFFF; font-weight:bold;  height:20px;}		
+#uldivAbaMenu li a { color: #FFFFFF; text-decoration: none; }
+#uldivAbaMenu li a:hover { text-decoration: none; }
+#uldivAbaMenu li a.selected { color: #cccccc; text-decoration: none;}
+
+.divAbaMenuConteudo {padding:4px; padding-top:5px; background-color:#FFF; overflow:auto; width:564px!important; width:572px; height:363px!important; height:373px;}
+
+
+.divAbaMenuConteudo.hide { display: none; }
+p.txtConteudoAba{margin:0px;}
+
+.divVerDetalhes {text-align:right;padding-right:13px;}
+
+#FotoProduto{width:250px; height:auto; float:left; text-align:center;}
+#DescricaoEspiar{width:284px; height:auto; float:left; }	
+.titNomeProduto{font-size:20px; color:#5f5f5f; margin-bottom:15px;}
+.txtSubProduto {font-size:11px; color:#666666; }
+.txtSubProduto .FCampos {font-size:12px; height:20px; padding:5px;}
+/*.txtSubProduto .FCampos{font-size:12px; height:20px; padding:5px;}*/
+.txtDescricaoCurta {font-size:11px; color:#666666; margin-bottom:15px;}
+.txtDe {color:#666666; font-weight:bold;}
+.txtPor {font-size:18px; font-weight:bold; color:#4f4f4f; text-decoration:none; margin-bottom:15px; }	
+.btComprar{margin-bottom:15px;}
+
+.divListas { margin-right:10px;}
+.divListas ul { margin:0px; padding:0px; }
+.divListas ul li { display:inline; font-size:11px; color:#656565; }
+.divListaDesejos { font-weight:normal; color:#656565; }	
+.divListaDesejos a:link  { text-decoration:underline; font-weight:normal; color:#656565; }
+.divListaDesejos a:active { text-decoration:underline; font-weight:normal; color:#656565; }
+.divListaDesejos a:hover { text-decoration:underline; font-weight:normal; color:#656565; }	
+.divListaDesejos a:visited { text-decoration:underline; font-weight:normal; }	
+.aListaCasamento { font-weight:normal; color:#656565; }	
+.aListaCasamento a:link  { text-decoration:underline; font-weight:normal; color:#656565; }
+.aListaCasamento a:active { text-decoration:underline; font-weight:normal; color:#656565; }
+.aListaCasamento a:hover { text-decoration:underline; font-weight:normal; color:#656565; }	
+.aListaCasamento a:visited { text-decoration:underline; font-weight:normal; }	
+
+#VejaMaisEspiar{height:auto; clear:both; text-align:right; margin-right:10px;}
+
+.BotFechar {font-size:9px; font-weight:bold; color:#FFFFFF; cursor:pointer; padding:0px 5px 0px 0px; float:right; }	
+</style>
+
+<div id="EspiarGeral">
+
+	<div id="TopoEspiar">
+	<div id="divAbaMenu" class="divAbaMenu">
+        <ul id="uldivAbaMenu">
+          <li id="divInformacoes" class="divInformacoes"><a href="#tabInformacoes">Informa&ccedil;&otilde;es</a></li>     
+          <li id="divDescricao" class="divDescricao"><a href="#tabDescricao">Descri&ccedil;&atilde;o</a></li>
+          <li id="divEspecificacoes" class="divEspecificacoes"><a href="#tabEspecificacao">Especifica&ccedil;&otilde;es</a></li>
+          </ul>
+          <span class="BotFechar"><a onClick="top.hidePopWinJanela(false);">Fechar X</a></span>
+	</div>
+
+	</div>
+    
+    <div id="ConteudoEspiar">
+        <div id="tabDescricao" class="divAbaMenuConteudo">
+        <p id="txtConteudoAbaDescricao" class="txtConteudoAba">##DescricaoLonga % cod=n##</p>
+        </div>
+        <div id="tabEspecificacao" class="divAbaMenuConteudo">
+        <p id="txtConteudoAbaEspecificacao" class="txtConteudoAba">##Especificacao % cod=n##</p>
+        </div>
+        
+        <div id="tabInformacoes" class="divAbaMenuConteudo">
+        <div id="FotoProduto">##ProdutoIMGCat % cod=n ~ em=5 ~ largura=220##</div>
+        <div id="DescricaoEspiar">
+        	<div class="titNomeProduto">##NomeProduto % cod=n##</div>
+            <div class="txtSubProduto">##SubProduto % cod=n##</div>
+            <div class="txtDescricaoCurta">##DescricaoCurta % cod=n##</div>
+            <div class="txtDe"><label id="StrValorDe"></label>##ProdutoValorDe % cod=n##</div>
+            <div class="txtPor">por: ##ProdutoValorPor % cod=n##</div>
+            <div class="btComprar">##BotaoComprarEspiar % cod=n##</div>
+            <div id="divListas" class="divListas">
+            
+                <ul>
+                <li>- Adicionar a:</li>
+                <li id="divListaDesejos" class="divListaDesejos"><a href="##CaminhoDir##Default.asp?Menu=ListaDesejosIns&Act=Ins&ProdutoID=##ProdutoID % cod=n##">Lista de Desejos</a></li>
+                <li>-</li>
+                </ul>
+                
+                <ul>
+                
+                <li>- <a href="" id="aListaCasamento" class="aListaCasamento" onClick="AbreJanela('##CaminhoDir##Default.asp?Menu=Indique&Act=Pop&ProdutoID=##ProdutoID % cod=n##', 'Indique##ProdutoID % cod=n##', '400', '500')">Indique este Produto </a></li>
+                </ul>
+			</div>
+        </div>
+    
+    <div id="VejaMaisEspiar">##BotaoVejaMais % cod=n##</div>
+    
+    </div>
+    
+    
+</div>
+
+<script>
+	window.onload = ScreenSet;
+</script>

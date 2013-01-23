@@ -1,0 +1,2218 @@
+/* Home.htm */
+#DSL_HomeGeral {padding:0 5px;}
+	#DSL_BannerCentral {text-align:center;}
+		.DSL_BlocoProdutos {width:170px; display:block; margin:5px auto; height:300px; text-align:center; margin-bottom: 1 px;}
+			.DSL_Lancamento {text-align:center; height:21px;}
+			.DSL_FotoProduto {vertical-align: middle; margin: 0px auto; width:170px; border:0px; height:150px; overflow:hidden; text-align:center; position:relative;}
+			.DSL_NomeProduto a {font-size:12px; line-height:11px; color:#4b4b4b; font-weight:bold;}
+			.DSL_NomeProduto a:hover{ text-decoration:underline;}
+			.DSL_ValorPor {font-size:14px; font-weight:bold; display:block; color:#363636;}
+			.DSL_ValorDe {font-size:14px; margin:7px 0 0 0; color:#363636; text-decoration:line-through;}
+			.DSL_BlocoProdutos .DSL_SubProduto {display:none; text-align:center;}
+			.DSL_Espiar {text-align:center; padding:5px 0px;}
+			.DSL_FreteGratis {text-align:center;}
+.DSL_ValorParcelado {
+	color: #4B4B4B;
+    float: left;
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+.DSL_ValorParcelado span {color:#ff6800; font-weight:bold;}
+.DSL_CarrinhodeCompras {padding:2px 0 0 0;}
+			
+			
+/* Produtos.htm */
+
+.DSL_ProdutosListaGeral{margin:0 auto; width:99%;}
+
+.DSL_Migalha{margin-left:10px; float:left;}
+
+.AMigalha:link {color:#363636; font-size:12px; }
+.AMigalha:visited {color:#363636; font-size:12px; }
+.AMigalha:hover {color:#363636; font-size:12px; text-decoration:underline; }
+.AMigalha:active {color:#363636; font-size:12px; }
+
+.AMigalhaAtivo:link {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+.AMigalhaAtivo:visited {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+.AMigalhaAtivo:hover {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+.AMigalhaAtivo:active {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+
+.DS_OrdenarPor{width:290px;  margin-right:5px; float:right; }
+.DS_OrdenarPor span{float:left; font-size:12px; color:#828181; margin-left:12px;}
+.DS_CampoOrdenar{padding:0px; float:right;}
+.DS_CampoOrdenar select{font-size:12px; color:#828181; font-family:'Droid Sans',sans-serif; position:relative; top:-2px; margin-right:5px;}
+.DS_CampoOrdenar div {float:left;}
+.DS_BuscaInputIMG {padding-top:4px;}
+
+#DSL_ColunaPaginacao {color:#363636; text-align:center; font-size:13px;}
+#DSL_ColunaPaginacao span.DSL_paginacao{margin-left:15px;}
+.TXTPaginacao {text-decoration:none; color:#363636;}
+.TXTPaginacaoAtual {text-decoration:none; color:#363636;}
+.TXTAtivoPaginacao {font-weight:bold; color:#363636;}
+
+.DSL_BlocoListaProd{
+	border-bottom: medium none !important;
+    height: auto !important;
+    min-height: 375px !important;
+	margin-left:35px;
+	/*
+	margin: 0 auto 10px;
+	padding:auto;
+	float: left;
+    padding-top: 20px;
+	padding-left:0px;
+	padding-right:0px;*/
+    width: 160px;
+	text-align:center;
+	display:block;
+}
+html>body #BlocoListaProd {
+height: auto;
+} 
+
+.DSL_IMGListaProd{
+	vertical-align: middle; 
+	display: table-cell;
+	background: none repeat scroll 0 0 #FFFFFF;
+	background-color: rgba(255,255,255,0);
+    min-height: 160px;
+    text-align: center;
+    width: 160px;
+	position:relative;
+	margin: 0px auto;
+	border: 0 none;
+	overflow: hidden;
+/*	
+	padding-top: 0px;*/
+}
+
+.DSL_IMGListaProd img{
+	/*width:195px;*/
+	/*height:135px;*/
+}
+.DSL_DescricaoListaProd{
+	float: left;
+    margin: 0 !important;
+    text-align: center !important;
+    width: 100%;
+}
+.DSL_ValoresListaProd{
+	float: left;
+    height: auto;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.DSL_NomeListaProd{
+	color: #5F5F5F;
+    float: left;
+    font-size: 15px;
+    height: auto;
+    min-height: 45px;
+	width:100% !important;
+}
+html>body .NomeListaProd {
+height: auto;
+} 
+.DSL_NomeListaProd a{color:#4b4b4b; text-decoration:none; font-weight:bold;}
+.DSL_NomeListaProd a:hover{color:#4b4b4b; text-decoration:underline;}
+
+.DSL_LinkExtra{
+	float:left;
+	margin-top:10px;
+	margin-right:10px;
+	width:100%;
+}
+
+.DSL_DescricaoCurtaListaProd{font-size:11px; color:#666666; margin:10px 0px; float:left; width:100% !important;}
+
+.DSL_MaisProdutos{font-size:14px; color:#6e6e6e; margin:10px 30px 0 0;}
+.DSL_MaisProdutos a{text-decoration:underline; color:#6e6e6e; font-size:12px;}
+.DSL_MaisProdutos a:hover{text-decoration:underline;}
+
+.DSL_FabricanteListaProd{font-size:11px; color:#666666; margin-bottom:20px;}
+.DSL_FabricanteListaProd a{font-size:11px; color:#666666; margin-bottom:20px;}
+.DSL_FabricanteListaProd a:hover{font-size:11px; color:#666666; text-decoration:underline;}
+.DSL_ValorPorListaProd{
+	color: #363636;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 3px 0;
+    width: 100%;
+}
+
+.DSL_Aproveite .DSL_SubProduto{
+	text-align:center;
+} 
+
+.DSL_SubProduto{
+	float: left;
+    margin: 15px 0;
+    width: 100%;
+}
+#DSL_TitTextoSubProduto{font-size:12px; margin-bottom:2px; display:block;}
+.DSL_SubProduto select{width:134px; padding:5px; font-size:15px; color:#333; background-color:#fff; border:1px solid #ccc; height:30px; }
+
+.DSL_Lancamento{text-align:center; margin-bottom:5px; height:21px;}
+.DSL_BtComprarListaProd{margin-top:5px;}
+
+/* Estilo - Formulários */
+td,td a {font-size:12px; color:#6C6C6C; height:auto;}
+.FCampos { border-color:#333333; border:solid 1px #e3e3e3; font-size:12px; font-family:'Droid Sans',sans-serif; color:#6C6C6C;  }
+.FCamposBusca { height:18px; border-color:#333333; border:solid 1px #e3e3e3; font-size:12px; font-family:'Droid Sans',sans-serif; color:#6C6C6C }
+.FCamposBotao { 
+	background: url("http://www.importadoagora.com.br/imagens/fundobotaoeditar.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #F7F5EE;
+    cursor: pointer;
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 13px;
+    height: 20px;
+    padding: 2px;
+    width: 67px;
+}
+
+#BotEditar2{
+	width:156px !important;
+	background:url(http://www.importadoagora.com.br/imagens/fundobotaoeditar2.png) no-repeat !important;
+	float:right;
+}
+
+.TabelaPedidoEndereco b{
+	color:#797872 !important;
+}
+
+/* Estilo Botões */
+.BLancamento { color:#FF0101; font-size:7pt; font-family:arial,arial }
+.BComprar { color:#FFFFFF; font-size:1pt; font-family:'Droid Sans',sans-serif; text-decoration:none }
+.BExcluir { font-size:8pt; font-family:arial,arial }
+.BDetalhes { color:#990000; font-size:7pt; font-family:'Droid Sans',sans-serif; text-decoration:none}
+
+/* Estilo - Texto Veja+ */
+.TXTMais { color:#000000; font-size:8pt; font-family:'Droid Sans',sans-serif; font-weight:bold; text-decoration:none }
+.TXTMais:hover { color:#FF0000; text-decoration:underline }
+
+.MenuTopo { }
+.MenuTop { font-size:8pt; font-family:'Droid Sans',sans-serif; color:#4E6C00; text-decoration:none }
+.MenuTop:visited { color:#4E6C00 }
+.MenuTop:active { color:#000000 }
+.MenuTop:hover { color:#000000; text-decoration:underline }
+.TXTBemVindo { font-family:'Droid Sans',sans-serif; font-size:8pt; color:#333333 }
+
+#TBTitCad1Tot, #TBTitCad3Tot {
+	background: #F8F5EE;
+	padding: 0 !important;
+	float:left;
+	width:300px;
+	height:194px;
+	margin-left:20px; 
+	/*border-collapse:collapse;*/ 
+	/*border:1px solid #CCCCCC;*/
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+#TBTitCad1Tot td,#TBTitCad3Tot td{background-repeat:repeat-x;}
+
+#TBTitCad5Tot{
+	width:10px !important;
+}
+
+td#TDTXTTeclado{
+	width:364px !important;
+	float:left !important;
+}
+
+label#TitCad1{
+	background: url("http://www.importadoagora.com.br/imagens/fundoident.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 17px;
+    padding: 10px;
+    position: relative;
+    top: -17px;
+    width: 311px;
+	color:#FFF;
+}
+
+label#TitCad2{
+	background: url("http://www.importadoagora.com.br/imagens/fundoident.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 17px;
+    padding: 10px;
+    position: relative;
+    top: -17px;
+    width: 311px;
+	color:#FFF;
+}
+
+td#TBTitCad2Tot{
+	display:none;
+}
+
+.TabelaPedido1 {padding:0; width:706px;}
+tr.TabelaPedido{
+	background: url("http://www.importadoagora.com.br/imagens/fundoaproveite.png") no-repeat scroll center right transparent;
+    height: 31px;
+    padding: 0 5px;
+	width:706px;
+}
+
+label#TitEnderecoPedido,label#TitEnderecoPedido2{
+	color:#FFF;
+	font-family:'Droid Sans',sans-serif;
+	font-size:15px;
+	margin-left:12px;
+}
+/*  Estilo - Menu 1 (Vermelho) */
+.FundoMenu1_On {  background-image:url("http://www.importadoagora.com.br/imagens/FundoMenu1_On.gif"); font-weight:bold; font-size:8pt; font-family:'Droid Sans',sans-serif; color:#FFE88B; text-decoration:none; cursor:default; width=100%; height:35 }
+.FundoMenu1_Off { background-image:url("http://www.importadoagora.com.br/imagens/FundoMenu1_Off.gif"); font-weight:bold; font-size:8pt; font-family:'Droid Sans',sans-serif; color:#F1EFE5; text-decoration:none; cursor:pointer; width=100%; height:35 }
+.FundoMenu1_Hover { background-image:url("http://www.importadoagora.com.br/imagens/FundoMenu1_Hover.gif"); font-weight:bold; font-size:8pt; font-family:'Droid Sans',sans-serif; color:#FFFFFF; text-decoration:none; cursor:pointer; width=100%; height:35 }
+
+/* Estilo - Menu Padrão */
+.MenuTopoAtual { font-weight:bold; font-size:8pt; font-family:'Droid Sans',sans-serif; color:#F1EFE5; background:#A10505; text-decoration:none }
+.MenuTopoAtual:visited { color:F1EFE5 }
+.MenuTopoAtual:active { color:F1EFE 5}
+.MenuTopoAtual:hover { color:#FFE88B }
+.MenuTopoNormal { font-weight:bold; font-size:8pt; font-family:'Droid Sans',sans-serif; color:#F1EFE5; background:#A10505; text-decoration:none }
+.MenuTopoNormal:visited { color:#F1EFE5 }
+.MenuTopoNormal:active { color:#F1EFE5 }
+.MenuTopoNormal:hover { color:#F7E487 }
+/* Estilo - Link */
+.LinkTitulo { 
+	font-size:21px; 
+	font-family:'Droid Sans',sans-serif; 
+	font-weight:bold; 
+	color:#013F5E; 
+	text-decoration:none;
+	border-bottom: 1px solid #013F5E; 
+	width: 540px;
+}
+/* Estilo - Sist. de Links */
+.TXTLinks { font-family:'Droid Sans',sans-serif; font-size:13px; color:#333; width: 500px; }
+.TXTLinks img{ width:540px !important;}
+/* Estilo - Lista de Casamento */
+.TXTTitCasamento { color:000000; font-size:8pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+.TXTCasamento { font-family:'Droid Sans',sans-serif; font-size:8pt; color:#333333 }
+.TTabelaCasamento { padding:5px 3px 3px 3px; background:#ECECEC; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; }
+.TTabelaCasamento2 { padding:5px 3px 3px 3px; background:#D8D7C9; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; }
+.TTabelaCasamento3 { padding:5px 3px 3px 3px; background:#D3D3D3; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; }
+
+/* Estilo - Lista de Casamento */
+.TXTTitDesejos { color:000000; font-size:8pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+.TXTDesejos { font-family:'Droid Sans',sans-serif; font-size:8pt; color:#333333 }
+.TTabelaDesejos { padding:5px 3px 3px 3px; background:#ECECEC; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; }
+.TTabelaDesejos2 { padding:5px 3px 3px 3px; background:#D8D7C9; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+.TTabelaDesejos3 { padding:5px 3px 3px 3px; background:#D3D3D3; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; }
+
+/* Estilo - Erros */
+.TXTErro1 { font-family:'Droid Sans',sans-serif; font-size:8pt; color:#333333 }
+.TXTErro2 { font-family:'Droid Sans',sans-serif; font-size:8pt; color:#000000 }
+
+/* Estilo - Títulos de Tabelas */
+.TTabelaTopo { padding:5px 3px 3px 3px; background:#F3F3F3; color:#000000; font-size:9pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+/* Estilo - Campos de Formulário */
+.TXTNomeCampos { color:#000000; font-size:12px; font-family:'Droid Sans',sans-serif; margin-left: 2px; font-weight:normal;}
+.TXTNomeCamposObrig { color:red; font-size:12px; height:30px; font-family:'Droid Sans',sans-serif; font-weight:normal; }
+.TXTCampos { font-size:8pt; font-family:arial; }
+
+/* Estilo - Cadastro */
+.TabelaQuadro2 {
+		border-top:0px solid #333333; 
+		border-left:0px solid #333333; 
+		border-right:0px solid #333333; 
+		border-bottom:0px solid #333333; 		
+		margin-top:0px;
+		margin-bottom:0px;			
+		font-family:arial,Helvetica;
+		font-size:8px;	
+		font-weight:bold;
+}
+.SubTitulo {font-size:9pt; font-family:'Droid Sans',sans-serif; font-weight:normal !important; color:#797872; }
+.TabelaCamposObrig { 
+	background: none repeat scroll 0 0 transparent;
+    height: 12px;
+    padding-top: 2px;
+    text-align: center;
+    width: 12px; 
+}
+.TabelaCamposObrig img{
+	width:auto !important;
+	height:auto !important;
+}
+
+/* Estilo - Capa */
+.TXTEstiloCapa { color:000000; font-size:8pt; font-family:'Droid Sans',sans-serif; font-weight:none }
+.TXTEstiloTitCapa { color:000000; font-size:8pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+.TXTEstiloTitCapa2 { color:000000; font-size:8pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+.LEstiloTitCapa4 { font-size:14pt; font-family:'Droid Sans',sans-serif; font-weight:bold; text-decoration:none }
+
+#CarrinhoCross .LEstiloTitCapa{
+	display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+span.PrecoProdutoPorValor{
+	display:inline;
+	text-align:center;
+	font-weight:bold;
+}
+
+#CarrinhoCross .FCampos{
+	margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+label#BotaoComprar_4424929{
+	margin-top:10px;
+}
+
+.TabelaCapa1 {
+		background:#fdfdfd;
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+		font-family:'Droid Sans',sans-serif;
+		font-size:8px;	
+}
+.TabelaCapa2 {
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+}
+.TabelaCapa3 { background:#F4F4EF }
+.TabelaCapa4 { background:#fdfdfd }
+.TabelaBarra1 {
+		background:#E2E2E2;
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+		font-family:'Droid Sans',sans-serif;
+		font-size:8px;	
+}
+.TabelaBarra2 {font-size:14px; font-family:arial, helvetica, sans-serif; color:#FFFFFF; font-weight: bold; background:#424242; text-decoration:none }
+.TabelaBarra3 {
+		background:#999999;
+}
+.TabelaBarra4 {
+		background:#E2E2E2;
+}
+.TabelaBarra5 {
+		background:#fdfdfd;
+}
+.TabelaBarra6 {	background:#D2D2D2; }
+.TabelaBarra7 {
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+}
+.TabelaBarra8 {
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-right:1px solid #000000;
+		border-left:1px solid #000000;
+}
+.TabelaBarra9 {	border-bottom:1px solid #000000 }
+.TabelaBarra10 {	border-bottom:1px solid #424242 }
+.TabelaBarra11 {	border-bottom:1px solid #000000; background:#fdfdfd }
+.TabelaBarra12 {
+		background:#F4F4EF;
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+}
+.TabelaBarra13 {
+		background-image:url("##CaminhoDir##imagens/Pontilhado.gif");
+		background-repeat:repeat-x;
+		background-position:center;
+}
+.TabelaBarra14 {
+		border-top:1px solid #000000;
+}
+.TabelaBarra15 {
+		border-bottom:1px solid #000000;
+		background:1px solid #CCCCCC;
+}
+.TabelaBarra16 {
+		background:#E2E2E2;
+}
+.TabelaBarra17 {
+		font-size:14px; font-family:arial, helvetica, sans-serif; color:#000000; font-weight: bold; background:#DFDFDF; text-decoration:none;
+}
+.TabelaBarra18 {
+		background:#F5F5F5;
+}
+.TabelaBarra19 {
+		background:#DFDFDF;
+		border-bottom:1px solid #000000;
+}
+.TabelaBarra20 {
+		background:#DFDFDF;
+}
+
+
+/* Estilo - Enquete */
+.TXTEstiloEnquete { color:000000; font-size:7pt; font-family:'Droid Sans',sans-serif; font-weight:none }
+.TXTEstiloTitEnquete { color:000000; font-size:7pt; font-family:'Droid Sans',sans-serif; font-weight:bold }
+.TabelaEnquete1 { background:#fdfdfd;}
+.TabelaEnquete2 {	background:#fdfdfd }
+
+/* Formas Pagamento */
+
+.TituloPagto {
+	font-family: arial;
+	font-size: 11px;
+	color:  #333333;
+	background-color:#CCCCCC;
+	height:20px;
+	font-weight: bold;
+	padding-left:5px;
+}
+
+.TabelaPagto {
+	border:1px solid #999999;
+}
+
+.SubTituloPagto {
+	font-weight:bold
+}
+
+.SubSubTituloPagto {
+	color:#555;
+}
+
+
+/*  Estilo - Busca (Lista) */
+
+.FBuscaTexto { width:85px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:'Droid Sans',sans-serif; color:#6C6C6C }
+.FBuscaTexto2 { width:85px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:'Droid Sans',sans-serif; color:#6C6C6C }
+.FBuscaFabricante2 { width:130px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:'Droid Sans',sans-serif; color:#6C6C6C }
+.FBuscaFabricante { width:130px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:'Droid Sans',sans-serif; color:#6C6C6C }
+
+.FBuscaDepartamento { width:100px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:'Droid Sans',sans-serif; color:#6C6C6C }
+
+.EstiloCorSubProduto {
+	border:1px #e3e3e3 solid;	
+}
+
+.EstiloComboCorSubProduto {
+	border:1px solid #e3e3e3;	
+}
+
+.MaisBuscados{overflow: hidden;}
+.MaisBuscadosA{overflow: hidden;}
+.tagCloud {padding:20px 20px 20px 20px; text-align:center;  font-size:62.5%; font-family: arial, verdana, freesans, garuda, helvetica, sans-serif; color: #666;}
+.tagCloud li { display: inline; vertical-align: middle; line-height: 1.1; margin-right:25px;}
+.tagCloud li a { color: #999; text-decoration:none}
+.tagCloud li a:hover { text-decoration: none; background-color: #999; color: #fff;}
+.tagCloud .level1 a{font-size: 12px;}
+.tagCloud .level2 a{font-size: 14px;}
+.tagCloud .level3 a{font-size: 18px;}
+.tagCloud .level4 a{font-size: 22px;}
+.tagCloud .level5 a{font-size: 26px;}
+.tagCloud .level6 a{font-size: 26px;}
+.tagCloud .level7 a{font-size: 28px;}
+.tagCloud .level8 a{font-size: 28px;}
+.tagCloud .level9 a{font-size: 28px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dotstore - Estilo Padrao */
+* {list-style:none; text-decoration:none; font-family:'Droid Sans',sans-serif; }
+ul,li,img {margin:0px; padding:0px; border:0px;}
+body {margin:0px; padding:0px; background:url(http://www.importadoagora.com.br/imagens/fundobody.png) repeat center top;}
+*:focus {outline:none;}
+
+#DS_Estrutura {min-width:1004px; margin:0 auto;}
+
+/* Inicio Estrutura Outras */
+
+#DS_EstruturaTopo{width:100%;}
+#DS_EstruturaEsquerda{width:188px; float:left}
+#DS_EstruturaDireita{width:188px; float:right}
+#DS_EstruturaRodape{width:100%; clear:both;}
+
+
+	/* Classes padrões */
+	.DSL_FloatLeft 	{float:left;}
+	.DSL_FloatRight {float:right;}
+	.DSL_ClearBoth 	{clear:both; display:block; width:100%; height:1px; overflow:hidden;}
+	.DSL_MarginAuto {margin:0 auto;}
+	
+	/* Colores Primárias */
+	.corPrimaria,.corPrimaria a{background:none !important;}
+	.corSecundaria,.corSecundaria a{background;:url(http://www.importadoagora.com.br/imagens/fundomenulateral.png); color:#FFFFFF; font-family:'Droid Sans',sans-serif; font-size:15px;}
+	
+	/* Colores Secundárias */
+	.DSL_ColorBackground02 {background:#fff;}
+	.DSL_ColorTxt02 {color:#000;}
+	
+	/* Colores Terciárias */
+	.DSL_ColorBackground03 {background:#ff9137;}
+	.DSL_ColorTxt03 {color:#5F5F5F; display:block; /*text-align:center;*/}
+	
+	/* Colores Adicionais */
+	.DSL_ColorBackground04 {background:#9b9b9b;}
+	.DSL_ColorTxt04 {color:#FFFFFF; display:block; text-align:center;}
+	.DSL_ColorTxt05 {color:#5F5F5F;}
+	
+	
+ /* Estilos Layout */
+ #DS_TopoGeral{
+	 background:#F2EFE3;
+ }
+ #DSL_Logotipo {padding:15px 0 15px 36px; float:left;}
+ 
+ div.topoinside{
+	 width:1000px;
+	 margin-left:auto;
+	 margin-right:auto;
+	 position:relative;
+ }
+ 
+ ul.bemvindo{
+	font-family:'Droid Sans',sans-serif;
+	font-size:12px;
+	color:#013F5E;
+	float:left;
+	padding-left:14px;
+	margin-top:20px;
+ }
+
+ ul.bemvindo a{
+	color:#013F5E;
+	text-decoration:underline;
+ }
+
+ ul.bemvindo a:hover{
+	text-decoration:none;
+ }
+ 
+ div.menuwrap{
+	float:left;
+	width:100%;
+ }
+ 
+ul#DSL_Menutopo{
+	font-family:'Droid Sans',sans-serif;
+	font-size:12px !important;
+	color:#013F5E !important;
+	padding:5px 0 5px 10px !important; 
+	display:block !important;  
+	float:right !important;
+	padding-right:14px !important;
+	background:none !important;
+	margin-top:20px !important;
+}
+
+ul#DSL_Menutopo li{
+	float:left;
+	padding:0; 
+	display:block;
+}
+
+ul#DSL_Menutopo a{
+	color:#013F5E;
+	text-decoration:none;
+}
+
+ul#DSL_Menutopo a:hover{
+	text-decoration:underline;
+}
+
+ul#DSL_Menutopo li.divide{
+	margin:0 6px;
+}
+
+div.endtopo{
+	font-family:'Droid Sans',sans-serif;
+	font-size:12px;
+	color:#013F5E;
+	float:right;
+	padding-right:14px;
+	margin-top:36px;
+	text-align:right;
+}
+
+div.logowrap{
+	float:left;
+	width:100%;
+}
+ 
+#DSL_BarraTopo {
+	height:42px; 
+	display:block; 
+	margin-bottom:16px;
+}
+#DSL_BarraTopo form {
+	width:668px; 
+	height:42px;
+	margin-left:14px;
+	background:#B6B3AA;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+ }
+#DSL_BarraTopo .FCampos {background:#fff; font-size:15px; font-style:italic; padding:0 10px; margin:0 10px;}
+
+#BTexto {
+	background: url("http://www.importadoagora.com.br/imagens/fundoinputbusca.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 21px;
+    margin-left: 35px;
+    margin-top: 9px;
+    padding-left: 44px;
+    padding-top: 3px;
+    width: 280px;
+	color:#6C6C6C;
+}
+
+#Departamentos {
+	background: none repeat scroll 0 0 #F7F5EE;
+    border: medium none;
+    color: #6C6C6C;
+    cursor: pointer;
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 12px;
+    height: 24px;
+    margin-left: 5px;
+    margin-top: 9px;
+	margin-right:8px;
+    opacity: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 214px;
+    z-index: 10;
+	padding:0;
+}
+
+#Departamentos option{
+	padding:0;
+	margin-top:0;
+}
+
+div.dropmask{
+	background: url("http://www.importadoagora.com.br/imagens/fundoselectbusca.png") no-repeat scroll 0 0 transparent;
+    color: #6C6C6C;
+    cursor: pointer;
+    float: left;
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 12px;
+    height: 24px;
+    line-height: 27px;
+    margin-left: 369px;
+    margin-top: 9px;
+    position: absolute;
+    text-indent: 10px;
+    width: 214px;
+    z-index: 1;
+}
+
+div.carrinhobloco{
+	width:169px;
+	height:39px;
+	background:url(http://www.importadoagora.com.br/imagens/fundocarrinho.png) no-repeat;
+	float:left;
+	margin-left:136px;
+	margin-top:1px;
+}
+
+div.carrinhoinfo{
+	float: left;
+    margin-left: 10px;
+    margin-top: 7px;
+    width: 98px;
+}
+
+div.carrinhobotao{
+	border-left: 5px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #FFFFFF;
+    float: left;
+    height: 0;
+    margin-top: 11px;
+	margin-left:7px;
+    width: 0; 
+}
+
+div.carrinhoinfo p{
+	color: #FFFFFF;
+    float: left;
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 12px;
+    margin-left: 4px;
+    margin-top: 5px;
+	margin-bottom:0;
+    text-align: right;
+}
+
+div.carrinhoinfo a{
+	color:#FFF;
+	text-decoration:none;
+}
+
+div.carrinhoinfo a:hover{
+	text-decoration:underline;
+}
+
+a.carrinho{
+	display:block;
+	width:71px;
+	height:39px;
+	float:left;
+}
+
+div.menucentral{
+	width:975px;
+	min-height:42px;
+	background:#B4441E;
+	float:left;
+	margin-left:14px;
+	margin-bottom: 7px;
+	font-family:'Droid Sans', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	color:#FFF;
+	position:relative;
+	z-index:3;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+div.menucentral table{
+	margin-left:14px;
+	width:auto !important;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+div.menucentral tr{
+	margin-bottom:5px;
+}
+
+div.menucentral tr, div.menucentral td{
+	float:left !important;
+	color:#FFF !important;
+	font-family:'Droid Sans',sans-serif;
+	font-size:15px !important;
+}
+
+div.menucentral a{
+	color:#FFF !important;
+	font-size:15px !important;
+	font-family:'Droid Sans',sans-serif;
+	background:none !important;
+	font-weight:normal !important;
+	width:auto !important;
+	height:auto !important;
+	padding-top:3px !important;
+	margin:0 !important;
+	text-align:center !important;
+	padding-left:0 !important;
+}
+
+div.menucentral td{
+	display: inline-block;
+    height: 36px;
+    margin-left: 0px;
+    text-align: center !important;
+    text-transform: none;
+    vertical-align: middle;
+    width: 200px;
+}
+
+div.menuselected{
+	float:left;
+	background:#F2EFE3;
+	width:13px;
+	height:13px;
+	margin-right:5px;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+div.submenuwrap{
+	float: left;
+    height: 40px;
+    position: relative;
+    width: 100%;
+}
+
+div.submenucentral{
+	width:975px;
+	height:42px;
+	background:#F2EFE3;
+	float:left;
+	margin-left:14px;
+	font-family:'Droid Sans', sans-serif;
+	font-size:15px;
+	color:#FFF;
+	position:relative;
+	z-index:2;
+	top:-10px;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+div.submenucentral table{
+	margin-top:17px;
+	margin-left:5px;
+}
+
+div.submenucentral table tr{
+	float:left;
+	margin-left:5px;
+}
+
+div.submenuborda{
+	width:975px;
+	height:42px;
+	background:#B4441E;
+	float:left;
+	position:relative;
+	z-index:1;
+	margin-left:14px;
+	font-family:'Droid Sans', sans-serif;
+	font-size:15px;
+	color:#FFF;
+	top:-45px;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+div.slogantopo{
+	float:left;
+	margin-left:12px;
+}
+
+div.slogandiv{
+	background: url("http://www.importadoagora.com.br/imagens/fundoslogan.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 52px;
+    margin-right: -3px;
+    padding-top: 10px;
+    text-align: center;
+    width: 247px;
+}
+
+div.slogandiv img{
+	float: left;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+div.slogandiv p{
+	float: left;
+    font-size: 15px;
+    margin: 0 0 0 7px;
+    text-align: left;
+}
+
+div.slogandiv a{
+	color:#FFF;
+	text-decoration:none;
+}
+
+div.menucentralwrap{
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	min-height:115px;
+	background:#FFF;
+}
+ 
+#DS_MenuBarraTopo {float:right; padding:7px 0px;}
+#DS_MenuBarraTopo li {float:left; padding:0 16px;}
+#DS_MenuBarraTopo li a {font-size:12px;}
+
+
+/* BarraEsquerda.htm */
+
+.DS_TituloEnquete {font-size:15px; color:#6b6b6b; padding-bottom:10px; padding-top:5px;}
+.DS_EnqueteContainer {display:table;}
+.DS_EnqueteResposta {font-size:13px; color:#6b6b6b; display:block; width:100%; clear:both;}
+.DS_EnqueteResposta span {padding:0 5px;}
+.DS_EnqueteVotar {float:left; margin-top:20px; margin-left:9px; cursor:pointer;}
+.DS_EnqueteResultado {float:left; margin-top:20px; margin-left:10px;}
+
+
+#DS_AreaClientes ul li a {padding-left:5px; color:#333; font-size:12px;}
+#DSL_LateralEsquerda {padding:0 5px;}
+
+	#menu-categorizacao {display:block; margin:0px 0px 10px 0px;}
+	#menu-categorizacao ul li {display:block;}
+	#menu-categorizacao ul li a {
+		-webkit-transition: all .1s linear;
+		-moz-transition: all .1s linear;
+		-o-transition: all .1s linear;
+		transition: all .1s linear; 
+	}
+	#menu-categorizacao .uldep li a{
+		background: url("http://www.importadoagora.com.br/imagens/fundomenulateral.png") repeat scroll 0 0 transparent;
+		color: #FFFFFF;
+		display: block;
+		font-family: 'Droid Sans',sans-serif;
+		font-size: 15px;
+		font-weight: bold;
+		height: 26px;
+		margin-top: 0;
+		padding-top: 7px;
+		text-align: left;
+		width: 203px;
+		margin-bottom:10px;
+		padding-left:10px;
+	}
+	#menu-categorizacao ul li a:hover {text-decoration:underline; -webkit-transition: all .1s linear;-moz-transition: all .1s linear;-o-transition: all .1s linear;transition: all .1s linear;}
+
+	#menu-categorizacao .ulsec {padding-bottom:5px;}
+	#menu-categorizacao .ulsec li a {
+		font-size:12px !important; 
+		font-weight:normal !important; 
+		color:#4B4B4B !important; 
+		background:none !important;
+		margin:0 !important;
+		padding:0 !important;
+		padding-left:10px !important;
+		margin-bottom:5px !important;
+		width:auto !important;
+		height:auto !important;
+		text-align:left !important; 
+	}
+	.DSL_BoxLaterais{font-size:16px;}
+	.DSL_BoxLaterais span.corSecundaria {
+		background: url("http://www.importadoagora.com.br/imagens/fundomenulateral2.png") no-repeat scroll 0 0 transparent;
+		color: #FFFFFF;
+		display: block;
+		font-family: 'Droid Sans',sans-serif;
+		font-size: 15px;
+		padding: 7px;
+		text-align: center;
+		width: 202px;
+	}
+	.DSL_BoxLaterais span.DSL_ColorBackground04 {padding:10px; display:block; text-align:center;}
+	.DSL_BoxLaterais a{ color:#333; font-size:12px;}
+	.DSL_BoxLaterais a:hover{ color:#000;}
+	.DSL_ConteudoBoxLaterais {
+		background: none repeat scroll 0 0 #F7F5EE;
+    	border: 1px solid #E2E2E2;
+    	margin-bottom: 10px;
+    	overflow: hidden;
+    	padding: 8px;
+    	width: 197px;
+	}
+	.DSL_ConteudoBoxLaterais a {font-size:12px; color:#4b4b4b;}
+	
+	.DSL_ConteudoBoxLaterais2 {
+		background: none repeat scroll 0 0 #F7F5EE;
+		border: 1px solid #E2E2E2;
+		margin-bottom: 10px;
+		overflow: hidden;
+		padding: 8px;
+		width: 160px;
+	}
+	.DSL_ConteudoBoxLaterais2 a {font-size:12px; color:#4b4b4b;}
+	
+	#DSL_Enquete span.corSecundaria{
+		background: url("http://www.importadoagora.com.br/imagens/fundoenquete.png") no-repeat scroll 0 0 transparent !important;
+		padding-bottom: 4px;
+		padding-left: 10px;
+		text-align: left;
+	}
+	
+	div.novidadesbg{
+		background:url(http://www.importadoagora.com.br/imagens/fundonovidades.png) no-repeat !important;
+		display: block;
+		font-family: 'Droid Sans',sans-serif;
+		font-size: 15px;
+		padding: 7px 7px 4px 7px;
+		text-align: center;
+		width: 164px;
+		height:18px;
+	}
+	
+	#DSL_Newsletter span.corSecundaria{
+		background: none repeat scroll 0 0 transparent !important;
+		color: #F2EFE3 !important;
+		float: left;
+		margin-left: 10px;
+		padding: 0;
+		text-align: left;
+	}
+	
+	#DSL_Newsletter .DSL_ConteudoBoxLaterais2{
+		background:#F2EFE3;
+	}
+
+/* Home.htm */
+#DSL_HomeGeral {padding:0 5px;}
+	#DSL_BannerCentral {
+		text-align:center; 
+		/*background:url(http://www.importadoagora.com.br/imagens/fundobanner.png) no-repeat;*/ 
+		width:740px; 
+		height:269px;
+	}
+	
+	div.queima{
+		float:left;
+		margin-left:10px;
+		margin-right:10px;
+		margin-top:6px;
+	}
+	
+	div.bannerbox{
+		float: left;
+		margin-right: 6px;
+		position: relative;
+		width: 392px;
+	}
+	
+	div.bannerboxtexto{
+		color: #A4BAC5;
+		float: left;
+		font-family: 'Droid Sans',sans-serif;
+		font-size: 11px;
+		margin-top: 35px;
+		position: relative;
+		text-align: left;
+		width: 214px;
+		z-index: 2;
+	}
+	
+	div.bannerboxtexto p{
+		margin-bottom: 7px;
+    	margin-top: 0;
+	}
+	
+	span.font20{
+		color:#FFF !important;
+		font-size:20px !important;
+		font-weight:bold;
+	}
+	
+	span.font17{
+		color:#FFF !important;
+		font-size:17px !important;
+		font-weight:bold;
+	}
+	
+	span.font14{
+		font-size:14px !important;
+	}
+	
+	div.bannerboximg{
+		float:left;
+		position:relative;
+		margin-left: 148px;
+    	margin-top: 55px;
+    	position: absolute;
+	}
+	
+	div.controle{
+		float: right;
+   		margin-right: 48px;
+    	margin-top: 26px;
+	}
+	
+	div.elipse{
+		width:13px;
+		height:13px;
+		background:url(http://www.importadoagora.com.br/imagens/elipse.png) no-repeat;
+		float:left;
+		margin-left:10px;
+		cursor:pointer;
+	}
+	
+	div.elativa{
+		width:13px;
+		height:13px;
+		background:url(http://www.importadoagora.com.br/imagens/elipseativa.png) no-repeat;
+		float:left;
+		margin-left:10px;
+		cursor:pointer;
+	}
+	
+	#DSL_ContainerProdutos {
+		display: table;
+    	float: left;
+    	padding: 10px 0;
+    	width: 545px;
+	}
+	#DSL_ContainerProdutos ul li {
+		float: left;
+		margin-bottom: 5px;
+		min-height: 400px;
+		max-height: 400px;
+		padding: 10px 8px 5px;
+		width: 160px;
+		border: 0px silver solid;
+		text-align:center;
+    }
+	
+	#DSL_ContainerProdutos ul li:hover {
+		background:#F2F2F2;
+    }
+		
+	.DSL_BlocoProdutos {
+		display: block;
+		height: auto !important;
+		margin: 5px auto;
+		text-align: center;
+		width: 150px;
+	}
+	
+	.DSL_VideoProduto {
+		margin-top:10px;
+	}
+	
+			.DSL_Lancamento {text-align:center; height:21px;}
+			.DSL_FotoProduto {
+				display:block;
+				/*margin: 0px auto;*/
+				vertical-align: middle;
+				/*background: none repeat scroll 0 0 #FFFFFF;*/
+				background-color: rgba(255,255,255,0);
+				/*-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";*/
+				border: 0 none;
+				/*height: 145px;*/
+				max-width: 150px;
+				overflow: hidden;
+				padding-top: 0px;
+				position: relative;
+				text-align: center;
+			}
+			
+			.DSL_FotoProduto img{
+				/*width:150px;*/
+				/*height:145px;*/
+			}
+			
+			.DSL_NomeProduto{ text-align:center; float:left; width:100%; height: 60px; }
+			.DSL_NomeProduto a {font-size:15px; line-height:11px; color:#4b4b4b; font-weight:bold; }
+			.DSL_ValorPor {
+				font-size: 15px;
+				font-weight: bold;
+				display: block;
+				color:#363636;
+				text-align: center;
+				float: left;
+				width: 100%;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+			.DSL_ValorDe {
+				font-size: 14px;
+				margin: 7px 0 0 0;
+				color:#363636;
+				text-decoration: line-through;
+				text-align: center;
+				float: left;
+				width: 100%;
+			}
+		.DSL_BlocoProdutos .DSL_SubProduto {display:none; text-align:center;}
+			.DSL_Espiar {text-align:center; padding:5px 0px;}
+			.DSL_FreteGratis {text-align:center;}
+			.DSL_ValorParcelado {font-size:12px; color:#4b4b4b;}
+			.DSL_ValorParcelado span {color:#ff6800; font-weight:bold;}
+			.DSL_CarrinhodeCompras {padding:2px 0 0 0;}
+		
+		
+/* BarraDireita.htm */	
+#DSL_LateralDireita {padding:0 5px;}
+
+.DSL_Chat {margin:15px auto; width:100%; text-align:center;}
+
+.LIFabricantes {text-align:center; margin:20px 0px;}
+
+#ConteudoMaisVendidos{
+	background:#B4441E;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+	float:left;
+	width:160px;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:13px;
+	padding-bottom:6px;
+	text-align:center;
+}
+
+#ConteudoMaisVendidos span {font-size:12px; color:#000; font-weight:bold; float:left; padding:0px 0px; width:150px;}
+#ConteudoMaisVendidos a {
+	font-size: 15px;
+	color:#FFF;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	display: block;
+	float: left;
+	width: 150px;
+	font-family: 'Droid Sans',sans-serif;
+	font-weight: normal;
+	line-height: 18px;
+}
+#ConteudoMaisVendidos a:hover {color:#FFF; text-decoration:underline;}
+
+#ConteudoMaisVendidos .DSL_FotoProduto {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 0 none;
+    height: 140px;
+    overflow: hidden;
+    padding-top: 0px;
+    position: relative;
+    text-align: center;
+    width: 150px;
+}
+
+#ConteudoMaisVendidos .DSL_ValorPor{
+	color:#F7F5EE;
+	font-size:14px;
+	font-family:'Droid Sans',sans-serif;
+	float:left;
+	width:150px;
+	text-align:center;
+	margin-top:5px;
+}		
+
+#ConteudoMaisVendidos .DSL_ValorPor span{
+	color:#F7F5EE;
+	font-size:25px;
+	font-family:'Droid Sans',sans-serif;
+	float:none;
+	text-align:center;
+}
+
+#ConteudoMaisVendidos .DSL_BlocoProdutos{
+	width:150px !important;
+}
+
+#ConteudoMaisVendidos .DSL_ValorParcelado{
+	font-size:12px; 
+	color:#000;
+	font-family:'Droid Sans',sans-serif;
+}
+
+div.maisvendet{
+	float:left;
+} 
+		
+/* Produtos.htm */
+
+.DSL_ProdutosListaGeral{margin:0 auto; width:99%;}
+
+.DSL_BarraMigalha{
+	background:none;
+	font-family:'Droid Sans',sans-serif;
+	font-size:12px;
+	color:#797872; 
+	width:100%;
+	float:left;  
+	text-align:left; 
+	line-height:36px; 
+	margin-bottom:15px; 
+}
+.DSL_Migalha{
+	margin-left:10px; 
+	float:left;
+	border-bottom: 1px solid #CCCCCC;
+	width:100%;
+}
+
+.AMigalha:link {color:#797872; font-size:12px; }
+.AMigalha:visited {color:#797872; font-size:12px; }
+.AMigalha:hover {color:#797872; font-size:12px; text-decoration:underline; }
+.AMigalha:active {color:#797872; font-size:12px; }
+
+.AMigalhaAtivo:link {color:#B6B3AA; font-size:15px; text-decoration:underline; }
+.AMigalhaAtivo:visited {color:#B6B3AA; font-size:15px; text-decoration:underline; }
+.AMigalhaAtivo:hover {color:#B6B3AA; font-size:15px; text-decoration:underline; }
+.AMigalhaAtivo:active {color:#B6B3AA; font-size:15px; text-decoration:underline; }
+
+.DS_OrdenarPor{width:290px;  margin-right:5px; float:right; }
+.DS_OrdenarPor span{float:left; font-size:12px; color:#828181; margin-left:12px; margin-top:2px;}
+.DS_CampoOrdenar{padding:0px; float:right;}
+.DS_CampoOrdenar select{font-size:12px; color:#828181; font-family:'Droid Sans',sans-serif; position:relative; top:3px; margin-right:5px;}
+.DS_CampoOrdenar div {float:left;}
+.DS_BuscaInputIMG {
+	margin-top:9px;
+	float:left;
+	padding:0;
+}
+
+#DSL_ColunaPaginacao {color:#363636; text-align:center; font-size:13px;}
+#DSL_ColunaPaginacao span.DSL_paginacao{margin-left:15px;}
+.TXTPaginacao {text-decoration:none; color:#363636;}
+.TXTPaginacaoAtual {text-decoration:none; color:#363636;}
+.TXTAtivoPaginacao {font-weight:bold; color:#363636;}
+
+.DSL_DescricaoListaProd{
+	float: left;
+    margin: 0 !important;
+    text-align: left;
+    width: 100%;
+}
+.DSL_ValoresListaProd{
+	float: left;
+    height: auto;
+    text-align: center;
+    width: 190px;
+}
+
+.DSL_NomeListaProd{
+	color: #5F5F5F;
+    float: left;
+    font-size: 15px;
+    height: 60px;
+    /*min-height: 37px;*/
+}
+html>body .NomeListaProd {
+height: auto;
+} 
+.DSL_NomeListaProd a{color:#4b4b4b; text-decoration:none; font-weight:bold;}
+.DSL_NomeListaProd a:hover{color:#4b4b4b; text-decoration:underline;}
+
+.DSL_DescricaoCurtaListaProd{font-size:12px; color:#333333; margin:10px 0px;}
+
+div.ranking{
+	float:left;
+	margin-left:12px;
+	margin-top:3px;
+}
+
+div.estrela{
+	float:left;
+	margin-right:2px;
+}
+
+.DSL_MaisProdutos{font-size:14px; color:#6e6e6e; margin:10px 30px 0 0;}
+.DSL_MaisProdutos a{text-decoration:underline; color:#6e6e6e; font-size:12px;}
+.DSL_MaisProdutos a:hover{text-decoration:underline;}
+
+.DSL_FabricanteListaProd{font-size:11px; color:#666666; margin-bottom:20px;}
+.DSL_FabricanteListaProd a{font-size:11px; color:#666666; margin-bottom:20px;}
+.DSL_FabricanteListaProd a:hover{font-size:11px; color:#666666; text-decoration:underline;}
+.DSL_ValorPorListaProd{font-size:16px; color:#363636; font-weight:bold; margin:3px 0;}
+
+.DSL_SubProduto{margin:15px 0;}
+#DSL_TitTextoSubProduto{font-size:12px; margin-bottom:2px; display:block;}
+.DSL_SubProduto select{width:134px; padding:5px; font-size:15px; color:#333; background-color:#fff; border:1px solid #ccc; height:30px; }
+
+.DSL_Lancamento{text-align:center; margin-bottom:5px; height:21px;}
+.DSL_BtComprarListaProd{margin-top:5px;}
+
+
+/* -----NEWS----- */
+#DSL_Newsletter{ position:relative;}
+#DS_FormularioNews input{ 
+	padding:3px; 
+	border:none;
+	background:#F7F5EE; 
+	margin:8px 0 0 0; 
+	width:85%; 
+	color:#666;
+	font-family:'Droid Sans',sans-serif;
+	font-size:13px;
+	border-radius:5px 5px 5px 5px;
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	behavior:url(PIE.htc);
+}
+#DSL_Newsletter p{
+	color:#666;
+	font-family:'Droid Sans',sans-serif;
+	font-size:13px;
+	margin-top:0;
+	margin-bottom:9px;
+}
+#DS_FormularioNews #DS_BtRadio {float:left;}
+#DS_FormularioNews #DS_BtRadio input{ width:auto; height:auto; position:relative; top:2px; margin-right:5px; border:0px;}
+#DS_FormularioNews #DS_BtRadio span{ font-size:11px; color:#666; font-family:'Droid Sans',sans-serif;}
+#DS_FormularioNews #DS_BtOkNews{float:right; margin-right:17px; margin-top:8px;}
+	
+		
+/* BarraRodape.htm */
+div.tagwrap{
+	width:1000px;
+	height:223px;
+	margin:0 auto;
+	background:#FFF;
+	padding-bottom:22px;
+	padding-top:20px;
+}
+
+#DSL_Tags { 
+	background: none repeat scroll 0 0 #F2EFE3;
+    border: medium none;
+    margin: 10px 0 10px 11px;
+    padding-bottom: 10px;
+    text-align: center;
+	width:980px;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+	#DSL_TitleTags {
+		display:block; 
+		margin:1px; 
+		margin-bottom:10px; 
+		background:#F2EFE3;
+		border-radius:14px 14px 0 0;
+		-moz-border-radius:14px 14px 0 0;
+		-webkit-border-radius:14px 14px 0 0;
+		behavior:url(PIE.htc); 
+		font-size:16px; 
+		padding:16px 5px 5px 19px; 
+		font-weight:bold; 
+		text-align:left; 
+		color:#797872;
+	}
+	#DSL_Tags a {
+		color:#797872;
+	}
+	#DSL_Tags a:hover {
+		background:#B4441E; 
+		color:#fff;
+	}
+
+.DSL_ColorTxt01 {color:#333;}
+	.DSL_Rodape {
+		width:100%; 
+		background:#F2EFE3;
+		border-top:3px solid #B4441E;
+		/*border-left:2px solid #B4441E;
+		border-right:2px solid #B4441E;*/
+		border-radius:14px 14px 14px 14px;
+		-moz-border-radius:14px 14px 14px 14px;
+		-webkit-border-radius:14px 14px 14px 14px;
+		behavior:url(PIE.htc); 
+		display:table; 
+		padding:30px 0;
+		float:left;
+	}
+	
+	div.rodapeinside{
+		margin-left:auto;
+		margin-right:auto;
+		width:1000px;
+		position:relative;
+		font-family:'Droid Sans',sans-serif;
+	}
+	.DSL_RdpLinks {width:auto;}
+	.DSL_BoxsRodape {
+		display: block;
+		float: left;
+		font-family: 'Droid Sans',sans-serif;
+		font-size: 11px;
+		margin-left: 27px;
+		padding: 10px 0;
+		width: 163px;
+	}	
+	.DSL_BoxsRodape span {font-size:15px; display:block; padding-bottom:10px; font-family:'Droid Sans',sans-serif; font-weight:bold;}
+	.DSL_BoxsRodape ul li {display:block; padding:2px 0px; font-family:'Droid Sans',sans-serif;}
+	.DSL_BoxsRodape a {font-size:12px; font-family:'Droid Sans',sans-serif;}
+	.MenuRodapeNormal {color:#5F5F5F; font-family:'Droid Sans',sans-serif;}
+	
+	.DSL_RdpPagamentoSelo {padding:0 10px;}
+	.DSL_RdpPagamentoSelo .DSL_BoxsRodape {width:100%; padding:0px;}
+	.DS_FormaPagtoIC ul {display: table; clear: both; height: auto;}
+	.DS_FormaPagtoIC ul li {height: auto; margin-right: 5px; border: none; float:left;}
+	.DSL_RdpSeguranca {
+		margin-left: 27px;
+    	margin-right: 5px;
+	}
+	.DSL_RdpSeguranca span {font-size:15px; display:block; padding-top:20px; padding-bottom:5px; font-family:'Droid Sans',sans-serif;}
+	
+	div.buscafooter{
+		background: none repeat scroll 0 0 #FFFFFF;
+		float: left;
+		margin-bottom: 0;
+		padding-bottom: 10px;
+		padding-left: 159px;
+		width: 841px;
+	}
+	
+	div.buscafooter form {
+		width:668px; 
+		height:42px;
+		margin-left:14px;
+		background:#B6B3AA;
+		border-radius:14px 14px 14px 14px;
+		-moz-border-radius:14px 14px 14px 14px;
+		-webkit-border-radius:14px 14px 14px 14px;
+		behavior:url(PIE.htc);
+ 	}
+ 	
+ 	div.buscafooter .FCampos {
+		background:#fff; 
+		font-size:15px; 
+		font-style:italic; 
+		padding:0 10px; 
+		margin:0 10px;
+	}
+	
+	div.divisora{
+		float:left;
+		margin:0 10px;
+	}
+	
+/* ProdutoDetalhes.htm */
+
+#DSL_ProdutoDetalhesGeral{width:99%; height:auto; display:table; margin:0 auto;}
+
+.DSL_Referencia{font-size:10px; color:#000; margin-right:30px; font-weight:normal !important;}
+.DSL_Avaliacao a
+{
+	float: left;
+	font-size: 11px;
+	color: #565656;
+	/*
+    display: block;
+    margin-top: 3px;
+    text-decoration: none;
+    width: 120px;
+	margin-right:-5px;*/
+}
+.DSL_Avaliacao a:hover{text-decoration:none;}
+
+.DSL_ColunaFoto{
+	float:left; 
+	width:302px; 
+	height:auto; 
+	text-align:left; 
+	background:none; 
+	border:none;
+}
+.DSL_ColunaDescricao{
+	margin-left: 20px; 
+	height:auto; 
+	text-align:left;
+	float:left;
+	max-width:360px;
+}
+
+.DSL_ConteudoDesc{width:100%;}
+.DSL_BoxValoresComprar{width:100%; height:auto; background-color:#fff; border-top:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC; display:table; padding:16px 0 0 0; margin:15px 0 15px 0;}
+.DSL_Valores .DSL_ValorDe, .DSL_Valores .DSL_ValorPor, .DSL_Valores .DSL_ValorParcelado {font-size:14px;}
+
+.DSL_ValorPorDet{
+	font-size:21px; 
+	font-weight:bold; 
+	display:block; 
+	color:#F05A28;
+}
+.DSL_ValorParceladoDet {
+	font-size:12px; 
+	color:#000;
+}
+
+.DSL_ValorParceladoDet span {
+	color:#013F5E; 
+	font-weight:bold;
+}
+
+.DSL_Valores{width:60%; float:left; text-align:left; margin-bottom:15px;}
+.DSL_BtComprar{float:left; text-align:left !important;}
+
+.DSL_FotoAmpliada{width:auto !important; max-width:300px; height:auto; margin:0 auto; margin-top:25px; margin-bottom:10px; *margin-left:35px; text-align:center;}
+.DSL_FotoAmpliada img {}
+.DSL_BtAmpliarProdDetalhe{height:auto; margin:0 auto; margin-bottom:20px; text-align:center;}
+.DSL_FotosProdDetalhe{height:auto; margin:0 auto; margin-top:5px; text-align:center;}
+
+.DSL_ImgFabricante{margin-bottom:10px;}
+.DSL_NomeDescricao{font-size:21px; font-weight:bold; color:#013F5E; margin-bottom:5px; font-family: 'Droid Sans',sans-serif;}
+
+.DSL_PrazoEntrega{clear:both; height:44px; font-size:12px; line-height:44px; padding-top:5px; color:#666666;}
+.DSL_PrazoEntrega span {float:left; display:block; margin-right:5px;}
+.DSL_PrazoEntrega span.DSL_BtAdicional {padding-top:5px;}
+
+.DSL_BtExtras{
+	background: none repeat scroll 0 0 transparent;
+    border-bottom: 1px solid #CCCCCC;
+    height: 28px;
+    margin: 0 0 20px;
+    text-align: center;
+    width: 727px;
+}
+.DSL_BtExtras span{margin-right:12px;}
+
+.DSL_RedesSociais{height:auto; padding:15px 0 15px 0; text-align:right; float:left !important;}
+.DSL_RedesSociais span{float:left; margin-right:5px; width:100px; display:block;}
+.DSL_RedesSociais input{
+	border:none !important;
+}
+span#AvisoDisp{
+	margin-top:10px;
+}
+span#AvisoDisp a{
+	color:#F05A28 !important;
+}
+
+.DS_Parcelamento{
+	width:675px; 
+	height:auto; 
+	margin:0; 
+	clear:both;
+	padding-top:13px;
+	background:#F7F5EE;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+.DS_Parcelamento p{
+	color: #666666;
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height: auto;
+    margin: 0 auto 10px 20px;
+}
+.DS_Parcelamento fieldset{margin:0px; padding:0px;}
+#DS_pagtotabnav{margin:0 auto; margin-bottom:5px;}
+#DS_pagtotabs{background:#F7F5EE; height:35px; margin-left:16px;}
+#DS_pagtotabs a{
+	color:#999; 
+	display:block; 
+	float:left; 
+	font-size:14px; 
+	font-weight:bold; 
+	margin-right:70px; 
+	padding:5px 10px; 
+	border-bottom:none; 
+	height:25px; 
+	line-height:25px; 
+	position:relative;
+	background:url(http://www.importadoagora.com.br/imagens/fundopag.png) no-repeat !important;
+}
+#DS_contenttabs{ 
+	/*background: url("http://www.importadoagora.com.br/imagens/fundojuros.png") no-repeat scroll 0 0 transparent !important;*/
+    float: left;
+    font-size: 12px;
+    height: 31px;
+    margin-left: 16px;
+    margin-top: -1px;
+	margin-bottom:12px;
+    padding: 10px;
+    text-align: left;
+    width: 623px;
+}
+#DS_contenttabs .DS_pag {width:100%; display:table;}
+#DS_contenttabs .DS_pag li {position:static;float:left; margin-right:20px; padding-bottom:5px; width:53%; list-style:none; font-weight:bold;}
+
+#DSL_BlocodeDescricoes{height:auto; margin:0 auto; clear:both; margin-top:20px;}
+#DSL_BlocodeDescricoes #DSL_BoxAbas{width:100%; margin-bottom:23px;}
+#DSL_BlocodeDescricoes #DSL_Abas{
+	background:url(http://www.importadoagora.com.br/imagens/fundoabas.png) no-repeat; 
+	height:35px; 
+	margin:0;
+	width:100%;
+}
+#DSL_BlocodeDescricoes #DSL_Abas a{
+	color:#999; 
+	display:block; 
+	float:left; 
+	font-size:14px; 
+	font-weight:bold; 
+	margin-right:0px; 
+	padding:5px 10px;  
+	border:none; 
+	height:25px; 
+	line-height:25px; 
+	position:relative;
+	text-align: center;
+    width: 150px;
+}
+#DSL_BlocodeDescricoes #DSL_ConteudoAbas{
+	padding:10px; 
+	font-size:12px; 
+	text-align:left; 
+	margin-top:-1px;
+	min-height:105px;
+	width:660px;
+	background:#F7F5EE;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+.DSL_Aproveite{
+	width:706px; 
+	height:auto; 
+	margin:0; 
+	clear:both; 
+	visibility: visible;
+}
+.DSL_Aproveite h3{
+	color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 3px 0 20px;
+    padding-top:6px;
+	padding-left:25px;
+    text-align: left;
+    width: 100%;
+	float:left;
+	height:25px;
+	background:url(http://www.importadoagora.com.br/imagens/fundoaproveite.png) no-repeat;
+}
+.DSL_BlocoProdutoAproveite{
+	display: block;
+    height: auto;
+    margin: 5px auto;
+    width: 200px;
+	text-align:center;
+}
+.DSL_Aproveite ul li {float:left; width:200px !important; margin-bottom:25px; padding-bottom:25px; padding-top:10px;}
+html>body #DSL_BlocoProdutoAproveite {
+height: auto;
+}
+
+.DSL_QuemComprou{width:100%; height:auto; margin:0 auto; clear:both; padding-top:30px;}
+.DSL_QuemComprou h3{margin:0; padding:0px; width:100%; font-size:21px; font-weight:bold; color:#4b4b4b; text-align:left; margin-bottom:20px; }
+.DSL_BlocoProdutoQuemComprou{width:170px; display:block; margin:5px auto; height:300px;}
+.DSL_QuemComprou ul li {float:left; width:33.3%; margin-bottom:25px; padding-bottom:25px; border-bottom:1px solid #CCCCCC;}
+html>body #DSL_BlocoProdutoQuemComprou {
+height: auto;
+}
+
+.DSL_CompreJunto{width:100%; height:auto; margin:0 auto; clear:both; padding-top:30px;}
+.DSL_CompreJunto h3{
+	margin:0; 
+	padding:0px; 
+	width:100%; 
+	font-size:16px; 
+	font-weight:bold;
+	color:#FFF; 
+	text-align:left; 
+	margin-bottom:20px;
+	padding-top:6px;
+	padding-left:25px;
+	float:left;
+	height:25px;
+	background:url(http://www.importadoagora.com.br/imagens/fundoaproveite.png) no-repeat; 
+}
+
+.DSL_ProdutosVendaCasada{
+	float:left;
+}
+.DSL_ProdutosVendaCasada select{width:134px; padding:5px; font-size:15px; color:#333; background-color:#fff; border:1px solid #ccc; height:30px; }
+
+
+/* ---------------------------------- CARRINHO ---------------------------------- */
+
+.CarrinhoTit {
+	font-size:12px; 
+	font-family:'Droid Sans',sans-serif;
+	background: #B6B3AA; 
+	color:#FFF; 
+	font-weight: bold; 
+	text-decoration:none; 
+	height:34px;
+	text-align: center;
+}
+.CarrinhoTit:before{
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+.CarrinhoItem {font-size:11px; font-family:'Droid Sans',sans-serif; text-decoration:none; background-color:#fdfdfd }
+.CarrinhoTotal {font-size:11px; font-family:'Droid Sans',sans-serif; text-decoration:none; float:right; }
+.CarrinhoTotal table{
+	width:706px !important;
+    border-collapse: collapse;
+}
+label#Qtde_438881{
+	font-weight:bold;
+}
+.CarrinhoValor {font-size:11px; font-family:'Droid Sans',sans-serif; text-decoration:none; color:#000; font-weight:bold; }
+.CarrinhoValorTotal {font-size:18px; font-weight:bold; font-family:'Droid Sans',sans-serif; text-decoration:none }
+.CarrinhoProduto {font-size:12px; font-family:'Droid Sans',sans-serif; text-decoration:none;}
+.CarrinhoFundoProduto {font-size:12px; font-family:'Droid Sans',sans-serif; text-decoration:none; color:#666; text-align:center;}
+.CarrinhoFundoProduto div {text-align:center;}
+.CarrinhoAdicional {font-size:11px; text-decoration:none; background-color:#fdfdfd; color:#666666;}
+.CarrinhoAdicional table{ padding:0; float:right; }
+.CarrinhoAdicional tr td {}
+FundoTopo { background:#582f03; }
+#tbProduto{
+	background: none repeat scroll 0 0 #F7F5EE;
+    border: medium none;
+    float: right;
+    margin-top: -9px;
+    position: relative;
+    width: 706px !important;
+    z-index: 50;
+}
+#TbCepFreteCalcT{
+	background: none repeat scroll 0 0 #B6B3AA;
+    border: medium none;
+    float: right;
+    width: 706px;
+}
+#TbCepFreteCalcT br {height:50px;}
+#ValorFrete{font-size:16px; font-family: 'Droid Sans', sans-serif; color:#FFF; width:60px; }
+#ValorFrete img{
+	float:right;
+}
+#TbCepFreteCalcT td table#TableCEP{margin-top:-19px;}
+#CarrinhoCross{
+	border:none; 
+	background:none;
+	padding-top:10px;
+	padding-left:24px;
+}
+
+#CarrinhoCross table{
+	float:left;
+	margin:0 !important;
+}
+
+#CarrinhoCross tr tr table{
+	background:#FFF; 
+	margin-bottom:2px;
+}
+.TituloCep{font-size:12px; color:#FFF; text-align:left; font-weight:normal; width:380px !important;}
+.StrCarrinhoValorTotal {
+	font-size:12px; 
+	color:#FFF; 
+	background:url(http://www.importadoagora.com.br/imagens/fundoaproveite.png) no-repeat;
+	height:31px;
+}
+
+.StrCarrinhoValorTotal label{
+	margin-right:32px;
+}
+
+#TRBotAtualizarValoresDot td input{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+
+.CarrinhoProduto {color:#000;}
+.CarrinhoProduto a {font-size:12px; color:#000; font-weight:bold;}
+.CarrinhoFundoProduto .FCampos {background:#FFF; border:none; color:#000; font-size:12px; height:15px; margin-top:-2px;}
+#TableCEP .FCampos {
+	background:#F7F5EE; 
+	border:none; 
+	color:#000; 
+	font-size:12px;
+	height: 23px;
+    padding-left: 10px;
+    width: 158px;
+	margin-top:5px;
+	border-radius:5px 5px 5px 5px;
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	behavior:url(PIE.htc);
+}
+.TabBotoes img {margin-left:0px;}
+#DS_TbCarrinho {width:98%;}
+#DS_TbCarrinho table{
+	margin-left: 12px;
+    width: 100%;
+}
+
+td#Carrinho table{
+	width:100%;
+	margin-left:0 !important;
+}
+
+.DS_TitImgCarrinho{
+	width:724px;
+}
+
+.DS_TitImgCarrinho tr td {text-align:center;}
+#TabelaValeSinal .FCampos {
+	background:url(http://www.importadoagora.com.br/imagens/fundovaledesconto.png) no-repeat; 
+	border:none; 
+	color:#000; 
+	font-size:12px; 
+	height: 27px;
+	width: 163px;
+	padding-left: 5px;
+}
+
+.FCampos {
+	font-size:12px;
+	border-radius:5px 5px 5px 5px;
+	-moz-border-radius:5px 5px 5px 5px;
+	-webkit-border-radius:5px 5px 5px 5px;
+	behavior:url(PIE.htc);
+}
+
+input#Ok2{
+	margin-top:8px;
+}
+
+/* ---------------------------------- FIM CARRINHO ---------------------------------- */
+
+.DSL_RdpCanais {width:550px;}
+
+.DS_FormaPagtoIC ul {
+display: table;
+clear: both;
+height: auto;
+width:318px;
+}
+.DS_FormaPagtoIC ul li {height: auto;
+padding-right: 1px;
+margin-right: 2px;
+border: none;}
+.DS_BtRadio input{ border:0;}
+.DS_BuscaIMG{ position:relative; top:0 !important; }
+
+
+.ulcat,.ulsubcat {padding-left: 10px;}
+
+div.ordenawrap{
+	float:left;
+	width:100%;
+}
+
+table.FundoBorda{
+	border:1px solid #CCCCCC;
+	border-radius:14px 14px 14px 14px;
+	-moz-border-radius:14px 14px 14px 14px;
+	-webkit-border-radius:14px 14px 14px 14px;
+	behavior:url(PIE.htc);
+}
+
+table.fundoBorda .FCampos{
+	background:#FFF; 
+	border:1px solid #CCC; 
+	color:#797872; 
+	font-size:12px;
+}
+
+div.institucional{
+	float:left;
+}
+
+div.institulo{
+	color:#013F5E;
+	font-size:21px;
+	font-weight:bold;
+	font-family:'Droid Sans',sans-serif;
+}
+
+div.blueline{
+	width:533px;
+	border:1px solid #013F5E;
+}
+
+div.instexto p{
+	color:#000;
+	font-size:12px;
+	font-weight:normal;
+}
+
+span.blubold{
+	color:#013F5E !important;
+	font-weight:bold !important;
+}
+
+input#Nome{
+	/*width:220px;*/
+}
+
+input#Email{
+	width:220px;
+}
+
+textarea#Mensagem{
+	/*height: 17px;
+	min-height: 17px;
+	max-height: 17px;
+	width:220px;
+	min-width:220px;
+	max-width:220px;*/
+	padding-top: 3px;
+}
+
+div.fb-like-box .grid_item{
+    margin-left: 8px;
+}
+
+div.twitterbloco{
+	float:left;
+	margin-top:10px;
+}
+
+td.TabelaDepartamento a{
+		background: url("http://www.importadoagora.com.br/imagens/fundomenulateral.png") repeat scroll 0 0 transparent;
+		color: #FFFFFF;
+		display: block;
+		font-family: 'Droid Sans',sans-serif;
+		font-size: 15px;
+		font-weight: bold;
+		height: 26px;
+		margin-bottom: 10px;
+		margin-top: 0;
+		padding-left: 10px;
+		padding-top: 7px;
+		text-align: left;
+		width: 203px;
+		text-transform:uppercase;
+}
+
+td.TabelaDepartamento a:hover {
+	color: #EFEFF0 !important;
+	text-decoration:underline;
+    -webkit-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	transition: all .1s linear;
+}
+
+td.TabelaSecao2{
+	padding-bottom:5px;
+}
+
+ul.Dot_ListaProdutosULClass{
+	float:left;
+	width:100%;
+}
+
+li.Dot_ListaProdutosLIClass{
+	float: left;
+    width: 230px;/*
+	margin-left:35px;
+	margin-right:35px;
+	padding:0px;
+	padding-left:10px;
+	padding-right:10px;*/
+	min-height:405px;
+	max-height:405px;
+	display:block;
+	text-align:center;
+}
+
+li.Dot_ListaProdutosLIClass:hover{
+	background:#F2F2F2;
+}
+
+#TotalTabCategorizacao{
+	width:554px;
+	float:left;
+}
+
+#statusLogin{
+	font-weight: bold;
+}
+
+.DSL_AreaProdutosHome li{
+	margin-right:15px !important;
+}
+
+td.TextMedioPreto{
+	width:176px;
+	float:left;
+	margin-top:25px;
+}
+
+span#cliente{
+	background:url(http://www.importadoagora.com.br/imagens/fundocliente.png) no-repeat;
+}
+
+.widthauto{
+width: auto !important
+}
+
+input#CEP{
+	width:192px;
+}
+
+input#Senha{
+	width:220px;
+}
+
+#ValeDescontoCarrinhoTit{
+	color:#797872;
+}
+
+label.DS_NumPedLoja{
+	color:#013F5E !important;
+}
+
+ul.DS_FotosDetProd li{
+	float:left;
+	margin-right:5px;
+}
+
+#TituloFrete{
+	text-align:right;
+}
+
+fieldset#Frete{
+	text-align:right !important;
+}
+
+input#imageField{
+	float:right;
+}
+
+/*table.TbPagtoSel28 td, table.TbPagtoSel20 td{
+	text-align:right;
+	width:100%;
+}*/
+
+/*table.TbPagtoSel28 tr, table.TbPagtoSel20 tr{
+	float:left;
+}*/
+
+div#IMGAmpliadaZoom a{
+	width:auto !important;
+	height:auto !important;
+}
+
+div.escolhapagamento{
+	background:url(http://www.importadoagora.com.br/imagens/FundoEscolha.png) no-repeat;
+	color:#FFF;
+	font-family: 'Droid Sans',sans-serif;
+    font-size: 15px;
+	float:left;
+	padding-left:10px;
+	width:706px;
+	height:25px;
+	padding-top:7px;
+	font-weight:bold;
+}

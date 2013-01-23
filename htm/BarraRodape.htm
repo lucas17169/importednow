@@ -1,0 +1,297 @@
+<script>
+jQuery(document).ready(function(){
+    _boxRod = $("div.DSL_RdpLinks > div.DSL_BoxsRodape:last");
+    _span = $(_boxRod).find("span").html();
+    _spanClass = $(_boxRod).find("span").attr("class");
+    _div = $(_boxRod).html("<span class='"+_spanClass+"'>"+_span+"</span><div class='DS_FormaPagtoIC'><ul><li><img src='http://www.importadoagora.com.br/imagens/pagRodape.jpg' /></li><//ul></div>");
+    
+    
+    
+})
+</script>
+<div id="DSL_BannerInferior">##BannerPublicidadeInferior##</div>
+<div class="tagwrap">
+    <div id="DSL_Tags">
+        <div id="DSL_TitleTags">##Texto % cod=16##</div>
+        ##TagCloud % qtde=40 ~ cod=texto##
+    </div>
+    <div class="DSL_FloatLeft buscafooter">##Busca % botao='imagens/fundook.png' ~ cod=t,d ~ class=DSL_FloatLeft, DSL_FloatLeft ~ alinha=h##</div>
+</div>
+
+<div class="DSL_Rodape">
+	<div class="rodapeinside">
+    	<div style="float:left;">
+            <div class="DSL_RdpLinks DSL_FloatLeft">
+                <div id="DSL_BoxLinksRodape" class="DSL_BoxsRodape" style="width:143px; margin-left:47px;">
+                    <span class="DSL_ColorTxt01">Institucional</span>
+                    <ul>
+                        <li><a href="##CaminhoDir##pagina/9241/Quem-somos" title="" class="DSL_ColorTxt03">Quem Somos</a></li>
+                        <li><a href="##CaminhoDir##mapa-do-site" title="" class="DSL_ColorTxt03">Mapa do Site</a></li>
+                        <li><a href="##CaminhoDir##?Menu=FaleConosco" title="" class="DSL_ColorTxt03">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="divisora"><img src="http://www.importadoagora.com.br/imagens/divisora.png" width="1" height="118" alt="Linha Divisora" /></div>
+                <div class="DSL_BoxsRodape">
+                    <span class="DSL_ColorTxt01">D&uacute;vidas</span>
+                    <ul>
+                        <li><a href="##CaminhoDir##pagina/9237/Perguntas-frequentes" title="" class="DSL_ColorTxt03">Perguntas Frequentes</a></li>
+                        <li><a href="##CaminhoDir##pagina/9229/Como-comprar" title="" class="DSL_ColorTxt03">Como Comprar</a></li>
+                        <li><a href="##CaminhoDir##pagina/9231/Trocas-e-devolucoes" title="" class="DSL_ColorTxt03">Troca e Devolu&ccedil;&otilde;es</a></li>
+                    </ul>
+                </div>
+                <div class="divisora"><img src="http://www.importadoagora.com.br/imagens/divisora.png" width="1" height="118" alt="Linha Divisora" /></div>
+                <div class="DSL_BoxsRodape">
+                    <span class="DSL_ColorTxt01">Suporte & Pol&iacute;ticas</span>
+                    <ul>
+                        <li><a href="##CaminhoDir##pagina/9234/Politica-de-Privacidade" title="" class="DSL_ColorTxt03">Pol&iacute;tica de Privacidade</a></li>
+                        <li><a href="##CaminhoDir##pagina/9235/Prazos-de-Entrega" title="" class="DSL_ColorTxt03">Envios e Prazo de Entrega</a></li>
+                        <li><a href="##CaminhoDir##pagina/9236/Garantia" title="" class="DSL_ColorTxt03">Garantia</a></li>
+                        <li><a href="##CaminhoDir##pagina/9232/Trabalhe-conosco" title="" class="DSL_ColorTxt03">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="divisora"><img src="http://www.importadoagora.com.br/imagens/divisora.png" width="1" height="118" alt="Linha Divisora" /></div>    
+				<div class="DSL_BoxsRodape">
+					<span class="DSL_ColorTxt01">##Texto % cod=4##</span>
+					##FormaPagtoIC##
+					##Texto % cod=15##
+				</div>
+            </div>
+			<div class="DSL_RdpSeguranca" style="margin-left: 60px; margin-top: 120px !important; width: 540px">
+				<span class="DSL_ColorTxt01" style="text-align:center !important">##Texto % cod=5##</span>
+				<a id="seloEbit" href=" http://www.ebit.com.br/rateloja.asp?PnumNUmEmpresa=31411" target="_blank" onclick="redir(this.href);"><img width="88" src="http://www.importadoagora.com.br/imagens/ebit.png" alt="Avaliação de Lojas e-bit" />				</a> 
+				<!--<script type="text/javascript" id="getSelo" src="https://a248.e.akamai.net/f/248/52872/0s/img.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?31411"></script>-->
+				<script>
+				//var param=document.getElementById("getSelo").src.split("?");
+				//var numEmp=param[1];
+				var numEmp=31411;
+				var obj=document.getElementById("seloEbit");
+				var objBanner=document.getElementById("bannerEbit");
+				var objParametros=document.getElementById("ebitParam");
+				var anchor=obj.innerHTML;var span=document.createElement("span");
+				var x=1;
+				var y=1;
+				var flagGenerate=false;
+				var flagGenerateBanner=false;
+				var imgBanner;
+				var urlMi;
+				obj.innerHTML="";
+				imgSelo=new Image();
+				imgBanner=new Image();
+				imgSelo.src="https://a248.e.akamai.net/f/248/52872/0s/img.ebit.com.br/ebitBR/selo/img_"+numEmp+".png";
+				var verifyImage=window.setInterval(generate,1000);
+				var verifyImageBanner=window.setInterval(generateBanner,1000);
+				function generate()
+				{
+					if(imgSelo.complete==true)
+					{
+						obj.style.backgroundImage="url(https://a248.e.akamai.net/f/248/52872/0s/img.ebit.com.br/ebitBR/selo/img_"+numEmp+".png)";
+						obj.style.backgroundRepeat="no-repeat";
+						obj.style.width=imgSelo.width+"px";
+						obj.style.height=imgSelo.height+"px";
+						obj.style.display="inline-block";
+						obj.style.overflow="hidden";
+						obj.style.position="relative";
+						obj.title="Avaliado pelos consumidores";
+						
+						if(obj.href.indexOf("/selo")==-1)
+						{
+							urlMi=obj.href.substr(obj.href.indexOf("#")+1,obj.href.length);
+							urlMi=isNumericEbit(urlMi);
+							//obj.href=obj.href+"/selo"
+						}
+						
+						obj.innerHTML="";
+						span.style.top="-105px";
+						span.style.position="absolute";
+						span.innerHTML=anchor;
+						obj.appendChild(span);
+						flagGenerate=true;
+						killInterval(verifyImage)
+					}
+					if(x==10)
+					{
+						killInterval(verifyImage)
+					}
+					x=x+1
+				}
+				function generateBanner()
+				{
+					if(objBanner)
+					{
+						var g=objBanner.innerHTML;
+						var d=document.createElement("span");
+						var f=false;
+						imgBanner.src="https://www.ebitempresa.com.br/bitrate/banners/b1"+numEmp+"5.gif";
+						if(imgBanner.complete==true)
+						{
+							objBanner.style.backgroundImage="url(https://www.ebitempresa.com.br/bitrate/banners/b1"+numEmp+"5.gif)";
+							if(objParametros)
+							{
+								objBanner.href="http://www.ebitempresa.com.br/bitrate/pesquisa1.asp?empresa=16485&"+objParametros.value;
+							}
+							else
+							{
+								objBanner.href="http://www.ebitempresa.com.br/bitrate/pesquisa1.asp?empresa=1"+numEmp+"5";
+							}
+							objBanner.style.backgroundRepeat="no-repeat";
+							objBanner.style.width=imgBanner.width+"px";
+							objBanner.style.height=imgBanner.height+"px";
+							objBanner.style.display="block";
+							objBanner.style.overflow="hidden";
+							objBanner.style.position="relative";
+							objBanner.target="_blank";
+							objBanner.innerHTML="";
+							d.style.top="-105px";
+							d.style.position="absolute";
+							d.innerHTML=g;
+							objBanner.appendChild(d);
+							f=true;
+							killInterval(verifyImageBanner)
+						}
+						if(y==10)
+						{
+							killInterval(verifyImageBanner);
+						}
+						y=y+1;
+					}
+					else
+					{
+						killInterval(verifyImageBanner);
+					}
+				}
+				function killInterval(b)
+				{
+					clearInterval(b);
+				}
+				function isNumericEbit(c)
+				{
+					validChar="0123456789.,-";
+					for(var d=0;d<c.length;d++)
+					{
+						if(validChar.indexOf(c.substr(d,1))<0)
+						{
+							return false;
+						}
+					}
+					return true;
+				}
+				function redir(c)
+				{
+					if(urlMi==true)
+					{
+						var d=document.getElementById("seloEbit").href;
+						document.getElementById("seloEbit").href="http://www.ebit.com.br/rateloja.asp?PnumNumEmpresa="+numEmp;
+					}
+					else
+					{
+						var c=c.replace("#","");
+						document.getElementById("seloEbit").href=c;
+					}
+				}
+				generate();
+				generateBanner();
+				try
+				{
+					var h1=document.getElementsByTagName("h1");
+					var h2=document.getElementsByTagName("h2");
+					var referrer=document.referrer;
+					var urlPag=window.location;
+					var titPag=document.title;
+					var aTag=document.getElementsByTagName("a");
+					var ckLoja;
+					var t1=new Date();
+					var t2=new Date();
+					if(flagGenerateBanner=true)
+					{
+						ckLoja="S";
+					}
+					else
+					{
+						for(x=0;x<=aTag.length;x++)
+						{
+							if(aTag[x])
+							{
+								if(aTag[x].href.indexOf("www.ebitempresa.com.br/bitrate/pesquisa1.asp")>=0)
+								{
+									ckLoja="S";
+									break;
+								}
+								else
+								{
+									ckLoja="N";
+								}
+							}
+						}
+						if(ckLoja=="")
+						{
+							ckLoja="N";
+						}
+					}
+					h1=(h1.length>0?h1[0].innerHTML:"");
+					h2=(h2.length>0?h2[0].innerHTML:"");
+					var __$loc_domain_cookie=".ebit.com.br";
+					var __$loc_data={propriedade:"EB",url_pag:window.location,tit_pag:document.title,ck_pag:ckLoja,h1_pag:h1,h2_pag:h2,referer_pag:referrer};
+					(function()
+					{
+						var c=document.createElement("script");
+						c.type="text/javascript";
+						c.src=("https:"==document.location.protocol?"https://s":"http://c")+".lomadee.com/loc/write.js";
+						var d=document.getElementsByTagName("script")[0];
+						d.parentNode.insertBefore(c,d)
+					}
+					)()
+				}
+				catch(e)
+				{};
+				</script>
+				<!--<img src="http://www.importadoagora.com.br/imagens/ebit.png" alt="Selo E-bit" />-->
+				<a href="http://www.trustlogo.com/ttb_searcher/trustlogo?v_querytype=W&v_shortname=SC4&v_search=www.importadoagora.com.br%2F&x=6&y=5" target="_blank" onclick="redir(this.href);">
+					<img style="margin-left:20px" src="http://www.importadoagora.com.br/imagens/comodo1.png" alt="" title="" />
+				</a>
+                <!--<img style="margin-top:10px" src="http://www.importadoagora.com.br/imagens/siteforte.png" alt="" /> -->
+				<div style="display:inline-block; vertical-align:top; margin-top:30px; margin-left:20px" id="selo_siteforte">
+					<script type="text/javascript">
+						var _sfurl = "www.importadoagora.com.br";
+						var _sfid = "5048fd9949b8a91ced000004";
+						var _sfhttptls = ('https:' == document.location.protocol ? 'https://' : 'http://');
+						(function() {
+						var _sfa = document.createElement('script'); _sfa.type = 'text/javascript';
+						_sfa.src = _sfhttptls + 'siteforte.com.br/selo.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_sfa, s);
+						})();
+					</script>
+				</div>
+			</div>
+		</div>
+		<div class="DSL_RdpSeguranca DSL_FloatRight" style="margin-top:-30px;">
+            <span class="DSL_ColorTxt01">##Texto % cod=104##</span>
+            ##LogoDotStore##
+			<a href="http://www.trustlogo.com/ttb_searcher/trustlogo?v_querytype=W&v_shortname=SC4&v_search=www.importadoagora.com.br%2F&x=6&y=5" target="_blank" onclick="redir(this.href);">
+				<img style="margin-left:10px;margin-right:10px" src="http://www.importadoagora.com.br/imagens/comodo2.png" alt="" title="" />
+			</a>
+            <img src="http://www.importadoagora.com.br/imagens/IcoLojaSegura.gif" alt="" /> 
+        </div>
+		<!--
+        <div class="DSL_RdpPagamentoSelo DSL_FloatRight" style="width:347px;">
+    
+            
+            <div class="DSL_ClearBoth"></div>
+      
+            
+                
+        </div>
+		-->
+    </div>
+</div>    
+
+
+<script>
+$(function(){
+  if($('.tagCloud').find('li').html()==''){
+    $('#DSL_Tags').hide();
+  }
+   /*if($('#DSL_BoxLinksRodape').find('#DSL_LinksRodape').html()==''){
+    $('#DSL_BoxLinksRodape').hide();
+  }*/
+});
+</script>

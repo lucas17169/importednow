@@ -1,0 +1,85 @@
+/* dotStore - Estilo Padrao 1  -  TXT=Texto | L=Link | T=Titulo | F=Form | B=Botao */
+ 
+/*----------------------------Inicio Estrutura Outras---------------------------------------------------------*/
+table#EnderecoNovo
+{
+    text-align: left !important;
+}
+
+table#TbFaleConoscoVal
+{
+    padding-left: 200px;
+    padding-top: 20px;
+}
+#DS_EstruturaTopo{width:100%; margin-bottom:0px;}
+#DS_EstruturaMenuTopo{width:100%;}
+#DS_EstruturaEsquerda{width:188px; float:left}
+#DS_EstruturaCorpo{margin:0 5px 0 188px;}
+#DS_EstruturaDireita{width:188px; float:right}
+#DS_EstruturaRodape{width:100%; clear:both; }
+
+.DS_BannerCentralUL{margin:0px; padding:0px;}
+.DS_BannerCentralLI{margin:0px; padding:0px; list-style:none;}
+
+.DS_BannerTopoUL{margin:0px; padding:0px;}
+.DS_BannerTopoLI{margin:0px; padding:0px; list-style:none;}
+
+.DS_BannerPromocaoUL{margin:0px; padding:0px;}
+.DS_BannerPromocaoLI{margin:0px; padding:0px; list-style:none;}
+
+.DS_BannerPublicidadeLateralUL{margin:0px; padding:0px;}
+.DS_BannerPublicidadeLateralLI{margin:0px; padding:0px; list-style:none;}
+
+
+/* holy grail 3 column settings */
+	.holygrail .colmid {
+		float: left;
+    	position: relative;
+    	width: 100%;
+	}
+    .holygrail .colleft {
+		background: none repeat scroll 0 0 #FFF;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 6px;
+		position: relative;
+		width: 1001px;
+	}
+	
+	.centrowrap{
+		float: left;
+		width: 992px;
+		min-height: 920px;
+		background:#FFF;
+		padding-left: 9px;
+	}
+	.holygrail .DS_EstruturaEsquerda {
+		float:left;
+		width:222px;
+		margin-right: 19px;
+		position:relative;
+	}
+    .holygrail .DS_EstruturaCorpo {
+		position:relative;
+		overflow:hidden;
+	}
+	.holygrail .DS_EstruturaCorpowrap {
+		float: left;
+		padding-bottom: 1em;
+		position: relative;
+		width: 745px;
+	}
+	.holygrail .DS_EstruturaDireita {
+		float: right;
+		margin-right: 5px;
+		margin-top: 12px;
+		position: relative;
+		width: 186px;
+	}
+	.DS_Trava {margin:0;}
+	.DS_Destrava { margin: 0;}
+	
+	div.containerprodwrap{
+		float:left;
+		width:100%;
+	}

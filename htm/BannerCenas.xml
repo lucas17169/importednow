@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?> <main 	imageTransitionType="slide"> <!--NÃO MEXER-->
+
+<!--_______________________________________________________________________________
+
+********************** 	COMO USAR O CONTEÚDO DAS CENAS. ***************************
+___________________________________________________________________________________
+
+image="" 					 *********** Coloque a URL da Sua Imagem.
+thumbnailText=""             *********** Numero do Botão.
+textTransitionType=""        *********** Para trocar o efeito consultar FAQ.   
+textRightSpace="" 		     *********** Distancia dos Textos para Direita.
+textTopSpace="" 			 *********** Distancia dos Textos para o Topo.
+textBottomSpace="" 		     *********** Distancia dos Textos para baixo.
+url="">                      *********** Link que vai abrir, precisa do "HTTP://"
+_______________________________________________________________________________-->	
+
+
+<!-- Cena 01 - Inicio -->
+<slide 
+	image="Banners/image1.png"
+	thumbnailText="1" 
+	textTransitionType="1"
+	textAlign="TR" 
+	textRightSpace="30" 
+	textTopSpace="35" 
+	textBottomSpace="30" 		
+	url="http://www.dotstore.com.br/" target="_blank">
+	
+	<text> <![CDATA[<font size="26" color="#333333" >Título do produto</font>]]></text>   
+	<text> <![CDATA[<font size="17" color="#333333" >Um subtítulo de descrição</font>]]></text>
+	<text> <![CDATA[<font size="16" color="#ff8004" >5% de desconto à vista</font>]]></text>
+	<text> <![CDATA[<b><font size="28" color="#333333" >Por: <font size="34" color="#ff8004">R$ 129,99</font></font></b>]]></text>
+	<text leftMargin="184"> <![CDATA[<font size="14" color="#333333" ><u>Saiba mais</u></font>]]></text>
+</slide> <!-- Cena 01 - Fim -->
+
+
+
+<!-- Cena 02 - Inicio -->
+<slide 
+	image="Banners/image2.png"
+	thumbnailText="2" 
+	textTransitionType="2"
+	textAlign="TR" 
+	textRightSpace="30" 
+	textTopSpace="30" 
+	textBottomSpace="30" 		
+	url="http://www.dotstore.com.br/" target="_blank">
+	
+	<text> <![CDATA[<font size="26" color="#333333" >Título do produto</font>]]></text>   
+	<text> <![CDATA[<font size="17" color="#333333" >Um subtítulo de descrição</font>]]></text>
+	<text> <![CDATA[<font size="16" color="#ff8004" >15% de desconto à vista</font>]]></text>
+	<text> <![CDATA[<b><font size="28" color="#333333" >Por: <font size="34" color="#ff8004">R$ 79,99</font></font></b>]]></text>
+	<text leftMargin="184"> <![CDATA[<font size="14" color="#333333" ><u>Saiba mais</u></font>]]></text>
+</slide> <!-- Cena 02 - Fim -->
+
+
+<!-- Cena 03 - Inicio --> <slide 
+	image="Banners/image3.png"
+	thumbnailText="3" 
+	textTransitionType="2"
+	textAlign="TR" 
+	textRightSpace="30" 
+	textTopSpace="30" 
+	textBottomSpace="30" 
+	url="http://www.dotstore.com.br/" target="_blank">
+	
+	<text> <![CDATA[<font size="26" color="#333333" >Título do produto</font>]]></text>   
+	<text> <![CDATA[<font size="17" color="#333333" >Um subtítulo de descrição</font>]]></text>
+	<text> <![CDATA[<font size="16" color="#ff8004" >15% de desconto à vista</font>]]></text>
+	<text> <![CDATA[<b><font size="28" color="#333333" >Por: <font size="34" color="#ff8004">R$ 49,99</font></font></b>]]></text>
+	<text leftMargin="184"> <![CDATA[<font size="14" color="#333333" ><u>Saiba mais</u></font>]]></text>
+</slide> <!-- Cena 03 - Fim -->
+
+
+<!-- Cena 04 - Inicio --> <slide 
+	image="Banners/image4.png"
+	thumbnailText="4" 
+	textTransitionType="1"
+	textAlign="TR" 
+	textRightSpace="30" 
+	textTopSpace="30" 
+	textBottomSpace="30" 		
+	url="http://www.dotstore.com.br/" target="_blank">
+	
+	<text> <![CDATA[<font size="26" color="#333333" >Título do produto</font>]]></text>   
+	<text> <![CDATA[<font size="17" color="#333333" >Um subtítulo de descrição</font>]]></text>
+	<text> <![CDATA[<font size="16" color="#ff8004" >7% de desconto à vista</font>]]></text>
+	<text> <![CDATA[<b><font size="28" color="#333333" >Por: <font size="34" color="#ff8004">R$ 64,49</font></font></b>]]></text>
+	<text leftMargin="184"> <![CDATA[<font size="14" color="#333333" ><u>Saiba mais</u></font>]]></text>
+</slide> <!-- Cena 04 - Fim -->
+
+
+<!-- Cena 05 - Inicio --> <slide 
+	image="Banners/image5.png"
+	thumbnailText="5" 
+	textTransitionType="1"
+	textAlign="TR" 
+	textRightSpace="30" 
+	textTopSpace="30" 
+	textBottomSpace="30" 		
+	url="http://www.dotstore.com.br/" target="_blank">
+	
+	<text> <![CDATA[<font size="26" color="#333333" >Título do produto</font>]]></text>   
+	<text> <![CDATA[<font size="17" color="#333333" >Um subtítulo de descrição</font>]]></text>
+	<text> <![CDATA[<font size="16" color="#ff8004" >2% de desconto à vista</font>]]></text>
+	<text> <![CDATA[<b><font size="28" color="#333333" >Por: <font size="34" color="#ff8004">R$ 204,49</font></font></b>]]></text>
+	<text leftMargin="184"> <![CDATA[<font size="14" color="#333333" ><u>Saiba mais</u></font>]]></text>
+</slide> <!-- Cena 05 - Fim -->
+
+
+
+
+
+
+	
+</main> <!--NÃO MEXER-->

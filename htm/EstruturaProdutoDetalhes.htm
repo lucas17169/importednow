@@ -1,0 +1,55 @@
+<script type="text/javascript" src="https://www.dotstore.com.br/dotstore/inc/extras/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		if ($('.DS_EstruturaDireita').text() == "") {
+			$('.DS_EstruturaCorpo').addClass('DS_Destrava');
+		}else {
+			$('.DS_EstruturaCorpo').addClass('DS_Trava');
+		}
+		_menu = getParam("Menu") != undefined ? getParam("Menu") : '';
+		_menuf= location.href.split('/')[3];
+		switch(_menuf)
+		{
+			case "fabricantes":
+                $('table.FundoTabelaPaginacao').prev().prev().prev().css({'width':'735px'}).children().children().each(function(){$(this).children('td').css({'text-align':'center'});})
+            break;
+		}
+		switch(_menu)
+		{			
+			case "Carrinho":
+				$("table#DS_TbCarrinho > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(4) > td > table > tbody > tr:first > td:first > table > tbody > tr:first > td:first").html("<strong>Informe o CEP e clique no bot&acirc;o ao lado para calcular o frete</strong>");
+				$("table#DS_TbCarrinho > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(4) > td.CarrinhoAdicional > table > tbody > tr:nth-child(3)").css({'margin-left':'23px','float':'left'}).children("td:first").css('color','#000000');
+				$("tr#TbCepFreteCalc > td > table > tbody > tr > td:first").remove();
+				$('td[nowrap="nowrap"]').eq(11).css('text-align','center');
+				$("table#FreteSel > tbody > tr:nth-child(2) > td > fieldset").css('text-align','center');
+				$('.CarrinhoTit:last').not('[width="1%"]').css({
+					'background':'url("http://www.importadoagora.com.br/imagens/fundoaproveite.png") no-repeat scroll 0 0 transparent'
+					,'font-size':'16px'
+					,'padding-left':'12px'
+					,'padding-top':'2px'
+					,'text-align':'left'
+				});
+				//$('td[height="30"]').css({'float':'left','width':'125px','text-align':'center','margin-top':'10px'});
+			break;			
+		}
+	});
+</script>
+<div id="DS_EstruturaTopo">##BarraTopo##</div>
+
+
+<div class="colmask holygrail">
+    <div class="colmid">
+        <div class="colleft">
+        	<div class="centrowrap">
+                <div class="DS_EstruturaEsquerda" style="margin-right:15px !important;">##BarraEsquerda##</div>
+                <div class="DS_EstruturaCorpowrap">
+                    <div class="DS_EstruturaCorpo">##Corpo##</div>
+                </div>
+                <div class="DS_EstruturaDireita"></div>
+            </div>
+		</div>
+	</div>
+</div>
+
+
+<div id="DS_EstruturaRodape">##BarraRodape##</div>

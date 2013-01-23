@@ -1,0 +1,601 @@
+/* Estilo - Formulários */
+td,td a {font-size:12px; color:#6C6C6C;}
+.FCampos { border-color:#333333; border:solid 1px #e3e3e3; font-size:12px; font-family:arial; color:#6C6C6C; height:20px; }
+.FCamposBusca { height:18px; border-color:#333333; border:solid 1px #e3e3e3; font-size:12px; font-family:arial; color:#6C6C6C }
+.FCamposBotao { font-size: 18px;padding: 4px;background: #F1F1F1; border:solid 1px #dcdcdc; cursor:pointer; color: #929292; font-family:arial }
+
+/* Estilo Botões */
+.BLancamento { color:#FF0101; font-size:7pt; font-family:arial,arial }
+.BComprar { color:#FFFFFF; font-size:1pt; font-family:arial; text-decoration:none }
+.BExcluir { font-size:8pt; font-family:arial,arial }
+.BDetalhes { color:#990000; font-size:7pt; font-family:arial; text-decoration:none}
+
+/* Estilo - Texto Veja+ */
+.TXTMais { color:#000000; font-size:8pt; font-family:arial; font-weight:bold; text-decoration:none }
+.TXTMais:hover { color:#FF0000; text-decoration:underline }
+
+.MenuTopo { }
+.MenuTop { font-size:8pt; font-family:arial; color:#4E6C00; text-decoration:none }
+.MenuTop:visited { color:#4E6C00 }
+.MenuTop:active { color:#000000 }
+.MenuTop:hover { color:#000000; text-decoration:underline }
+.TXTBemVindo { font-family:arial; font-size:8pt; color:#333333 }
+
+#TBTitCad1Tot,#TBTitCad3Tot {background: #F1F1F1;padding: 23px;}
+#TBTitCad1Tot td,#TBTitCad3Tot td{background-repeat:repeat-x;}
+
+
+.TabelaPedido,.TabelaPedido1 {padding:5px;}
+/*  Estilo - Menu 1 (Vermelho) */
+.FundoMenu1_On {  background-image:url("##CaminhoDir##imagens/FundoMenu1_On.gif"); font-weight:bold; font-size:8pt; font-family:arial; color:#FFE88B; text-decoration:none; cursor:default; width=100%; height:35 }
+.FundoMenu1_Off { background-image:url("##CaminhoDir##imagens/FundoMenu1_Off.gif"); font-weight:bold; font-size:8pt; font-family:arial; color:#F1EFE5; text-decoration:none; cursor:pointer; width=100%; height:35 }
+.FundoMenu1_Hover { background-image:url("##CaminhoDir##imagens/FundoMenu1_Hover.gif"); font-weight:bold; font-size:8pt; font-family:arial; color:#FFFFFF; text-decoration:none; cursor:pointer; width=100%; height:35 }
+
+/* Estilo - Menu Padrão */
+.MenuTopoAtual { font-weight:bold; font-size:8pt; font-family:arial; color:#F1EFE5; background:#A10505; text-decoration:none }
+.MenuTopoAtual:visited { color:F1EFE5 }
+.MenuTopoAtual:active { color:F1EFE 5}
+.MenuTopoAtual:hover { color:#FFE88B }
+.MenuTopoNormal { font-weight:bold; font-size:8pt; font-family:arial; color:#F1EFE5; background:#A10505; text-decoration:none }
+.MenuTopoNormal:visited { color:#F1EFE5 }
+.MenuTopoNormal:active { color:#F1EFE5 }
+.MenuTopoNormal:hover { color:#F7E487 }
+/* Estilo - Link */
+.LinkTitulo { font-size:16px; font-family:arial; font-weight:bold; color:#333; text-decoration:none }
+/* Estilo - Sist. de Links */
+.TXTLinks { font-family:tahoma,arial; font-size:13px; color:#333; }
+
+/* Estilo - Lista de Casamento */
+.TXTTitCasamento { color:000000; font-size:8pt; font-family:arial; font-weight:bold }
+.TXTCasamento { font-family:arial; font-size:8pt; color:#333333 }
+.TTabelaCasamento { padding:5px 3px 3px 3px; background:#ECECEC; color:#000000; font-size:9pt; font-family:arial; }
+.TTabelaCasamento2 { padding:5px 3px 3px 3px; background:#D8D7C9; color:#000000; font-size:9pt; font-family:arial; }
+.TTabelaCasamento3 { padding:5px 3px 3px 3px; background:#D3D3D3; color:#000000; font-size:9pt; font-family:arial; }
+
+/* Estilo - Lista de Casamento */
+.TXTTitDesejos { color:000000; font-size:8pt; font-family:arial; font-weight:bold }
+.TXTDesejos { font-family:arial; font-size:8pt; color:#333333 }
+.TTabelaDesejos { padding:5px 3px 3px 3px; background:#ECECEC; color:#000000; font-size:9pt; font-family:arial; }
+.TTabelaDesejos2 { padding:5px 3px 3px 3px; background:#D8D7C9; color:#000000; font-size:9pt; font-family:arial; font-weight:bold }
+.TTabelaDesejos3 { padding:5px 3px 3px 3px; background:#D3D3D3; color:#000000; font-size:9pt; font-family:arial; }
+
+/* Estilo - Erros */
+.TXTErro1 { font-family:arial; font-size:8pt; color:#333333 }
+.TXTErro2 { font-family:arial; font-size:8pt; color:#000000 }
+
+/* Estilo - Títulos de Tabelas */
+.TTabelaTopo { padding:5px 3px 3px 3px; background:#F3F3F3; color:#000000; font-size:9pt; font-family:arial; font-weight:bold }
+/* Estilo - Campos de Formulário */
+.TXTNomeCampos { color:000000; font-size:8pt; font-family:arial; font-weight:bold }
+.TXTNomeCamposObrig { color:#dc1818; font-size:14px; height:30px; font-family:tahoma,verdana; font-weight:bold; }
+.TXTCampos { font-size:8pt; font-family:arial }
+
+/* Estilo - Cadastro */
+.TabelaQuadro2 {
+		border-top:0px solid #333333; 
+		border-left:0px solid #333333; 
+		border-right:0px solid #333333; 
+		border-bottom:0px solid #333333; 		
+		margin-top:0px;
+		margin-bottom:0px;			
+		font-family:arial,Helvetica;
+		font-size:8px;	
+		font-weight:bold;
+}
+.SubTitulo {font-size:9pt; font-family:arial; font-weight:bold; color:#000000; }
+.TabelaCamposObrig { background:#dc1818;  }
+
+/* Estilo - Capa */
+.TXTEstiloCapa { color:000000; font-size:8pt; font-family:arial; font-weight:none }
+.TXTEstiloTitCapa { color:000000; font-size:8pt; font-family:arial; font-weight:bold }
+.TXTEstiloTitCapa2 { color:000000; font-size:8pt; font-family:arial; font-weight:bold }
+.LEstiloTitCapa4 { font-size:14pt; font-family:arial; font-weight:bold; text-decoration:none }
+
+.TabelaCapa1 {
+		background:#fdfdfd;
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+		font-family:arial;
+		font-size:8px;	
+}
+.TabelaCapa2 {
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+}
+.TabelaCapa3 { background:#F4F4EF }
+.TabelaCapa4 { background:#fdfdfd }
+.TabelaBarra1 {
+		background:#E2E2E2;
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+		font-family:arial;
+		font-size:8px;	
+}
+.TabelaBarra2 {font-size:14px; font-family:arial, helvetica, sans-serif; color:#FFFFFF; font-weight: bold; background:#424242; text-decoration:none }
+.TabelaBarra3 {
+		background:#999999;
+}
+.TabelaBarra4 {
+		background:#E2E2E2;
+}
+.TabelaBarra5 {
+		background:#fdfdfd;
+}
+.TabelaBarra6 {	background:#D2D2D2; }
+.TabelaBarra7 {
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+}
+.TabelaBarra8 {
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-right:1px solid #000000;
+		border-left:1px solid #000000;
+}
+.TabelaBarra9 {	border-bottom:1px solid #000000 }
+.TabelaBarra10 {	border-bottom:1px solid #424242 }
+.TabelaBarra11 {	border-bottom:1px solid #000000; background:#fdfdfd }
+.TabelaBarra12 {
+		background:#F4F4EF;
+		border-bottom:1px solid #000000;
+		border-top:1px solid #000000;
+		border-left:1px solid #000000;
+		border-right:1px solid #000000;
+}
+.TabelaBarra13 {
+		background-image:url("##CaminhoDir##imagens/Pontilhado.gif");
+		background-repeat:repeat-x;
+		background-position:center;
+}
+.TabelaBarra14 {
+		border-top:1px solid #000000;
+}
+.TabelaBarra15 {
+		border-bottom:1px solid #000000;
+		background:1px solid #E2E2E2;
+}
+.TabelaBarra16 {
+		background:#E2E2E2;
+}
+.TabelaBarra17 {
+		font-size:14px; font-family:arial, helvetica, sans-serif; color:#000000; font-weight: bold; background:#DFDFDF; text-decoration:none;
+}
+.TabelaBarra18 {
+		background:#F5F5F5;
+}
+.TabelaBarra19 {
+		background:#DFDFDF;
+		border-bottom:1px solid #000000;
+}
+.TabelaBarra20 {
+		background:#DFDFDF;
+}
+
+
+/* Estilo - Enquete */
+.TXTEstiloEnquete { color:000000; font-size:7pt; font-family:arial; font-weight:none }
+.TXTEstiloTitEnquete { color:000000; font-size:7pt; font-family:arial; font-weight:bold }
+.TabelaEnquete1 { background:#fdfdfd;}
+.TabelaEnquete2 {	background:#fdfdfd }
+
+/* Formas Pagamento */
+
+.TituloPagto {
+	font-family: arial;
+	font-size: 11px;
+	color:  #333333;
+	background-color:#CCCCCC;
+	height:20px;
+	font-weight: bold;
+	padding-left:5px;
+}
+
+.TabelaPagto {
+	border:1px solid #999999;
+}
+
+.SubTituloPagto {
+	font-weight:bold
+}
+
+.SubSubTituloPagto {
+	color:#555;
+}
+
+
+/*  Estilo - Busca (Lista) */
+
+.FBuscaTexto { width:85px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:arial; color:#6C6C6C }
+.FBuscaTexto2 { width:85px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:arial; color:#6C6C6C }
+.FBuscaFabricante2 { width:130px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:arial; color:#6C6C6C }
+.FBuscaFabricante { width:130px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:arial; color:#6C6C6C }
+
+.FBuscaDepartamento { width:100px; border-color:#000000; border-width:1; border-style:solid; background-color:#ffffff; font-size:11; font-family:arial; color:#6C6C6C }
+
+.EstiloCorSubProduto {
+	border:1px #e3e3e3 solid;	
+}
+
+.EstiloComboCorSubProduto {
+	border:1px solid #e3e3e3;	
+}
+
+.MaisBuscados{overflow: hidden;}
+.MaisBuscadosA{overflow: hidden;}
+.tagCloud {padding:30px 50px 21px 20px; text-align:center;  font-size:62.5%; font-family: arial, verdana, freesans, garuda, helvetica, sans-serif; color: #666;}
+.tagCloud li { display: inline; vertical-align: middle; line-height: 1.1;}
+.tagCloud li a { color: #999; text-decoration:none}
+.tagCloud li a:hover { text-decoration: none; background-color: #999; color: #fff;}
+.tagCloud .level1 a{font-size: 12px;}
+.tagCloud .level2 a{font-size: 14px;}
+.tagCloud .level3 a{font-size: 18px;}
+.tagCloud .level4 a{font-size: 22px;}
+.tagCloud .level5 a{font-size: 26px;}
+.tagCloud .level6 a{font-size: 26px;}
+.tagCloud .level7 a{font-size: 28px;}
+.tagCloud .level8 a{font-size: 28px;}
+.tagCloud .level9 a{font-size: 28px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dotstore - Estilo Padrao */
+* {list-style:none; text-decoration:none; font-family:Arial, Helvetica, sans-serif; }
+ul,li,img {margin:0px; padding:0px; border:0px;}
+body {margin:0px; padding:0px;}
+*:focus {outline:none;}
+
+#DS_Estrutura {min-width:1004px; margin:0 auto;}
+
+/* Inicio Estrutura Outras */
+
+#DS_EstruturaTopo{width:100%; margin-bottom:10px;}
+#DS_EstruturaEsquerda{width:188px; float:left}
+#DS_EstruturaDireita{width:188px; float:right}
+#DS_EstruturaRodape{width:100%; clear:both; padding-top:20px;}
+
+
+	/* Classes padrões */
+	.DSL_FloatLeft 	{float:left;}
+	.DSL_FloatRight {float:right;}
+	.DSL_ClearBoth 	{clear:both; display:block; width:100%; height:1px; overflow:hidden;}
+	.DSL_MarginAuto {margin:0 auto;}
+	
+	/* Colores Primárias */
+	.corPrimaria,.corPrimaria a{background:#ff791d;color:#606060;}
+	.corSecundaria,.corSecundaria a{background:#ff791d;color:#FFFFFF;}
+	
+	/* Colores Secundárias */
+	.DSL_ColorBackground02 {background:#fff;}
+	.DSL_ColorTxt02 {color:#000;}
+	
+	/* Colores Terciárias */
+	.DSL_ColorBackground03 {background:#ff9137;}
+	.DSL_ColorTxt03 {color:#5F5F5F; display:block; /*text-align:center;*/}
+	
+	/* Colores Adicionais */
+	.DSL_ColorBackground04 {background:#9b9b9b;}
+	.DSL_ColorTxt04 {color:#FFFFFF; display:block; text-align:center;}
+	.DSL_ColorTxt05 {color:#5F5F5F;}
+	
+	
+ /* Estilos Layout */
+ #DSL_Logotipo {padding:15px 0 15px 36px; float:left;}
+ 
+ #DSL_Menutopo {padding:5px 0 5px 10px; display:block; float:right; background:#fafafa;}
+ #DSL_Menutopo li {padding:0 10px; display:block; float:left;}
+ #DSL_Menutopo li a {font-size:14px; background:none; }
+ 
+ #DSL_BarraTopo {height:34px; display:block;}
+ #DSL_BarraTopo form {width:407px; height:34px;}
+ #DSL_BarraTopo .FCampos {background:#fff; font-size:15px; font-style:italic; padding:0 10px; margin:0 10px;}
+ #BTexto {width:200px; height:15px; line-height:15px; border:solid 1px #e3e3e3; font-size:12px; font-family:arial; color:#6C6C6C; padding:2px; margin:5px 2px;}
+ #Departamentos {width:161px; border:solid 1px #e3e3e3; font-size:12px; font-family:arial; color:#6C6C6C; height:21px; padding:2px; margin:5px 2px;}
+ 
+ #DS_MenuBarraTopo {float:right; padding:7px 0px;}
+ #DS_MenuBarraTopo li {float:left; padding:0 16px;}
+ #DS_MenuBarraTopo li a {font-size:12px;}
+
+
+/* BarraEsquerda.htm */
+
+.DS_TituloEnquete {font-size:15px; color:#6b6b6b; padding-bottom:10px; padding-top:5px;}
+.DS_EnqueteContainer {display:table;}
+.DS_EnqueteResposta {font-size:13px; color:#6b6b6b; display:block; width:100%; clear:both;}
+.DS_EnqueteResposta span {padding:0 5px;}
+.DS_EnqueteVotar {float:left; margin-top:20px;}
+.DS_EnqueteResultado {float:right; margin-top:25px;}
+
+
+#DS_AreaClientes ul li a {padding-left:5px; color:#333; font-size:12px;}
+#DSL_LateralEsquerda {padding:0 5px;}
+
+	#menu-categorizacao {display:block; margin:0px 0px 10px 0px;}
+	#menu-categorizacao ul li {display:block;}
+	#menu-categorizacao ul li a {font-size:12px; -webkit-transition: all .1s linear;-moz-transition: all .1s linear;-o-transition: all .1s linear;transition: all .1s linear; font-weight:bold; color:#4b4b4b;}
+	#menu-categorizacao ul li a:hover {text-decoration:underline; -webkit-transition: all .1s linear;-moz-transition: all .1s linear;-o-transition: all .1s linear;transition: all .1s linear;}
+
+	#menu-categorizacao .ulsec {padding-bottom:5px;}
+	#menu-categorizacao .ulsec li a {font-size:12px; font-weight:normal;}
+	.DSL_BoxLaterais{font-size:16px;}
+	.DSL_BoxLaterais span.corSecundaria {padding:10px; display:block; text-align:center;}
+	.DSL_BoxLaterais span.DSL_ColorBackground04 {padding:10px; display:block; text-align:center;}
+	.DSL_BoxLaterais a{ color:#333; font-size:12px;}
+	.DSL_BoxLaterais a:hover{ color:#000;}
+	.DSL_ConteudoBoxLaterais {background:#fcfcfc; border:1px solid #e2e2e2; padding:13px; margin-bottom:10px; overflow:hidden;}
+	.DSL_ConteudoBoxLaterais a {font-size:12px; color:#4b4b4b;}
+
+
+/* Home.htm */
+#DSL_HomeGeral {padding:0 5px;}
+	#DSL_BannerCentral {text-align:center;}
+	#DSL_ContainerProdutos {display:table; padding:10px 0; width:100%;}
+	#DSL_ContainerProdutos ul li {float:left; width:33.3%; margin-bottom:25px; padding-bottom:25px; border-bottom:1px solid #e9e9e9;}
+		
+		.DSL_BlocoProdutos {width:170px; display:block; margin:5px auto; height:300px;}
+			.DSL_Lancamento {text-align:center; height:21px;}
+			.DSL_FotoProduto {width:170px; border:0px; height:140px; padding-top:10px; overflow:hidden; background:#fff; text-align:center; position:relative;}
+			.DSL_NomeProduto a {font-size:12px; line-height:11px; color:#4b4b4b; font-weight:bold;}
+			.DSL_ValorPor {font-size:13px; font-weight:bold; display:block; color:#363636;}
+			.DSL_ValorDe {font-size:12px; margin:7px 0 0 0; color:#363636; text-decoration:line-through;}
+		.DSL_BlocoProdutos .DSL_SubProduto {display:none; text-align:center;}
+			.DSL_Espiar {text-align:center; padding:5px 0px;}
+			.DSL_FreteGratis {text-align:center;}
+			.DSL_ValorParcelado {font-size:12px; color:#4b4b4b;}
+			.DSL_ValorParcelado span {color:#ff6800; font-weight:bold;}
+			.DSL_CarrinhodeCompras {padding:2px 0 0 0;}
+		
+		
+/* BarraDireita.htm */	
+#DSL_LateralDireita {padding:0 5px;}
+
+.DSL_Chat {margin:15px auto; width:100%; text-align:center;}
+
+.LIFabricantes {text-align:center; margin:20px 0px;}
+
+#ConteudoMaisVendidos span {font-size:12px; color:#666666; font-weight:bold; float:left; padding:0px 2px;}
+#ConteudoMaisVendidos a {font-size:12px; color:#666666; margin-bottom:10px; display:block; margin-left:15px;}
+#ConteudoMaisVendidos a:hover {color:#666666; text-decoration:underline;}
+		
+		
+/* Produtos.htm */
+
+.DSL_ProdutosListaGeral{margin:0 auto; width:99%;}
+
+.DSL_BarraMigalha{background:#f6f6f6; width:100%; height:36px; border:1px solid #e3e3e3; text-align:left; line-height:36px; margin-bottom:15px; }
+.DSL_Migalha{margin-left:10px; float:left;}
+
+.AMigalha:link {color:#363636; font-size:12px; }
+.AMigalha:visited {color:#363636; font-size:12px; }
+.AMigalha:hover {color:#363636; font-size:12px; text-decoration:underline; }
+.AMigalha:active {color:#363636; font-size:12px; }
+
+.AMigalhaAtivo:link {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+.AMigalhaAtivo:visited {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+.AMigalhaAtivo:hover {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+.AMigalhaAtivo:active {color:#363636; font-size:16px; text-decoration:underline; font-weight:bold; }
+
+.DS_OrdenarPor{width:290px;  margin-right:5px; float:right; }
+.DS_OrdenarPor span{float:left; font-size:12px; color:#828181; margin-left:12px;}
+.DS_CampoOrdenar{padding:0px; float:right;}
+.DS_CampoOrdenar select{font-size:12px; color:#828181; font-family:Arial; position:relative; top:-2px; margin-right:5px;}
+.DS_CampoOrdenar div {float:left;}
+.DS_BuscaInputIMG {padding-top:4px;}
+
+#DSL_ColunaPaginacao {color:#363636; text-align:center; font-size:13px;}
+#DSL_ColunaPaginacao span.DSL_paginacao{margin-left:15px;}
+.TXTPaginacao {text-decoration:none; color:#363636;}
+.TXTPaginacaoAtual {text-decoration:none; color:#363636;}
+.TXTAtivoPaginacao {font-weight:bold; color:#363636;}
+
+.DSL_BlocoListaProd{width:100%; min-height:159px; height:159px; margin:0 auto; border-bottom:1px solid #e9e9e9; padding-top:20px; margin-bottom:10px;}
+html>body #BlocoListaProd {
+height: auto;
+} 
+
+.DSL_IMGListaProd{width:200px; height:auto; text-align:center; float:left;}
+.DSL_DescricaoListaProd{margin:0 220px 0 200px; text-align:left;}
+.DSL_ValoresListaProd{width:190px; height:auto; float:right; text-align:left;}
+
+.DSL_NomeListaProd{min-height:37px; height:37px; font-size:15px; color:#5f5f5f;}
+html>body .NomeListaProd {
+height: auto;
+} 
+.DSL_NomeListaProd a{color:#4b4b4b; text-decoration:none; font-weight:bold;}
+.DSL_NomeListaProd a:hover{color:#4b4b4b; text-decoration:underline;}
+
+.DSL_DescricaoCurtaListaProd{font-size:11px; color:#666666; margin:10px 0px;}
+
+.DSL_MaisProdutos{font-size:14px; color:#6e6e6e; margin:10px 30px 0 0;}
+.DSL_MaisProdutos a{text-decoration:underline; color:#6e6e6e; font-size:12px;}
+.DSL_MaisProdutos a:hover{text-decoration:underline;}
+
+.DSL_FabricanteListaProd{font-size:11px; color:#666666; margin-bottom:20px;}
+.DSL_FabricanteListaProd a{font-size:11px; color:#666666; margin-bottom:20px;}
+.DSL_FabricanteListaProd a:hover{font-size:11px; color:#666666; text-decoration:underline;}
+.DSL_ValorPorListaProd{font-size:14px; color:#363636; font-weight:bold; margin:3px 0;}
+
+.DSL_SubProduto{margin:15px 0;}
+#DSL_TitTextoSubProduto{font-size:12px; margin-bottom:2px; display:block;}
+.DSL_SubProduto select{width:134px; padding:5px; font-size:15px; color:#333; background-color:#fff; border:1px solid #ccc; height:30px; }
+
+.DSL_Lancamento{text-align:center; margin-bottom:5px; height:21px;}
+.DSL_BtComprarListaProd{margin-top:5px;}
+
+
+/* -----NEWS----- */
+#DSL_Newsletter{ position:relative;}
+#DS_FormularioNews input{ padding:3px; border:1px solid #ccc; margin:8px 0 0 0; width:85%; color:#333333;}
+#DS_FormularioNews #DS_BtRadio {float:left;}
+#DS_FormularioNews #DS_BtRadio input{ width:auto; height:auto; position:relative; top:2px; margin-right:5px; border:0px;}
+#DS_FormularioNews #DS_BtRadio span{ font-size:10px; color:#333;}
+#DS_FormularioNews #DS_BtOkNews{float:right; margin-right:14px; margin-top:8px;}
+	
+		
+/* BarraRodape.htm */
+#DSL_Tags {width:99%; margin:10px auto; border:solid 1px #ededed; text-align:center; padding-bottom:10px;}
+	#DSL_TitleTags {display:block; margin:1px; margin-bottom:20px; background:#ededed; font-size:16px; padding:5px; font-weight:bold; text-align:left; color:#5f5f5f}
+	#DSL_Tags a {color:#5f5f5f;}
+	#DSL_Tags a:hover {background:#5f5f5f; color:#fff;}
+
+.DSL_ColorTxt01 {color:#333;}
+	.DSL_Rodape {width:100%; background:url(../imagens/BgRodape.jpg) repeat-x #fff; display:table; padding:30px 0;}
+	.DSL_RdpLinks {width:66%;}
+	.DSL_BoxsRodape {float:left; padding:10px;display:block; font-size:11px; width:30%;}	
+	.DSL_BoxsRodape span {font-weight:bold; font-size:16px; display:block; padding-bottom:10px;}
+	.DSL_BoxsRodape ul li {display:block; padding:2px 0px;}
+	.DSL_BoxsRodape a {font-size:12px;}
+	.MenuRodapeNormal {color:#5F5F5F;}
+	
+	.DSL_RdpPagamentoSelo {padding:0 10px;}
+	.DSL_RdpPagamentoSelo .DSL_BoxsRodape {width:100%; padding:0px;}
+	.DS_FormaPagtoIC ul {display: table; clear: both; height: auto;}
+	.DS_FormaPagtoIC ul li {height: auto; margin-right: 5px; border: none; float:left;}
+	.DSL_RdpSeguranca {margin-right:35px;}
+	.DSL_RdpSeguranca span {font-weight:bold; font-size:16px; display:block; padding-top:20px; padding-bottom:5px;}
+	
+	
+	
+/* ProdutoDetalhes.htm */
+
+#DSL_ProdutoDetalhesGeral{width:99%; height:auto; display:table; margin:0 auto;}
+
+.DSL_Referencia{font-size:11px; color:#707070; margin-right:30px;}
+.DSL_Avaliacao a{font-size:11px; color:#565656; text-decoration:none;}
+.DSL_Avaliacao a:hover{text-decoration:underline;}
+
+.DSL_ColunaFoto{float:left; width:265px; height:auto; text-align:left; background-color:#f5f5f5; border:1px solid #eaeaea;}
+.DSL_ColunaDescricao{margin-left: 285px; height:auto; text-align:left;}
+
+.DSL_ConteudoDesc{width:100%;}
+.DSL_BoxValoresComprar{width:100%; height:auto; background-color:#fff; border-top:1px solid #e9e9e9; border-bottom:1px solid #e9e9e9; display:table; padding:20px 0 0 0; margin:15px 0 15px 0;}
+.DSL_Valores .DSL_ValorDe, .DSL_Valores .DSL_ValorPor, .DSL_Valores .DSL_ValorParcelado {font-size:14px;}
+.DSL_Valores{width:60%; margin-left:10px; float:left; text-align:left; margin-bottom:15px;}
+.DSL_BtComprar{float:right; text-align:right;}
+
+.DSL_FotoAmpliada{width:192px; height:auto; margin:0 auto; margin-top:25px; margin-bottom:10px; *margin-left:35px;}
+.DSL_FotoAmpliada img {width:192px;}
+.DSL_BtAmpliarProdDetalhe{height:auto; margin:0 auto; margin-bottom:20px; text-align:center;}
+.DSL_FotosProdDetalhe{height:auto; margin:0 auto; margin-top:5px; text-align:center;}
+
+.DSL_ImgFabricante{margin-bottom:10px;}
+.DSL_NomeDescricao{font-size:20px; font-weight:bold; color:#4b4b4b; margin-bottom:5px;}
+
+.DSL_PrazoEntrega{border-top:1px solid #e9e9e9; clear:both; height:44px; font-size:12px; line-height:44px; padding-top:5px;}
+.DSL_PrazoEntrega span {float:left; display:block; margin-right:5px;}
+.DSL_PrazoEntrega span.DSL_BtAdicional {padding-top:5px;}
+
+.DSL_BtExtras{height:37px; margin:0 0 20px 0; text-align:center; background-image:url(../imagens/bg_links_extras.gif); background-repeat:repeat-x; }
+.DSL_BtExtras span{margin-right:19px;}
+
+.DSL_RedesSociais{height:auto; padding:15px 0 15px 0; text-align:right; float:right;}
+.DSL_RedesSociais span{float:left; margin-right:5px; width:100px; display:block;}
+
+.DS_Parcelamento{width:100%; height:auto; margin:0 auto; clear:both;}
+.DS_Parcelamento p{height:auto; margin:10px auto; font-weight:bold; font-size:13px; color:#666;}
+.DS_Parcelamento fieldset{margin:0px; padding:0px;}
+#DS_pagtotabnav{margin:0 auto; margin-bottom:5px;}
+#DS_pagtotabs{background-color:#F7F7F7; height:35px;}
+#DS_pagtotabs a{color:#999; display:block; float:left; font-size:14px; font-weight:bold; margin-right:5px; padding:5px 10px; border:1px solid #d4d4d4; border-bottom:none; height:25px; line-height:25px; position:relative;}
+#DS_contenttabs{border:1px solid #d4d4d4; padding:10px; font-size:12px; text-align:left; background-color:#fff; margin-top:-1px;}
+#DS_contenttabs .DS_pag {width:100%; display:table;}
+#DS_contenttabs .DS_pag li {float:left; margin-right:20px; padding-bottom:5px; width:23%; list-style:none;}
+
+#DSL_BlocodeDescricoes{height:auto; margin:0 auto; clear:both; margin-top:20px;}
+#DSL_BlocodeDescricoes #DSL_BoxAbas{width:100%;}
+#DSL_BlocodeDescricoes #DSL_Abas{background-color:#FFFFFF; height:35px;}
+#DSL_BlocodeDescricoes #DSL_Abas a{color:#999; display:block; float:left; font-size:14px; font-weight:bold; margin-right:5px; padding:5px 10px; border:1px solid #d4d4d4; border-bottom:none; height:25px; line-height:25px; position:relative;}
+#DSL_BlocodeDescricoes #DSL_ConteudoAbas{border:1px solid #d4d4d4; padding:10px; font-size:12px; text-align:left; background-color:#f7f6f6; margin-top:-1px;}
+
+.DSL_Aproveite{width:100%; height:auto; margin:0 auto; clear:both; padding-top:30px;}
+.DSL_Aproveite h3{margin:0; padding:0px; width:100%; font-size:21px; font-weight:bold; color:#4b4b4b; text-align:left; margin-bottom:20px; }
+.DSL_BlocoProdutoAproveite{width:170px; display:block; margin:5px auto; height:300px;}
+.DSL_Aproveite ul li {float:left; width:33.3%; margin-bottom:25px; padding-bottom:25px; border-bottom:1px solid #e9e9e9;}
+html>body #DSL_BlocoProdutoAproveite {
+height: auto;
+}
+
+.DSL_QuemComprou{width:100%; height:auto; margin:0 auto; clear:both; padding-top:30px;}
+.DSL_QuemComprou h3{margin:0; padding:0px; width:100%; font-size:21px; font-weight:bold; color:#4b4b4b; text-align:left; margin-bottom:20px; }
+.DSL_BlocoProdutoQuemComprou{width:170px; display:block; margin:5px auto; height:300px;}
+.DSL_QuemComprou ul li {float:left; width:33.3%; margin-bottom:25px; padding-bottom:25px; border-bottom:1px solid #e9e9e9;}
+html>body #DSL_BlocoProdutoQuemComprou {
+height: auto;
+}
+
+.DSL_CompreJunto{width:100%; height:auto; margin:0 auto; clear:both; padding-top:30px;}
+.DSL_CompreJunto h3{margin:0; padding:0px; width:100%; font-size:21px; font-weight:bold; color:#4b4b4b; text-align:left; margin-bottom:20px; }
+.DSL_ProdutosVendaCasada select{width:134px; padding:5px; font-size:15px; color:#333; background-color:#fff; border:1px solid #ccc; height:30px; }
+
+
+/* ---------------------------------- CARRINHO ---------------------------------- */
+
+.CarrinhoTit {font-size:11px; color:#909090; font-weight: bold; background: url(../imagens/FundoTopCarrinho.gif) repeat-x; text-decoration:none; height:34px;text-align: center;}
+.CarrinhoItem {font-size:11px; font-family:arial; text-decoration:none; background-color:#fdfdfd }
+.CarrinhoTotal {font-size:11px; font-family:arial; text-decoration:none; background-color:#f3f3f3 }
+.CarrinhoValor {font-size:11px; font-family:arial; text-decoration:none }
+.CarrinhoValorTotal {font-size:18px; font-weight:bold; font-family:arial; text-decoration:none }
+.CarrinhoProduto {font-size:11px; font-family:arial; text-decoration:none;}
+.CarrinhoFundoProduto {font-size:11px; font-family:arial; text-decoration:none; color:#666;}
+.CarrinhoFundoProduto div {text-align:center;}
+.CarrinhoAdicional {font-size:11px; text-decoration:none; background-color:#fdfdfd; color:#666666;}
+.CarrinhoAdicional tr td {color:#666666;}
+FundoTopo { background:#582f03; }
+#tbProduto{border:1px solid #d6d6d6; border-bottom:none;}
+#TbCepFreteCalcT{background: url(../imagens/FundoTopCarrinho.gif) repeat-x; border:1px solid #d6d6d6; border-top:none;}
+#TbCepFreteCalcT br {height:50px;}
+#ValorFrete{font:16px Arial, Helvetica, sans-serif; color:#909090; }
+#TbCepFreteCalcT td table#TableCEP{margin-top:-19px;}
+#CarrinhoCross{border:1px solid #d6d6d6; background:#f9f9f9}
+#CarrinhoCross tr tr table{background:#FFF; margin-bottom:2px;}
+.TituloCep{font-size:12px; color:#666;}
+.StrCarrinhoValorTotal {font-size:12px; color:#666;}
+.CarrinhoProduto {color:#333;}
+.CarrinhoProduto a {font-size:12px; color:#333;}
+.CarrinhoFundoProduto .FCampos {background:#F5F5F5; border:1px solid #B6B5B5; color:#6C6C6C; font-size:12px; height:15px; margin-top:-2px;}
+#TableCEP .FCampos {background:#F5F5F5; border:1px solid #B6B5B5; color:#6C6C6C; font-size:12px;}
+.TabBotoes img {margin-left:5px;}
+#DS_TbCarrinho {width:98%;}
+.DS_TitImgCarrinho tr td {text-align:center;}
+#TabelaValeSinal .FCampos {background:#F5F5F5; border:1px solid #B6B5B5; color:#6C6C6C; font-size:12px;}
+
+.FCampos {font-size:12px;}
+
+/* ---------------------------------- FIM CARRINHO ---------------------------------- */
+
+.DSL_RdpCanais {width:550px;}
+
+.DS_FormaPagtoIC ul {
+display: table;
+clear: both;
+height: auto;
+width:318px;
+}
+.DS_FormaPagtoIC ul li {height: auto;
+padding-right: 1px;
+margin-right: 2px;
+border: none;}
+.DS_BtRadio input{ border:0;}
+.DS_BuscaIMG{ position:relative; top:-4px;}
+
+
+.ulcat,.ulsubcat {padding-left: 10px;}

@@ -1,0 +1,501 @@
+<script type="text/javascript" src="https://www.dotstore.com.br/dotstore/inc/extras/jquery.min.js"></script>
+<script type="text/javascript">
+function ValidaSexo()
+{
+	if (document.getElementById('BotSexoMasc').checked == true || document.getElementById('BotSexoFem').checked == true)
+	{
+		Validacao();
+	}
+	else
+	{
+		alert('Preencha o sexo');
+	}
+}
+
+	$(document).ready(function ()
+    {
+		$(".DSL_IMGListaProd img").removeAttr("width");
+		$(".DSL_FotoProduto img").removeAttr("width");
+		if ($('.DS_EstruturaDireita').html() == "") {
+			$('.DS_EstruturaCorpo').addClass('DS_Destrava');
+		}else {
+			$('.DS_EstruturaCorpo').addClass('DS_Trava');
+		}
+		_menu = getParam("Menu") != undefined ? getParam("Menu") : '';
+		_menuf= location.href.split('/')[3];
+		_menug= location.href.split('/')[5];
+		//$("div.DS_EstruturaDireita").css({'margin-top':'-35px'});
+		switch(_menug){
+			case "Quem-somos":
+			case "Perguntas-frequentes":
+			case "Como-comprar":
+			case "Trocas-e-devolucoes":
+			case "Politica-de-Privacidade":
+			case "Garantia":
+			case "Prazos-de-Entrega":
+			case "Trabalhe-conosco":
+				$("div.DS_EstruturaDireita").css({'margin-top':'-35px'});
+			break;
+		}
+		switch(_menuf)
+		{
+			case "indique-a-loja":
+				$("div.DS_EstruturaCorpo > table").css({'float':'left','width':'530px'});
+				$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr > td > table:first').css('width','530px');
+				$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr > td > table:first > tbody > tr > td > table').css('width','530px');
+			break;
+			case "lista-de-casamento":
+       			$('div.DS_EstruturaCorpo > table').css({'width':'530px','float':'left'}).children().children().children().children('table:first').children().children().css('width','530px');
+       		break; 
+       		case "lista-de-desejos":
+       			$('div.DS_EstruturaCorpo > table').css({'width':'530px','float':'left'}).children().children().children().children('table:first').children().children().css('width','530px');      		
+       		break;
+       		case "busca":
+       			$("div.DS_EstruturaCorpo > table").css('float','left');
+       		break;
+       		case "noticias":
+       			$("div.DS_EstruturaCorpo > table").css({'float':'left','width':'530px'});
+       		break;
+       		case "comprove-seu-pagamento":
+       			$("div.DS_EstruturaCorpo > table").css({'float':'left','margin':'0'});
+       		break;
+       		case "fale-conosco":
+       		_table = $(".DS_EstruturaCorpo").children("table")[0];
+			$(_table).css({'float':'left'});
+       		break;
+       		case "boletim":
+       			$("div.DS_EstruturaCorpo > table").css('float','left');
+       		break;
+		}
+        
+        
+        
+        
+        
+        
+        switch(_menu)
+        {
+			case "LembrarSenha":
+				alert(_men);
+				$("body").css({'background':'#FFF'});
+				$(".TTabelaTopo").css({'background':'none'});
+				break;
+			case "Links":
+				$("div.DS_EstruturaDireita").css({'margin-top':'-205px'});
+				break;
+            case "Carrinho":
+                $("td.CarrinhoTit:first").css({"border-radius":"10px 0 0 0"});
+				$("fieldset#Frete > label.Texto:first").append("7 a 10 dias úteis");
+				$("fieldset#Frete > label.Texto:nth-child(6)").append("1 a 3 dias úteis");
+				$("table#DS_TbCarrinho > tbody > tr:first").css({'width':'745px','display':'block'});
+				$("table#DS_TbCarrinho > tbody > tr:nth-child(2)").css({'width':'745px','display':'block'});
+				$("table#DS_TbCarrinho > tbody > tr:nth-child(3)").css({'width':'745px','display':'block'});
+				$("td.CarrinhoAdicional > table > tbody > tr:nth:child(3)").css({'float':'left','margin-left':'23px','display':'block'});
+                $("table#DS_TbCarrinho > tbody > tr:nth-child(3) > td#CarrinhoCross > table > tbody > tr:first").css({
+					'display': 'block',
+					'font-size': '16px',
+					'margin-left': '15px',
+					'padding-left': '12px',
+					'padding-top': '2px',
+					'text-align': 'left',
+					'width': '690px'
+				})
+				$("table#DS_TbCarrinho > tbody > tr:nth-child(3) > td#CarrinhoCross > table > tbody > tr:nth-child(2)").css({
+					'float': 'left',
+    				'width': '745px',
+					'display':'block'
+				});
+				$("table#DS_TbCarrinho > tbody > tr:nth-child(3) > td#CarrinhoCross > table > tbody > tr:nth-child(2) td").css({
+					'width':'100%',
+					'display':'block'
+				})
+				break;
+			case "FaleConosco":
+				$("div.DS_EstruturaCorpo > table").css({'float':'left','width':'540px'});
+				$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:first").css({'width':'540px'});
+				$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table").css({'width':'540px'});
+				$("table#TabFaleConoscoTag > tbody > tr > td.TXTNomeCamposObrig").removeAttr("width");
+				$("td.TXTNomeCampos").attr("align","left");
+				$("td.TXTNomeCamposObrig").attr("align","left");
+				$("textarea#Mensagem").attr("cols","75");
+				$("textarea#Mensagem").attr("rows","11");
+				$("table#TabFaleConoscoTag").attr("align","left");
+				break;	                        
+        	case "CestasAbandonadasDet":
+        		$('.DS_EstruturaCorpo > table').css({'width':'530px','float':'left'});
+				$(".DS_EstruturaCorpo > table > tbody > tr > td > table:first").css('width','530px');
+				$(".DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table").css('width','530px');
+        	break;
+        	case "EnderecoAlt":
+        		$('.DS_EstruturaCorpo > table').css({'width':'735px','float':'left'});
+        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table').css('width','735px');
+        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr:first > td > table').css('width','735px');
+        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr:first > td > table > tbody > tr:nth-child(2) > td > table').css('width','735px');
+        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr:first > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td > table').css('width','735px');
+        	break;	        			
+        	case "PedidoDetalhes":
+        		$('.DS_EstruturaCorpowrap').children().find('tr:first-child').eq(0).remove();
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(2)').css('margin','0').children().children().children().children().css('width','735px');
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(3)').css({'margin':'0','width':'735px'});
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(3)').css({'height':'40px'});
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(3) > td:first > table').attr('style','width:auto !important').css({'width':'auto !important'});
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr.CarrinhoFundoProduto > td:first').css('width','735px');
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6)').children().children('tr:nth-child(2)').children().attr('align','center');        		
+        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(3) > td:first').css({'float':'none','vertical-align':'middle'}).next().css({'float':'none','vertical-align':'middle','text-align':'center'});
+       			$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(4) > td:nth-child(2)').css({'text-align':'center'});
+       			$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(5) > td:first').css({'float':'none','padding-top':'25px'}).next().css({'float':'none','text-align':'center','padding-top':'25px'});
+       		break;      		
+       		case "CestasAbandonadas":
+       			$("div.DS_EstruturaCorpo > table").css({'width':'530px','float':'left'});
+       			$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table").css({'width':'530px','float':'left'});
+       			$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2) > tbody > tr").each(function(){$(this).children().css({'width':'530px'});})
+       			$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table").css({'width':'530px'});      			
+       		break;     		
+            case "Cadastro":
+                _act = getParam("Act") != undefined ? getParam("Act") : '';
+                _ultimo = $(".DS_EstruturaCorpo > table:first > tbody > tr:last > td > table > tbody > tr")[1];
+                $(_ultimo).remove();
+                _segundo = $(".DS_EstruturaCorpo > table:first > tbody > tr:last > td > table > tbody > tr:first > td > table > tbody > tr")[1];
+                $(_segundo).remove();
+                $(".DS_EstruturaCorpo table:first tbody tr:first").remove();
+                $("#CamposObrigCPF").parent().next().find('.TXTNomeCamposObrig').next().prepend('<span style="float:left">Necess&aacute;rio para emiss&atilde;o da nota fiscal</span>');
+                $(".TXTNomeCamposObrig").css({'color':'red'});
+                $(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr").eq(1).children('td').css({'width':'610px !important'});
+				$(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr").eq(2).children('td').children('table').eq(1).css({'width':'731px !important'}).children().children().children('td').eq(1).css({'margin-top':'25px','float':'left'});
+				if(_act=='Cadastrar' || _act == 'Cadastrar#'){
+					$("#RG").removeAttr('onchange').removeAttr('onblur').val('0000000000');
+					$("#CamposObrigRG").removeAttr('class').removeAttr('id').parent().hide();
+					$(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr").eq(2).children('td').children('table').eq(1).css({'width':'731px !important'}).children().children().children('td').eq(1).css({'margin-top':'63px','float':'left'});
+				}
+                _cadpag = getParam('PGRetorno');
+                if(_cadpag == "Pagamento" || _cadpag == "Pagamento#")
+                {
+                   $(".DS_EstruturaCorpo > table:first > tbody > tr > td > table > tbody > tr:first > td > table > tbody > tr:nth-child(2) > td").removeAttr("align").find("table > tbody > tr > td:first").remove(); 
+                }
+				$("table#TBTitCad1Tot > tbody > tr:nth-child(4)").css({'float':'right'});
+				$("table#TBTitCad1Tot > tbody > tr:nth-child(5)").css({'float':'left','margin-top': '-2px','width': '200px'});
+				$("table#TBTitCad1Tot > tbody > tr:nth-child(2)").css({'display':'none'});
+				$("table#TBTitCad3Tot > tbody > tr:nth-child(4)").css({'float':'right'});
+				$("table#TBTitCad3Tot > tbody > tr:nth-child(5)").css({'float':'left','margin-top': '-2px','width': '200px'});
+				$("table#TBTitCad3Tot > tbody > tr:nth-child(5) > td").css({'text-align':'right'});
+				$("table#TBTitCad3Tot > tbody > tr:nth-child(2)").css({'display':'none'});
+				$("table#TBTitCad1Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:first > td:nth-child(2) > table > tbody > tr > td:first > input.FCampos").css({'width':'220px'});
+				$("table#TBTitCad1Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td:nth-child(2) > input.FCampos").css({'width':'220px'});
+				$("table#TBTitCad3Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:first > td:nth-child(2) > table > tbody > tr > td:first > input.FCampos").css({'width':'220px'});
+				$("table#TBTitCad3Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td:nth-child(2) > input.FCampos").css({'width':'220px'});
+              //  $(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr:nth-child(2)").css('float','left');
+			    $("input#Prof").parent().parent().parent().parent().parent().parent().attr("style","visibility:hidden;");
+				$("div#TipoCPF > table.FundoBorda > tbody > tr:first > td:last").attr("width","50%");
+				
+				if (_act == 'Cadastrar' || _act == 'Cadastrar#')
+				{
+					/*
+					if ($("input#Pais").val() == '')
+					{
+						$("input#Pais").val('Brasil');
+					}
+					$("input#Pais").parent().parent().parent().parent().parent().parent().attr("style","visibility:hidden;");
+					*/
+					$("input#Nome").parent().parent().parent().parent().parent().parent().children("td:first").html("Nome Completo: &nbsp;");
+					$("input#Nome").attr("size","45");
+					$("td#DataNascDotCad").html("Data Nascimento: &nbsp;");
+					
+					$("input#Nome").attr("tabindex","1");
+					$("input#BotSexoFem").attr("tabindex","2");
+					$("input#BotSexoMasc").attr("tabindex","3");
+					$("input#Data").attr("tabindex","4");
+					$("input#CPF").attr("tabindex","5");
+					$("input#CEP").attr("tabindex","6");
+					$("input#News").attr("tabindex","7");
+					$("input#Endereco").attr("tabindex","8");
+					$("input#Numero").attr("tabindex","9");
+					$("input#Complemento").attr("tabindex","10");
+					$("input#Referencia").attr("tabindex","11");
+					$("input#Bairro").attr("tabindex","12");
+					$("input#Cidade").attr("tabindex","13");
+					$("input#Estado").attr("tabindex","14");
+					$("input#Pais").attr("tabindex","15");
+					$("input#DDD").attr("tabindex","16");
+					$("input#Telefone").attr("tabindex","17");
+					$("input#Ramal").attr("tabindex","18");
+					$("input#DDDFax").attr("tabindex","19");
+					$("input#Fax").attr("tabindex","20");
+					$("input#RamalFax").attr("tabindex","21");
+					$("input#DDDCel").attr("tabindex","22");
+					$("input#Celular").attr("tabindex","23");
+					$("input#Senha").attr("tabindex","24");
+					$("input#ConfirmaSenha").attr("tabindex","25");
+					
+					$("input#BotSexoMasc").removeAttr("checked");
+					$("input#BotSexoFem").removeAttr("checked");
+					$("input#Sexo").attr("value","-1");
+					
+					$("div.DS_EstruturaCorpo > table:last > tbody > tr > td:last").html("<a href='#' onclick='ValidaSexo();'><img src='imagens/BotContinuar.gif' align='absbottom' border='0' hspace='5'></a>");
+					//$("div.DS_EstruturaCorpo > table:last > tbody > tr > td:last > a").attr("href","$");
+				}
+                break;
+            case "PedidosListaBusca":
+            $('.DS_EstruturaCorpo > table').css('float','left');
+            $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','735px');
+            $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table').css('width','735px');
+            $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table > tbody > tr > td:first').attr("style","float:left;width:570px !important;border-bottom:1px solid #013F5E");           
+            break;
+            case "PedidosBusca":
+                _pedidosBusca = $("table[name='TabTitProd'] > tbody > tr > td > table > tbody > tr > td:last > table");
+                $(_pedidosBusca).css({"padding-left":"20px"});
+                $('.DS_EstruturaCorpo > table').css({'width':'735px','float':'left'});
+                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first').css('width','735px');
+                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table').css('width','530px');
+                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table > tbody > tr > td:first').attr("style","float:left;width:570px !important;border-bottom:1px solid #013F5E")
+              break;
+            case "Desejos":
+            case "ListaDesejosIns":
+                _table = $(".DS_EstruturaCorpo").children("table")[0];
+			    $(_table).css({'float':'left'}).css({'width':'540px'});
+                _div = $("span.TextTahoma11Cinza").parent();
+                _td = (_div).parent().removeAttr("width").parent().children("td")[1];
+                $(_td).removeAttr("width").css("min-width","30px");
+                $("div.DS_EstruturaCorpo > table").css({});
+                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','540px');
+                break;
+            case "AltListaDesejos":
+                _table = $(".DS_EstruturaCorpo").children("table")[0];
+                $(_table).find("tbody > tr > td > table[name='TabTitProd']").css('width','540px');
+			    $(_table).css({'float':'left'}).css({'width':'540px'});
+                _div = $("span.TextTahoma11Cinza").parent();
+                _td = (_div).parent().removeAttr("width").parent().children("td")[1];
+                $(_td).removeAttr("width").css("min-width","30px");
+                $("div.DS_EstruturaCorpo > table").css({})
+                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','540px');
+                break;
+            case "ConsListaDesejos":
+                _table = $(".DS_EstruturaCorpo").children("table")[0];
+			    $(_table).css({'float':'left'}).css({'width':'540px'});
+                _div = $("span.TextTahoma11Cinza").parent();
+                _td = (_div).parent().removeAttr("width").parent().children("td")[1];
+                $(_td).removeAttr("width").css("min-width","30px");
+                $("div.DS_EstruturaCorpo > table").css({})
+                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','735px');
+                break;
+            default:
+                _table = $(".DS_EstruturaCorpo").children("table")[1];
+			    $(_table).css({'float':'left'}).css({'width':'540px'});
+                break;
+        }
+        
+        $("a#seloEbit").attr("href","http://www.ebit.com.br/rateloja.asp?PnumNUmEmpresa=31411");
+        
+	});
+	$(function() {
+		$('#DS_EstruturaCorpo table:eq(0)').css({'margin':'0 auto','width':'1000px','background':'#FFF'});
+		$('td').each(function() {
+			if ($(this).attr('style')=='border-bottom: solid 4px #9C9C9C;') {
+				$(this).css({'position':'relative', 'top':'-3px'});
+			}
+		});
+		_menu = getParam("Menu") != undefined ? getParam("Menu") : '';
+		switch(_menu)
+		{
+			case "Pagamento":
+			case "PagamentoMl":
+			$("#DSL_LateralDireita").css("display", "none");
+            $("table#tbProduto").css("background","none");
+            $("tr.CarrinhoFundoProduto,td.CarrinhoFundoProduto").css("background","#F7F5EE");
+            $("td.CarrinhoAdicional").css({"background":"#FFF"});
+            $("td.CarrinhoTit:first").css({"border-radius":"10px 0 0 0"}).parent().css({"background":"#FFF"});
+            $("td.CarrinhoTit:last").css({"border-radius":" 0 10px 0 0"});
+            $("td.CarrinhoFundoProduto:last").css({"border-radius":" 0 0 10px 10px","background":"none no-repeat scroll 0 0 #F7F5EE"}).parent().css({"background":"#FFF"});
+            $(".CarrinhoTotal > table").css("background","url('http://www.importadoagora.com.br/imagens/fundotabelapagamento.png') no-repeat scroll 0 -1px transparent");
+			$("label#ValorFrete").css({'padding-right':'10px'});
+            $("label#ValorTotal").css({'padding-right':'10px',"color":"#FFF"});
+       		_trValorFrete = $("tr#TRValorFreteTBA");
+            $(_trValorFrete).find("td:nth-child:first").css("color","#FFF");
+            $(_trValorFrete).parent().find("tr:nth-child(3) > td:nth-child(1)").css("color","#FFF");
+            $("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first").css({'background':'none'});
+			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first > td").css({'float':'left','padding-top':'6px'}).removeAttr('width');
+			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first > td:nth-child(2) > strong > label").css({'color':'#333'});
+			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(7)").prepend("<div class='escolhapagamento'>Escolha o meio de pagamento e pague em ambiente seguro</div>");
+			$("table.TbPagtoSel28 > tbody > tr:nth-child(2) > td:nth-child(1)").css({'width':'100%'});
+			//$("table.TbPagtoSel28 > tbody > tr:nth-child(3)").css({'color': '#FFFFFF','margin-top': '76px','position': 'absolute','right': '53px'});
+			$("table.TbPagtoSel28 > tbody > tr:nth-child(3) > td").css({'color': '#FFFFFF'});
+			//$("table.TbPagtoSel28 > tbody > tr:nth-child(6) > td").css({'border-bottom': '2px solid #386335'});
+			//$("table.TbPagtoSel28 > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
+			$("table.TbPagtoSel20 > tbody > tr:nth-child(2) > td:nth-child(1)").css({'width':'100%'});
+			//$("table.TbPagtoSel20 > tbody > tr:nth-child(4)").css({'color': '#FFFFFF','margin-top': '4px','position': 'absolute','right': '53px'});
+			$("table.TbPagtoSel20 > tbody > tr:nth-child(4) > td").css({'color': '#FFFFFF'});
+			//$("table.TbPagtoSel20 > tbody > tr:nth-child(6) > td").css({'border-bottom': '2px solid #386335'});
+			//$("table.TbPagtoSel20 > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
+			/*if($("table.TbPagtoSel28:first > tbody > tr:nth-child(4) > td > img").length != 0){
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(5)").css({'float':'none','margin-top':'0'});
+			}else{
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'none','margin-top':'0'});
+			}*/
+			//$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
+			/*$("table.TbPagtoSel20:last > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
+			$("table.TbPagtoSel28:last > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-70px'});*/
+       		$('td[width="133"]').each(function(){
+				$(this).next().remove();
+			})
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last").css({"font-weight":"bold"});
+            //AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '110', '300');
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
+            {
+                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
+            });
+            
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
+            {
+                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
+            });
+            
+			//Bold font
+			$("input#Numero").parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().attr("style","font-weight: bold;");
+			
+			//Divisao da imagem de segurança
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.jpg'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.jpg'></a></div>");
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.jpg'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.jpg'></a></div>");
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.jpg'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.jpg'></a></div>");
+			
+			
+			//Início Alterações 26/07/2012 - Formas de pagamento
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Visa.jpg');
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Mastercard.jpg');
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Elo.jpg');
+			
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:nth-child(2)").css({'font-size':'16px'});
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:nth-child(2)").css({'font-size':'16px'});
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first >td:nth-child(2)").css({'font-size':'16px'});
+			
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
+			
+			/*
+            _num = $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(k)
+            {
+//            alert(k);
+
+			     if(k != "0" && k != _num-1 && k != _num-2)
+			         $(this).append('<td>*</td>');
+            });*/
+            
+            _numVisa = $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kVisa)
+			{
+                if(_kVisa != "0" && _kVisa != _numVisa-1 && $(this).html() != "")
+                    $(this).append('<td>*</td>');
+            });
+            
+            
+            
+            _numMaster = $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kMaster)
+			{
+                if(_kMaster != "0" && _kMaster != _numMaster-1 && $(this).html() != "")
+                    $(this).append('<td>*</td>');
+            });
+            
+            
+            _numElo = $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kElo)
+			{
+                if(_kElo != "0" && _kElo != _numElo-1 && $(this).html() != "")
+                    $(this).append('<td>*</td>');
+            });
+            
+            
+            
+			//$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(2)").append('<td>*</td>');
+			
+			//$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(2)").append('<td>*</td>');
+			
+			
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
+			//Fim Alterações 26/07/2012 - Formas de pagamento
+			
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
+            {
+                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
+            });
+            
+            _numTab = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table").length;
+            for(_a=1;_a<=_numTab;_a++)
+            {
+                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:last").prev().prev().css({'float':'right','margin-top':'-20px','margin-right':'-180px'}).find("input#imageField").parent().after("<td id='valorT'></td>")
+                _form = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("form").attr("id");
+                switch(_form)
+                {
+                    case "formDeposito":
+                        _pag = "Depósito";
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(3) > td:first > table:first > tbody > tr:first > td:first").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-DepositoBancario.jpg' />");
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(3) > td:first > table:first > tbody > tr:nth-child(2) > td:first").html("");
+                        break;
+                    case "formMercadoPago":
+                        _pag = "MercadoPago";
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(2)").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-MercadoPago.jpg' />");
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(4)").hide();
+                        break;
+                    case "formMoIP":
+                        _pag = "MoIP";
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(2)").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-MoIP.jpg' />");
+                        break;			
+                    default:
+                        _pag = "";
+                    break;
+                    
+                }
+                
+                
+                
+                _val = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("form").prev().html();
+                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("td#valorT").html(_pag +" "+_val == "null" ? "" : _val).css({"float":"right","position":"relative","top":"40px","right":"162px","color":"#FFFFFF","font-weight":"bold","width":"180px","text-align":"center"});
+                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:last").prev().find("td").css({'border-bottom': '2px solid #386335'});
+
+            }
+            $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first").append("<table><tr><td><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.importadoagora.com.br/imagens/icoSiteSeguro.png' /></a></td></tr></table>");
+       		break;
+		}
+	});
+	$(document).ready(function(){
+		$("table#tbProduto").css({'margin-right':'0px','width':'730px'});
+	})
+	
+</script>
+<div id="DS_EstruturaTopo">##BarraTopo##</div>
+
+
+<div class="colmask holygrail">
+    <div class="colmid">
+        <div class="colleft">
+        	<div class="centrowrap">
+                <div class="DS_EstruturaEsquerda">##BarraEsquerda##</div>
+                <div class="DS_EstruturaCorpowrap">
+                    <div class="DS_EstruturaCorpo">
+                        ##Corpo##
+                        <div class="DS_EstruturaDireita">##BarraDireita##</div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+
+<div id="DS_EstruturaRodape">##BarraRodape##</div>

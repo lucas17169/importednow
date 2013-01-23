@@ -1,0 +1,55 @@
+<table width="155" height="100%" border="0" cellpadding="0" cellspacing="5">
+  <tr>
+    <td height="100%" valign="top" bgcolor="#EEEEEE"><table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<script>
+				var VStr = "##AreaClientes##"
+				if(VStr != ""){document.write("<tr><td height='35'><a href='?Menu=Cadastro'><img src='imagens/AreaClientes.gif' width='155' height='35' border='0'/></a></td></tr><tr><td height='35'>"+VStr+"</td></tr><tr><td height='7'></td></tr>")};		
+			</script>	      
+      <tr>
+        <td width="112" height="35" bgcolor="#FFFFFF"><a href="?Menu=PaginaInicial"><img src="imagens/Departamentos.gif" width="155" height="35" border="0"/></a></td>
+      </tr>
+      <tr>
+        <td height="35" valign="top">##Departamentos % alinha=v ~  estilo=6##</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><img src="imagens/Servicos.gif" width="155" height="34" /></td>
+      </tr>
+      <tr>
+        <td><table border="0" cellpadding="0" cellspacing="5" width="100%">				
+            <tr>
+              <td>##Links % alinha=v##</td>
+            </tr>
+            <script>
+							var VStr = "##LinkIndiqueLoja##"
+							if (VStr != "")
+							{
+								document.write('<tr><td><a href=?Menu=IndiqueLoja>Indique a loja</a></td></tr>');
+							}	
+							document.write('<tr><td><a href=?Menu=Fabricantes>Fabricantes</a></td></tr>');
+							var VStr = "##LinkCasamento##"
+							if (VStr != "")
+							{							
+								document.write('<tr><td><a href=?Menu=ListaCasamento>Lista de Casamento</a></td></tr>');
+							}	
+							var VStr = "##LinkDesejo##"
+							if (VStr != "")
+							{							
+								document.write('<tr><td><a href=?Menu=ListaDesejos>Lista de Desejos</a></td></tr>');
+							}	
+							document.write('<tr><td><a href=?Menu=Produtos&Act=Promocoes>Promo&ccedil;&otilde;es</a></td></tr>');
+							document.write('<tr><td><a href=?Menu=Produtos&Act=Lancamentos>Lan&ccedil;amentos</a></td></tr>');
+							document.write('<tr><td><a href=?Menu=Busca>Busca Detalhada</a></td></tr>');
+							document.write('<tr><td><a href=?Menu=Produtos&Act=MaisVendidos>Mais vendidos</a></td></tr>');				
+							document.write('<tr><td><a href=?Menu=Noticias>Notícias</a></td></tr>');
+							document.write('<tr><td><a href=?Menu=Boletim>Boletim</a></td></tr>');
+							document.write('<tr><td><a href=?Menu=ComprovePagamento>Comprove seu pagamento</a></td></tr>');
+							document.write('<tr><td><a href=?Menu=FaleConosco>Fale Conosco</a></td></tr>');
+				  </script>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>

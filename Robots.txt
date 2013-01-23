@@ -1,0 +1,10 @@
+# robots.txt gerado por www.dotstore3.com.br
+
+User-agent: *
+
+Disallow:
+
+Crawl-delay: 5
+
+Sitemap: http://www.importadoagora.com.br/sitemap.xml
+

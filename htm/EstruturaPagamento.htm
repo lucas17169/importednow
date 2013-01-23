@@ -1,0 +1,214 @@
+<script>
+	$(function() {
+		$('#DS_EstruturaCorpo table:eq(0)').css({'margin':'0 auto','width':'1000px','background':'#FFF'});
+		$('td').each(function() {
+			if ($(this).attr('style')=='border-bottom: solid 4px #9C9C9C;') {
+				$(this).css({'position':'relative', 'top':'-3px'});
+			}
+		});
+		_menu = getParam("Menu") != undefined ? getParam("Menu") : '';
+		switch(_menu)
+		{
+			case "Pagamento":
+			case "PagamentoMl":
+            $("table#tbProduto").css("background","none");
+            $("tr.CarrinhoFundoProduto,td.CarrinhoFundoProduto").css("background","#F7F5EE");
+            $("td.CarrinhoAdicional").css({"background":"#FFF"});
+            $("td.CarrinhoTit:first").css({"border-radius":"10px 0 0 0"}).parent().css({"background":"#FFF"});
+            $("td.CarrinhoTit:last").css({"border-radius":" 0 10px 0 0"});
+            $("td.CarrinhoFundoProduto:last").css({"border-radius":" 0 0 10px 10px","background":"none no-repeat scroll 0 0 #F7F5EE"}).parent().css({"background":"#FFF"});
+            $(".CarrinhoTotal > table").css("background","url('http://www.importadoagora.com.br/imagens/fundotabelapagamento.png') no-repeat scroll 0 -1px transparent");
+			$("label#ValorFrete").css({'padding-right':'10px'});
+            $("label#ValorTotal").css({'padding-right':'10px',"color":"#FFF"});
+       		_trValorFrete = $("tr#TRValorFreteTBA");
+            $(_trValorFrete).find("td:nth-child:first").css("color","#FFF");
+            $(_trValorFrete).parent().find("tr:nth-child(3) > td:nth-child(1)").css("color","#FFF");
+            $("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first").css({'background':'none'});
+			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first > td").css({'float':'left','padding-top':'6px'}).removeAttr('width');
+			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first > td:nth-child(2) > strong > label").css({'color':'#333'});
+			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(7)").prepend("<div class='escolhapagamento'>Escolha o meio de pagamento e pague em ambiente seguro</div>");
+			$("table.TbPagtoSel28 > tbody > tr:nth-child(2) > td:nth-child(1)").css({'width':'100%'});
+			//$("table.TbPagtoSel28 > tbody > tr:nth-child(3)").css({'color': '#FFFFFF','margin-top': '76px','position': 'absolute','right': '53px'});
+			$("table.TbPagtoSel28 > tbody > tr:nth-child(3) > td").css({'color': '#FFFFFF'});
+			//$("table.TbPagtoSel28 > tbody > tr:nth-child(6) > td").css({'border-bottom': '2px solid #386335'});
+			//$("table.TbPagtoSel28 > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
+			$("table.TbPagtoSel20 > tbody > tr:nth-child(2) > td:nth-child(1)").css({'width':'100%'});
+			//$("table.TbPagtoSel20 > tbody > tr:nth-child(4)").css({'color': '#FFFFFF','margin-top': '4px','position': 'absolute','right': '53px'});
+			$("table.TbPagtoSel20 > tbody > tr:nth-child(4) > td").css({'color': '#FFFFFF'});
+			//$("table.TbPagtoSel20 > tbody > tr:nth-child(6) > td").css({'border-bottom': '2px solid #386335'});
+			//$("table.TbPagtoSel20 > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
+			/*if($("table.TbPagtoSel28:first > tbody > tr:nth-child(4) > td > img").length != 0){
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(5)").css({'float':'none','margin-top':'0'});
+			}else{
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
+				$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'none','margin-top':'0'});
+			}*/
+			//$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
+			/*$("table.TbPagtoSel20:last > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
+			$("table.TbPagtoSel28:last > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-70px'});*/
+       		$('td[width="133"]').each(function(){
+				$(this).next().remove();
+			})
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last").css({"font-weight":"bold"});
+            //AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '110', '300');
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
+            {
+                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
+            });
+            
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
+            {
+                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
+            });
+            
+			//Bold font
+			$("input#Numero").parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().attr("style","font-weight: bold;");
+			
+			//Divisao da imagem de segurança
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.png'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.png'></a></div>");
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.png'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.png'></a></div>");
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.png'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.png'></a></div>");
+			
+			
+			//Início Alterações 26/07/2012 - Formas de pagamento
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Visa.jpg');
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Mastercard.jpg');
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Elo.jpg');
+			
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:nth-child(2)").css({'font-size':'16px'});
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:nth-child(2)").css({'font-size':'16px'});
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first >td:nth-child(2)").css({'font-size':'16px'});
+			
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
+			
+			/*
+            _num = $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(k)
+            {
+//            alert(k);
+
+			     if(k != "0" && k != _num-1 && k != _num-2)
+			         $(this).append('<td>*</td>');
+            });*/
+            
+            _numVisa = $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kVisa)
+			{
+                if(_kVisa != "0" && _kVisa != _numVisa-1 && $(this).html() != "")
+                    $(this).append('<td>*</td>');
+            });
+            
+            
+            
+            _numMaster = $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kMaster)
+			{
+                if(_kMaster != "0" && _kMaster != _numMaster-1 && $(this).html() != "")
+                    $(this).append('<td>*</td>');
+            });
+            
+            
+            _numElo = $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
+            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kElo)
+			{
+                if(_kElo != "0" && _kElo != _numElo-1 && $(this).html() != "")
+                    $(this).append('<td>*</td>');
+            });
+            
+            
+            
+			//$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(2)").append('<td>*</td>');
+			
+			//$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(2)").append('<td>*</td>');
+			
+			
+			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
+			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
+			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
+			//Fim Alterações 26/07/2012 - Formas de pagamento
+			
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
+            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
+            {
+                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
+            });
+            
+            _numTab = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table").length;
+            for(_a=1;_a<=_numTab;_a++)
+            {
+                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:last").prev().prev().css({'float':'right','margin-top':'-20px','margin-right':'-180px'}).find("input#imageField").parent().after("<td id='valorT'></td>")
+                _form = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("form").attr("id");
+                switch(_form)
+                {
+                    case "formDeposito":
+                        _pag = "Depósito";
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(3) > td:first > table:first > tbody > tr:first > td:first").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-DepositoBancario.jpg' />");
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(3) > td:first > table:first > tbody > tr:nth-child(2) > td:first").html("");
+                        break;
+                    case "formMercadoPago":
+                        _pag = "MercadoPago";
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(2)").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-MercadoPago.jpg' />");
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(4)").hide();
+                        break;
+                    case "formMoIP":
+                        _pag = "MoIP";
+                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(2)").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-MoIP.jpg' />");
+                        break;			
+                    default:
+                        _pag = "";
+                    break;
+                    
+                }
+                
+                
+                
+                _val = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("form").prev().html();
+                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("td#valorT").html(_pag +" "+_val == "null" ? "" : _val).css({"float":"right","position":"relative","top":"40px","right":"162px","color":"#FFFFFF","font-weight":"bold","width":"180px","text-align":"center"});
+                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:last").prev().find("td").css({'border-bottom': '2px solid #386335'});
+
+            }
+			//_numTab = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table").length;
+			//_bCash = _numTab-1;
+			//$("td#valorT").html("");
+			$("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_numTab+")").find("td#valorT").html("");
+			$("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_numTab+")").find("input#imageField").attr("src","https://www.importadoagora.com.br/imagens/IcPCartaoVisa.gif");
+			$("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_numTab+") > tbody > tr:nth-child(2) > td:first").html("<table cellspacing='0' cellpadding='0' border='0'><tbody><tr><td><img style='margin-right:15px; margin-left:10px' src='imagens/lgo-bcash.png'></td><td><table cellspacing='0' cellpadding='0' border='0'><tbody><tr><td>Pagamento seguro. <b>Boleto</b> e <b>todas as bandeiras!</b></td></tr><tr><td><img style='margin-top:15px;' src='imagens/band.png'></td></tr></tbody></table></td></tr></tbody></table>");
+			$("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_numTab+") > tbody > tr:nth-child(4)").attr("style","float: right; margin-top: -50px; margin-right: -180px;");
+			//$("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_numTab+") > tbody > tr:nth-child(2) > td:first > table:first > tbody > tr:first > td:first").html("<img src='http://www.importadoagora.com.br/imagens/lgo-bcash.png' />");
+			//$("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_numTab+") > tbody > tr:nth-child(2) > td:first > table:first > tbody > tr:first > td:nth-child(2)").html("");
+            $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first").append("<table><tr><td><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.importadoagora.com.br/imagens/icoSiteSeguro.png' /></a></td></tr></table>");
+       		break;
+		}
+	});
+	$(document).ready(function(){
+		$("table#tbProduto").css({'margin-right':'0px','width':'730px'});
+	})
+</script>
+<div id="DS_EstruturaTopo">##BarraTopo##</div>
+<div class="colmask holygrail">
+    <div class="colmid">
+        <div class="colleft">
+        	<div class="centrowrap">
+                <div class="DS_EstruturaEsquerda"></div>
+                <div class="DS_EstruturaCorpowrap" style="margin-left:140px">
+                    <div class="DS_EstruturaCorpo">##Corpo##</div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+<div id="DS_EstruturaRodape">##BarraRodape##</div>

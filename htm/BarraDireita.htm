@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="##CaminhoDir##htm/home.css" />
+<style>
+img.w
+{
+    width: 150px !important;
+}
+img.h
+{
+    height: 150px !important;
+}
+
+</style>
+
+<script type="text/javascript">
+jQuery(window).load(function()
+{
+	jQuery("div.DSL_FotoProduto").find("img").each(function()
+	{
+		_w = jQuery(this).width();
+		_h = jQuery(this).height();
+		jQuery(this).removeAttr("width").removeAttr("height");
+		jQuery(this).removeClass("w").removeClass("h");
+		if(_w > _h)
+		{
+			jQuery(this).addClass("w");
+		}
+		else
+		{
+			jQuery(this).addClass("h");
+		}
+	});        
+});
+
+ 
+	var vlistamaisved1 = 0
+</script>
+
+<div id="DSL_LateralDireita">
+
+	<div class="DSL_Chat"><div>##Chat##</div></div>
+	<script type="text/javascript">
+		if($('.DSL_Chat').find('div:first').html()==''){$('.DSL_Chat').hide();}
+	</script>
+
+	<!--<div class="DSL_BoxLaterais">
+        <span class="corSecundaria">##Texto % cod=26##</span>
+        <div class="DSL_ConteudoBoxLaterais2">##Fabricantes % img ~ cod=n##</div>
+	</div>-->
+    
+    <div class="DSL_BoxLaterais" id="DSL_Newsletter">
+    	<div class="novidadesbg">
+        	<span class="corSecundaria">Novidades</span>
+        </div>    
+        <div class="DSL_ConteudoBoxLaterais2">
+        	<p>Assine nossa newsletter e receba nossas novidades em seu e-mail.</p>
+            ##Newsletter##
+            <div class="DSL_ClearBoth"></div>
+    	</div>
+	</div>
+    
+    <div id="ConteudoMaisVendidos" class="DSL_ConteudoBoxLaterais2">
+    	<div class="maisvend"><img src="http://www.importadoagora.com.br/imagens/maisvendidos.png" width="109" height="62" alt="MAIS VENDIDOS" /></div>
+        <!-- INICIO ProdutoListaBloco9 -->
+       <!-- PARAMS % em=maisvendidos ~ cols=1 ~ noline ~ qtde=1 -->
+        <!--<span><script>vlistamaisved1 = (vlistamaisved1 + 1);document.write(vlistamaisved1+'. ');</script></span>-->
+        <div class="DSL_BlocoProdutos">
+            <div class="DSL_FotoProduto">##ProdutoIMG % cod=n##</div>
+			<script type="text/javascript">
+	        jQuery("div.DSL_FotoProduto").find("img").each(function()
+			{
+				_w = jQuery(this).width();
+				_h = jQuery(this).height();
+				jQuery(this).removeAttr("width").removeAttr("height");
+				jQuery(this).removeClass("w").removeClass("h");
+				if(_w > _h)
+				{
+					jQuery(this).addClass("w");
+				}
+				else
+				{
+					jQuery(this).addClass("h");
+				}
+			});
+			</script>
+            <div class="DSL_NomeProduto"><a href="##URLProduto % cod=n##">##NomeProduto % cod=n##</a></div>
+            <!--<div class="DSL_SubProduto">##SubProduto % cod=n##</div>-->
+            <!--<div class="DSL_ValorDe"><div id="DSL_DeSTR##ProdutoID % cod=n##">##Texto % cod=100##  ##ProdutoValorDe % cod=n##</div></div>-->
+            <div class="DSL_ValorPor">##Texto % cod=101## ##ProdutoValorPor % cod=n##</div>
+            <div class="DSL_ValorParcelado" id="DSL_ValorParcelado_##ProdutoID % cod=n##">##Texto % cod=103## <span id="DSL_Parcela_##ProdutoID % cod=n##">##ProdutoPagtoValor % cod=n ~ valorpagto=7##</span></div>
+            <div class="DSL_Espiar"><a href="##URLProduto % cod=n##"><img src="http://www.importadoagora.com.br/imagens/BotEspiar.gif" alt="MAIS DETALHES" /></a></div>
+            <div class="DSL_FreteGratis">##BotaoFreteGratis % cod=n##</div>
+            <div class="DSL_Lancamento">##BotaoLancamento % cod=n##</div>
+        </div>
+        <!-- FINAL ProdutoListaBloco9 -->
+  	</div>
+    ##BannerPromocao##
+    
+</div>
+<script type="text/javascript">
+	if (jQuery('#DS_EstruturaDireita').text() == "") {
+		jQuery('#DS_EstruturaConteudo').addClass('DS_NoEstruturaDireita');
+	}
+</script>

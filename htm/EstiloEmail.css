@@ -1,0 +1,24 @@
+/* dotStore - Estilo Envio de E-mails  -  TXT=Texto | L=Link | T=Titulo  */
+ 
+Body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size:12px;
+	font-family: Courier New;
+	background:#FFFFFF;
+}
+
+P { font-size:12px; font-family: Courier New }
+TD { font-size:12px; font-family: Courier New }
+
+A:link { color:#000000; font-size:12px; font-family: Courier New; font-weight:none; text-decoration:underline }
+A:visited { color:#000000 }
+A:hover { color:#000000 }
+
+/* Estilo - Enquete */
+.TXTEstiloEmail { color:000000; font-size:12px; font-family: Courier New; font-weight:none }
+.TTituloEstiloEmail { color:000000; font-size:12px; font-family: Courier New; font-weight:none }
+.TEstiloEmail { color:000000; font-size:12px; font-family: Courier New; font-weight:none }
+

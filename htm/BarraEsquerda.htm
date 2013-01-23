@@ -1,0 +1,67 @@
+<div id="fb-root"></div>
+<script type="text/javascript">
+(function(d, s, id)
+{
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}
+(document, 'script', 'facebook-jssdk'));
+
+$(document).ready(function(){
+    $("td.TabelaSecao2[valign='top']").parent().each(function()
+    {
+        _td = $(this).children("td").get(1);
+        $(_td).remove();
+    });
+    // menu
+	 $("ul.ulcat").hide();
+	 $("ul.ulcat").prev().attr('href','javascript:void(0)');
+	 $("ul.ulcat").prev().click(function(){
+		if($(this).next().css('display') == 'block')
+		{
+		    $(this).next().hide();
+		} else if ($(this).next().css('display') == 'none')
+		{
+		    $(this).next().show();
+		}
+	 })
+});
+</script>
+
+<div id="DSL_LateralEsquerda">
+
+	<div class="DSL_BoxLaterais">
+        <span class="corSecundaria" id="cliente">##Texto % cod=21##</span>
+        <div class="DSL_ConteudoBoxLaterais">##AreaClientes##</div>
+	</div>
+    <div class="DSL_BoxLaterais">
+        <!--<span class="corSecundaria">##Texto % cod=22##</span>-->
+        <div class="DSL_ConteudoBoxLaterais" style="padding:0; width:213px; border-top:none !important;">##Departamentos % alinha=v ~ estilo=10##</div>
+	</div>
+    <!--
+    <div class="DSL_BoxLaterais">
+        <span class="corSecundaria">##Texto % cod=23##</span>
+        <div class="DSL_ConteudoBoxLaterais">##Links % alinha=v##</div>
+	</div>
+	-->
+    <div class="DSL_BoxLaterais" id="DSL_Enquete">
+    	<span class="corSecundaria">##Texto % cod=25##</span>
+        <div class="DSL_ConteudoBoxLaterais">##Enquete##</div>
+	</div>
+	<script type="text/javascript">
+    	jQuery('.DSL_BoxLaterais').each(function() {
+			if (jQuery(this).find('div:eq(0)').html() == "") {
+				jQuery(this).remove();
+			}
+		});
+	</script>
+  	<div class="fb-like-box" data-href="https://www.facebook.com/pages/ImportadoAgoracombr/317214588370473" data-width="216" data-height="320" data-show-faces="true" data-stream="false" data-header="true"></div>
+    
+    <div class="twitterbloco"><a href="http://www.twitter.com" target="_blank"><img src="http://www.importadoagora.com.br/imagens/twitter.png" width="33" height="33" alt="Twitter" /></a></div>
+	
+    ##BannerPublicidadeLateral##
+    
+</div>

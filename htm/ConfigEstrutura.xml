@@ -1,0 +1,27 @@
+<estrutura>
+	<menu>
+		<link>Carrinho</link>
+		<htm>EstruturaProdutoDetalhes</htm>	
+		<css>EstruturaProdutoDetalhes</css>			
+	</menu>
+	<menu>
+		<link>Pagamento</link>
+		<htm>EstruturaPagamento</htm>
+		<css>EstruturaPagamento</css>					
+	</menu>	
+	<menu>
+		<link>PagamentoFin</link>
+		<htm>EstruturaPagamentoFin</htm>
+		<css>EstruturaPagamentoFin</css>							
+	</menu>		
+	<menu>
+		<link>ProdutoDetalhes</link>
+		<htm>EstruturaProdutoDetalhes</htm>	
+		<css>EstruturaProdutoDetalhes</css>							
+	</menu>		
+	<menu>
+		<link>Fabricantes</link>
+		<htm>EstruturaProdutoDetalhes</htm>	
+		<css>EstruturaProdutoDetalhes</css>							
+	</menu>					
+</estrutura>

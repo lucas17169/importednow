@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="##CaminhoDir##htm/home.css" />
+<style>
+img.w
+{
+    width: 150px !important;
+}
+img.h
+{
+    height: 145px !important;
+}
+
+</style>
+<script type="text/javascript">
+jQuery(document).ready(function()
+{
+    if(jQuery('#ValorDe_##ProdutoID % cod=n##').html() == "")
+    {
+		jQuery('#DSL_DeSTR##ProdutoID % cod=n##').css({display:'none'});
+	}
+	if(jQuery('#DSL_Parcela_##ProdutoID % cod=n##').html() == "") {
+		jQuery('#DSL_ValorParcelado_##ProdutoID % cod=n##').css({display:'none'});
+	}
+	jQuery(".DSL_ValorParcelado > span > label").each(function(){
+		_texto = jQuery(this).text();
+		_val = _texto.split('-');
+		jQuery(this).text(_val[0]);
+	});
+    setTimeout(function()
+    {
+        jQuery("div.DSL_FotoProduto").find("img").each(function()
+        {
+            _w = jQuery(this).width();
+            _h = jQuery(this).height();
+            if(_w >= _h)
+            {
+                jQuery(this).addClass("w");
+            }
+            else
+            {
+                jQuery(this).addClass("h");
+            }
+        });
+        jQuery("div.DSL_FotoProduto").find("img").parent().each(function()
+        {
+            _img = jQuery(this).html();
+            jQuery(this).children("img").remove();
+            jQuery(this).css({"vertical-align":"middle"}).append("<p style='margin: 0;height: 100%; vertical-align: middle; display: inline-block;'>"+_img+"</p>");
+            
+        });
+        
+                
+    },_delay);
+});
+</script>
+<div id="DSL_HomeGeral">
+	<div id="DSL_BannerCentral">##BannerCentral##</div>
+    <div id="DSL_ContainerProdutos">
+        <!-- INICIO ProdutoListaBlocoCSS -->
+        <!-- PARAMS % em=destaque ~ cols=3 ~ noline -->
+        <div class="DSL_BlocoProdutos">
+            <div class="DSL_FotoProduto">##ProdutoIMG % cod=n##</div>
+            <div class="DSL_NomeProduto"><a href="##URLProduto % cod=n##" class="DSL_ColorTxt01">##NomeProduto % cod=n##</a></div>
+            <!--<div class="DSL_SubProduto">##SubProduto % cod=n##</div>-->
+            <div class="DSL_ValorDe"><div id="DSL_DeSTR##ProdutoID % cod=n##">##Texto % cod=100##  ##ProdutoValorDe % cod=n##</div></div>
+            <div class="DSL_ValorPor">##Texto % cod=101## ##ProdutoValorPor % cod=n##</div>
+            <div class="DSL_ValorParcelado" id="DSL_ValorParcelado_##ProdutoID % cod=n##">##Texto % cod=103## <span id="DSL_Parcela_##ProdutoID % cod=n##">##ProdutoPagtoValor % cod=n ~ valorpagto=7##</span></div>
+            <div class="DSL_Espiar"><a href="##URLProduto % cod=n##"><img src="http://www.importadoagora.com.br/imagens/BotEspiar.gif" alt="MAIS DETALHES" /></a></div>
+            <div class="DSL_FreteGratis">##BotaoFreteGratis % cod=n##</div>
+            <div class="DSL_Lancamento">##BotaoLancamento % cod=n##</div>
+        </div>
+        <!-- FINAL ProdutoListaBlocoCSS -->
+	</div>
+    
+    <!--<div id="DSL_BannerInferior">##BannerPublicidadeInferior##</div>-->
+    
+</div>
