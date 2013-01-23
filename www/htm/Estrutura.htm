@@ -1,497 +1,731 @@
 <script type="text/javascript" src="https://www.dotstore.com.br/dotstore/inc/extras/jquery.min.js"></script>
 <script type="text/javascript">
-function ValidaSexo()
-{
-	if (document.getElementById('BotSexoMasc').checked == true || document.getElementById('BotSexoFem').checked == true)
+function ValidaCampo008(PObj, PRegExp, PLinha)
+	{		
+		if (PObj.value != "")
+		{
+			if (PObj.id == "CPF")
+			{
+				if (isCpf(PObj.value)==false)
+				{
+					document.images[PLinha].width = 16;
+					document.images[PLinha].height = 16;			
+					document.images[PLinha].src = VImgValErro;					
+					return ""
+				}
+			}		
+			if (PObj.id == "CNPJ")
+			{
+				if (isCnpj(PObj.value)==false)
+				{
+					document.images[PLinha].width = 16;
+					document.images[PLinha].height = 16;			
+					document.images[PLinha].src = VImgValErro;					
+					return ""
+				}
+			}		
+			if (PObj.id == "CNPJCPF")
+			{
+				if (isCpfCnpj(PObj.value)==false)
+				{
+					document.images[PLinha].width = 16;
+					document.images[PLinha].height = 16;			
+					document.images[PLinha].src = VImgValErro;					
+					return ""
+				}
+			}	
+			if (PObj.id == "CPFCNPJ")
+			{
+				if (isCpfCnpj(PObj.value)==false)
+				{
+					document.images[PLinha].width = 16;
+					document.images[PLinha].height = 16;			
+					document.images[PLinha].src = VImgValErro;					
+					return ""
+				}
+			}				
+			var VRegExp = new RegExp (PRegExp);			
+			var VOK = VRegExp.exec(PObj.value);			
+			if (!VOK)
+			{
+				document.images[PLinha].width = 16;
+				document.images[PLinha].height = 16;			
+				document.images[PLinha].src = VImgValErro;
+			}
+			else
+			{
+				document.images[PLinha].width = 16;
+				document.images[PLinha].height = 16;			
+				document.images[PLinha].src = VImgValOK;		
+			}		
+		}
+		else
+		{
+			document.images[PLinha].width = 1;
+			document.images[PLinha].height = 1;			
+			document.images[PLinha].src = VImgValOK;				
+		}
+	}
+	
+	function PegaCep007(PCep, PEnderecoID)
 	{
-		Validacao();
+		if (PEnderecoID == undefined)
+		{
+			PEnderecoID = ""
+		}
+		if (TrimJS(document.getElementById("CEP").value) == "")
+		{
+				VEnderecoID = "";
+				document.getElementById("Endereco").value = "";
+				document.getElementById("Bairro").value  = "";
+				document.getElementById("Cidade").value  = "";
+				document.getElementById("Pais").value  = "";
+				document.getElementById("Endereco2").value = "";
+				document.getElementById("Bairro2").value = "";
+				document.getElementById("Cidade2").value = "";
+				document.getElementById("Pais2").value = "";
+				document.getElementById("EstadoUF2").value = "";
+				CarregaCombo10('',false);
+				document.getElementById("Endereco").disabled = false;
+				document.getElementById("Bairro").disabled = false;
+				document.getElementById("Cidade").disabled = false;
+				document.getElementById("Pais").disabled = false;
+			return
+		}
+					document.images["linha9"].width = 1;
+					document.images["linha9"].height = 1;						
+					document.images["linha9"].src = '';
+					document.images["linha13"].width = 1;
+					document.images["linha13"].height = 1;						
+					document.images["linha13"].src = '';					
+					document.images["linha12"].width = 1;
+					document.images["linha12"].height = 1;						
+					document.images["linha12"].src = '';
+					document.images["linha15"].width = 1;
+					document.images["linha15"].height = 1;						
+					document.images["linha15"].src = '';							
+							
+		var VIndex = VAjaxObjects.length;
+		VAjaxObjects[VIndex] = new sack();
+		VAjaxObjects[VIndex].onLoading = function(){ SackLoad(); };
+		VAjaxObjects[VIndex].onLoaded = function(){ SackLoaded(); };			
+		VAjaxObjects[VIndex].requestFile = '../dotstore/Inc/SetaLookupLoja.asp?Param1=PegaCep&Param2=' + PCep+'&Param50='+PEnderecoID;
+		VAjaxObjects[VIndex].onCompletion = function(){ RetornoCep(VIndex); };			
+		VAjaxObjects[VIndex].runAJAX();		
+		function RetornoCep(PIndex)
+		{
+			eval(VAjaxObjects[PIndex].response);		
+			var V1 = VSplitGetVal.split("~")
+			if(V1[0] != "")
+			{
+				if(V1[1] != "" && V1[7] != "" && V1[4] == ""){
+					document.getElementById("EnderecoCepID").value = VEnderecoID;
+					document.getElementById("Cidade").value = V1[1];
+					document.getElementById("Endereco2").value = V1[4];
+					document.getElementById("Cidade2").value = V1[1];
+					document.getElementById("EstadoUF2").value = V1[7];
+				}
+				else{
+					document.getElementById("EnderecoCepID").value = VEnderecoID;
+					document.getElementById("Endereco").value = V1[4];
+					document.getElementById("Bairro").value = V1[3];
+					document.getElementById("Cidade").value = V1[1];
+					document.getElementById("Pais").value = V1[9];
+					document.getElementById("Endereco2").value = V1[4];
+					document.getElementById("Bairro2").value = V1[3];
+					document.getElementById("Cidade2").value = V1[1];
+					document.getElementById("Pais2").value = V1[9];
+					document.getElementById("EstadoUF2").value = V1[7];
+				}
+				
+				CarregaCombo10(V1[7],false);
+				if(document.getElementById("Endereco").value != "")				
+				{
+					//document.getElementById("Endereco").disabled = true;			
+				}	
+				else
+				{
+					document.getElementById("Endereco").disabled = false;		
+				}
+				if(document.getElementById("Bairro").value != "")				
+				{				
+					//document.getElementById("Bairro").disabled = true;
+				}
+				else
+				{
+					document.getElementById("Bairro").disabled = false;				
+				}					
+				if(document.getElementById("Cidade").value != "")				
+				{				
+					//document.getElementById("Cidade").disabled = true;
+				}
+				else
+				{
+					document.getElementById("Cidade").disabled = false;				
+				}					
+				if(document.getElementById("Pais").value != "")				
+				{								
+					//document.getElementById("Pais").disabled = true;				
+				}
+				else
+				{
+					document.getElementById("Pais").disabled = false;				
+				}					
+				document.getElementById("Numero").focus();
+			}	
+			else
+			{
+				VEnderecoID = "";
+				document.getElementById("Endereco").value = "";
+				document.getElementById("Bairro").value  = "";
+				document.getElementById("Cidade").value  = "";
+				document.getElementById("Pais").value  = "";
+				document.getElementById("Endereco2").value = "";
+				document.getElementById("Bairro2").value = "";
+				document.getElementById("Cidade2").value = "";
+				document.getElementById("Pais2").value = "";
+				document.getElementById("EstadoUF2").value = "";
+				CarregaCombo10('',false);
+				document.getElementById("Endereco").disabled = false;
+				document.getElementById("Bairro").disabled = false;
+				document.getElementById("Cidade").disabled = false;
+				document.getElementById("Pais").disabled = false;
+			}
+			validaResto();
+		}
+	}
+
+
+	function  validaResto(){
+		document.getElementById("Endereco").onchange();
+		document.getElementById("Cidade").onchange();
+		document.getElementById("Bairro").onchange();
+		document.getElementById("Pais").onchange();
+	}
+
+	function ValidaCampo007(PObj, PRegExp, PLinha)
+	{
+		data = PObj.value.split("/");
+		VOK = (data.length == 3);
+		
+		if (VOK){
+			data[0] = String(data[0]).replace(/\D/g, "");
+			data[1] = String(data[1]).replace(/\D/g, "");
+			data[2] = String(data[2]).replace(/\D/g, "");
+			
+			anoAtual = new Date().getFullYear();
+			
+			VOK = (data[0].length == 2) && VOK;
+			VOK = (data[1].length == 2) && VOK;
+			VOK = (data[2].length == 4) && VOK;
+			VOK = (data[0] <= 31) && VOK;
+			VOK = (data[1] <= 12) && VOK;
+			VOK = (data[2] >= 1900) && VOK;
+			VOK = (data[2] <= (anoAtual - 8)) && VOK;
+		}
+		
+		if (VOK){
+				document.images[PLinha].width = 16;
+				document.images[PLinha].height = 16;
+				document.images[PLinha].src = VImgValOK;	
+
+		}
+		else
+		{
+			document.images[PLinha].width = 16;
+			document.images[PLinha].height = 16;
+			document.images[PLinha].src = VImgValErro;
+		}
+	}	
+
+function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
+	pCpfCnpj = objeto.value;
+	if (pIsCnpj==null) pIsCnpj = false;
+	if (pUseSepar==null) pUseSepar = true;
+	var maxDigitos = pIsCnpj? NUM_DIGITOS_CNPJ: NUM_DIGITOS_CPF;
+	var numero = String(pCpfCnpj).replace(/\D/g, "");
+
+	//numero = numero.lpad(maxDigitos, '0');
+//	console.log(numero.length);
+	if (!pUseSepar) return numero;
+
+	if (pIsCnpj)
+	{
+		reCnpj = /(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/;
+		numero = numero.replace(reCnpj, "$1.$2.$3/$4-$5");
 	}
 	else
 	{
-		alert('Preencha o sexo');
+		reCpf  = /(\d{3})(\d{3})(\d{3})(\d{2})$/;
+		numero = numero.replace(reCpf, "$1.$2.$3-$4");
+	}
+
+	
+	if (pIsCnpj == true)
+	{
+		if (pCpfCnpj != "")
+		{
+			objeto.value = numero;
+			ValidaCampo(objeto,'^[0-9_\.,\-/\]{18}$','linha2');
+		}
+	}
+	else
+	{
+		if (pCpfCnpj != "")
+		{
+			objeto.value = numero;
+			ValidaCampo(objeto,'^[0-9_\.,\-\]{14,15}$','linha6');
+		}
 	}
 }
 
-	$(document).ready(function ()
-    {
-		$(".DSL_IMGListaProd img").removeAttr("width");
-		$(".DSL_FotoProduto img").removeAttr("width");
-		if ($('.DS_EstruturaDireita').html() == "") {
-			$('.DS_EstruturaCorpo').addClass('DS_Destrava');
-		}else {
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			$('.DS_EstruturaCorpo').addClass('DS_Trava');
-		}
-		_menu = getParam("Menu") != undefined ? getParam("Menu") : '';
-		_menuf= location.href.split('/')[3];
-		_menug= location.href.split('/')[5];
-		//$("div.DS_EstruturaDireita").css({'margin-top':'-35px'});
-		switch(_menug){
-			case "Quem-somos":
-			case "Perguntas-frequentes":
-			case "Como-comprar":
-			case "Trocas-e-devolucoes":
-			case "Politica-de-Privacidade":
-			case "Garantia":
-			case "Prazos-de-Entrega":
-			case "Trabalhe-conosco":
-				$("div.DS_EstruturaDireita").css({'margin-top':'-35px'});
-			break;
-		}
-		switch(_menuf)
-		{
-			case "indique-a-loja":
-				$("div.DS_EstruturaCorpo > table").css({'float':'left','width':'530px'});
-				$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr > td > table:first').css('width','530px');
-				$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr > td > table:first > tbody > tr > td > table').css('width','530px');
-			break;
-			case "lista-de-casamento":
-       			$('div.DS_EstruturaCorpo > table').css({'width':'530px','float':'left'}).children().children().children().children('table:first').children().children().css('width','530px');
-       		break; 
-       		case "lista-de-desejos":
-       			$('div.DS_EstruturaCorpo > table').css({'width':'530px','float':'left'}).children().children().children().children('table:first').children().children().css('width','530px');      		
-       		break;
-       		case "busca":
-       			$("div.DS_EstruturaCorpo > table").css('float','left');
-       		break;
-       		case "noticias":
-       			$("div.DS_EstruturaCorpo > table").css({'float':'left','width':'530px'});
-       		break;
-       		case "comprove-seu-pagamento":
-       			$("div.DS_EstruturaCorpo > table").css({'float':'left','margin':'0'});
-       		break;
-       		case "fale-conosco":
-       		_table = $(".DS_EstruturaCorpo").children("table")[0];
-			$(_table).css({'float':'left'});
-       		break;
-       		case "boletim":
-       			$("div.DS_EstruturaCorpo > table").css('float','left');
-       		break;
-		}
-        
-        
-        
-        
-        
-        
-        switch(_menu)
-        {
-			case "LembrarSenha":
-				alert(_men);
-				$("body").css({'background':'#FFF'});
-				$(".TTabelaTopo").css({'background':'none'});
-				break;
-			case "Links":
-				$("div.DS_EstruturaDireita").css({'margin-top':'-205px'});
-				break;
-            case "Carrinho":
-                $("td.CarrinhoTit:first").css({"border-radius":"10px 0 0 0"});
-				$("fieldset#Frete > label.Texto:first").append("7 a 10 dias Ãºteis");
-				$("fieldset#Frete > label.Texto:nth-child(6)").append("1 a 3 dias Ãºteis");
-				$("table#DS_TbCarrinho > tbody > tr:first").css({'width':'745px','display':'block'});
-				$("table#DS_TbCarrinho > tbody > tr:nth-child(2)").css({'width':'745px','display':'block'});
-				$("table#DS_TbCarrinho > tbody > tr:nth-child(3)").css({'width':'745px','display':'block'});
-				$("td.CarrinhoAdicional > table > tbody > tr:nth:child(3)").css({'float':'left','margin-left':'23px','display':'block'});
-                $("table#DS_TbCarrinho > tbody > tr:nth-child(3) > td#CarrinhoCross > table > tbody > tr:first").css({
-					'display': 'block',
-					'font-size': '16px',
-					'margin-left': '15px',
-					'padding-left': '12px',
-					'padding-top': '2px',
-					'text-align': 'left',
-					'width': '690px'
-				})
-				$("table#DS_TbCarrinho > tbody > tr:nth-child(3) > td#CarrinhoCross > table > tbody > tr:nth-child(2)").css({
-					'float': 'left',
-    				'width': '745px',
-					'display':'block'
-				});
-				$("table#DS_TbCarrinho > tbody > tr:nth-child(3) > td#CarrinhoCross > table > tbody > tr:nth-child(2) td").css({
-					'width':'100%',
-					'display':'block'
-				})
-				break;
-			case "FaleConosco":
-				$("div.DS_EstruturaCorpo > table").css({'float':'left','width':'540px'});
-				$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:first").css({'width':'540px'});
-				$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table").css({'width':'540px'});
-				$("table#TabFaleConoscoTag > tbody > tr > td.TXTNomeCamposObrig").removeAttr("width");
-				$("td.TXTNomeCampos").attr("align","left");
-				$("td.TXTNomeCamposObrig").attr("align","left");
-				$("textarea#Mensagem").attr("cols","75");
-				$("textarea#Mensagem").attr("rows","11");
-				$("table#TabFaleConoscoTag").attr("align","left");
-				break;	                        
-        	case "CestasAbandonadasDet":
-        		$('.DS_EstruturaCorpo > table').css({'width':'530px','float':'left'});
-				$(".DS_EstruturaCorpo > table > tbody > tr > td > table:first").css('width','530px');
-				$(".DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table").css('width','530px');
-        	break;
-        	case "EnderecoAlt":
-        		$('.DS_EstruturaCorpo > table').css({'width':'735px','float':'left'});
-        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table').css('width','735px');
-        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr:first > td > table').css('width','735px');
-        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr:first > td > table > tbody > tr:nth-child(2) > td > table').css('width','735px');
-        		$('.DS_EstruturaCorpo > table > tbody > tr > td > table > tbody > tr:first > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td > table').css('width','735px');
-        	break;	        			
-        	case "PedidoDetalhes":
-        		$('.DS_EstruturaCorpowrap').children().find('tr:first-child').eq(0).remove();
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(2)').css('margin','0').children().children().children().children().css('width','735px');
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(3)').css({'margin':'0','width':'735px'});
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(3)').css({'height':'40px'});
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(3) > td:first > table').attr('style','width:auto !important').css({'width':'auto !important'});
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr.CarrinhoFundoProduto > td:first').css('width','735px');
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6)').children().children('tr:nth-child(2)').children().attr('align','center');        		
-        		$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(3) > td:first').css({'float':'none','vertical-align':'middle'}).next().css({'float':'none','vertical-align':'middle','text-align':'center'});
-       			$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(4) > td:nth-child(2)').css({'text-align':'center'});
-       			$('table[name="TabConteudoeRodape"] > tbody > tr > td:odd > table:odd > tbody > tr > td > table > tbody > tr > td > table:nth-child(6) > tbody > tr:nth-child(5) > td:first').css({'float':'none','padding-top':'25px'}).next().css({'float':'none','text-align':'center','padding-top':'25px'});
-       		break;      		
-       		case "CestasAbandonadas":
-       			$("div.DS_EstruturaCorpo > table").css({'width':'530px','float':'left'});
-       			$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table").css({'width':'530px','float':'left'});
-       			$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2) > tbody > tr").each(function(){$(this).children().css({'width':'530px'});})
-       			$("div.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table").css({'width':'530px'});      			
-       		break;     		
-            case "Cadastro":
-                _act = getParam("Act") != undefined ? getParam("Act") : '';
-                _ultimo = $(".DS_EstruturaCorpo > table:first > tbody > tr:last > td > table > tbody > tr")[1];
-                $(_ultimo).remove();
-                _segundo = $(".DS_EstruturaCorpo > table:first > tbody > tr:last > td > table > tbody > tr:first > td > table > tbody > tr")[1];
-                $(_segundo).remove();
-                $(".DS_EstruturaCorpo table:first tbody tr:first").remove();
-                $("#CamposObrigCPF").parent().next().find('.TXTNomeCamposObrig').next().prepend('<span style="float:left">Necess&aacute;rio para emiss&atilde;o da nota fiscal</span>');
-                $(".TXTNomeCamposObrig").css({'color':'red'});
-                $(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr").eq(1).children('td').css({'width':'610px !important'});
-				$(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr").eq(2).children('td').children('table').eq(1).css({'width':'731px !important'}).children().children().children('td').eq(1).css({'margin-top':'25px','float':'left'});
-				if(_act=='Cadastrar' || _act == 'Cadastrar#'){
-					$("#RG").removeAttr('onchange').removeAttr('onblur').val('0000000000');
-					$("#CamposObrigRG").removeAttr('class').removeAttr('id').parent().hide();
-					$(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr").eq(2).children('td').children('table').eq(1).css({'width':'731px !important'}).children().children().children('td').eq(1).css({'margin-top':'63px','float':'left'});
+
+	function ValidaForm007(PForm, PCampo, PRegExp, PMsg, PLinha, PTipo, PLookup)
+	{
+		var VOk = true;
+		var VCampo = PCampo.split("|");
+		var VLinha = PLinha.split("|");
+		var VTipo = PTipo.split("|");		
+		var VRegExp = PRegExp.split("|");		
+		var VMsg = PMsg.split("|");
+		var VStr1 = "<td>";
+		var VHTML = "";
+		VErroCount = 0;
+		for(var VInt1=0;VInt1 < VCampo.length;VInt1++)
+		{ 
+			if (TrimJS(document.getElementById(VCampo[VInt1]).value) == "")
+			{ 			
+				if ((VTipo[VInt1] == "2" || VTipo[VInt1] == "3") && VCampo[VInt1] != "RG")
+				{			
+					VStr1 = VStr1 + '<b>' + VMsg[VInt1] + "</b> - Informação obrigatória." + "<br>";
+					document.images[VLinha[VInt1]].width = 16;
+					document.images[VLinha[VInt1]].height = 16;						
+					document.images[VLinha[VInt1]].src = VImgValErro;									
+					//document.getElementById(VCampo[VInt1]).focus();
+					VOk = false;				
+					VErroCount = VErroCount + 1;
 				}
-                _cadpag = getParam('PGRetorno');
-                if(_cadpag == "Pagamento" || _cadpag == "Pagamento#")
-                {
-                   $(".DS_EstruturaCorpo > table:first > tbody > tr > td > table > tbody > tr:first > td > table > tbody > tr:nth-child(2) > td").removeAttr("align").find("table > tbody > tr > td:first").remove(); 
-                }
-				$("table#TBTitCad1Tot > tbody > tr:nth-child(4)").css({'float':'right'});
-				$("table#TBTitCad1Tot > tbody > tr:nth-child(5)").css({'float':'left','margin-top': '-2px','width': '200px'});
-				$("table#TBTitCad1Tot > tbody > tr:nth-child(2)").css({'display':'none'});
-				$("table#TBTitCad3Tot > tbody > tr:nth-child(4)").css({'float':'right'});
-				$("table#TBTitCad3Tot > tbody > tr:nth-child(5)").css({'float':'left','margin-top': '-2px','width': '200px'});
-				$("table#TBTitCad3Tot > tbody > tr:nth-child(5) > td").css({'text-align':'right'});
-				$("table#TBTitCad3Tot > tbody > tr:nth-child(2)").css({'display':'none'});
-				$("table#TBTitCad1Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:first > td:nth-child(2) > table > tbody > tr > td:first > input.FCampos").css({'width':'220px'});
-				$("table#TBTitCad1Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td:nth-child(2) > input.FCampos").css({'width':'220px'});
-				$("table#TBTitCad3Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:first > td:nth-child(2) > table > tbody > tr > td:first > input.FCampos").css({'width':'220px'});
-				$("table#TBTitCad3Tot > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td:nth-child(2) > input.FCampos").css({'width':'220px'});
-              //  $(".TabelaQuadro1 > tbody > tr > td > table > tbody > tr:nth-child(2)").css('float','left');
-			    $("input#Prof").parent().parent().parent().parent().parent().parent().attr("style","visibility:hidden;");
-				$("div#TipoCPF > table.FundoBorda > tbody > tr:first > td:last").attr("width","50%");
-				
-				if (_act == 'Cadastrar' || _act == 'Cadastrar#')
-				{
-					/*
-					if ($("input#Pais").val() == '')
-					{
-						$("input#Pais").val('Brasil');
-					}
-					$("input#Pais").parent().parent().parent().parent().parent().parent().attr("style","visibility:hidden;");
-					*/
-					$("input#Nome").parent().parent().parent().parent().parent().parent().children("td:first").html("Nome Completo: &nbsp;");
-					$("input#Nome").attr("size","45");
-					$("td#DataNascDotCad").html("Data Nascimento: &nbsp;");
-					
-					$("input#Nome").attr("tabindex","1");
-					$("input#BotSexoFem").attr("tabindex","2");
-					$("input#BotSexoMasc").attr("tabindex","3");
-					$("input#Data").attr("tabindex","4");
-					$("input#CPF").attr("tabindex","5");
-					$("input#CEP").attr("tabindex","6");
-					$("input#News").attr("tabindex","7");
-					$("input#Endereco").attr("tabindex","8");
-					$("input#Numero").attr("tabindex","9");
-					$("input#Complemento").attr("tabindex","10");
-					$("input#Referencia").attr("tabindex","11");
-					$("input#Bairro").attr("tabindex","12");
-					$("input#Cidade").attr("tabindex","13");
-					$("input#Estado").attr("tabindex","14");
-					$("input#Pais").attr("tabindex","15");
-					$("input#DDD").attr("tabindex","16");
-					$("input#Telefone").attr("tabindex","17");
-					$("input#Ramal").attr("tabindex","18");
-					$("input#DDDFax").attr("tabindex","19");
-					$("input#Fax").attr("tabindex","20");
-					$("input#RamalFax").attr("tabindex","21");
-					$("input#DDDCel").attr("tabindex","22");
-					$("input#Celular").attr("tabindex","23");
-					$("input#Senha").attr("tabindex","24");
-					$("input#ConfirmaSenha").attr("tabindex","25");
-					
-					$("input#BotSexoMasc").removeAttr("checked");
-					$("input#BotSexoFem").removeAttr("checked");
-					$("input#Sexo").attr("value","-1");
-					
-					$("div.DS_EstruturaCorpo > table:last > tbody > tr > td:last").html("<a href='#' onclick='ValidaSexo();'><img src='imagens/BotContinuar.gif' align='absbottom' border='0' hspace='5'></a>");
-					//$("div.DS_EstruturaCorpo > table:last > tbody > tr > td:last > a").attr("href","$");
-				}
-                break;
-            case "PedidosListaBusca":
-            $('.DS_EstruturaCorpo > table').css('float','left');
-            $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','735px');
-            $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(3) > td > table').css('width','735px');
-            $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table > tbody > tr > td:first').attr("style","float:left;width:570px !important;border-bottom:1px solid #013F5E");           
-            break;
-            case "PedidosBusca":
-                _pedidosBusca = $("table[name='TabTitProd'] > tbody > tr > td > table > tbody > tr > td:last > table");
-                $(_pedidosBusca).css({"padding-left":"20px"});
-                $('.DS_EstruturaCorpo > table').css({'width':'735px','float':'left'});
-                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first').css('width','735px');
-                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table').css('width','530px');
-                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:first > tbody > tr > td > table > tbody > tr > td:first').attr("style","float:left;width:570px !important;border-bottom:1px solid #013F5E")
-              break;
-            case "Desejos":
-            case "ListaDesejosIns":
-                _table = $(".DS_EstruturaCorpo").children("table")[0];
-			    $(_table).css({'float':'left'}).css({'width':'540px'});
-                _div = $("span.TextTahoma11Cinza").parent();
-                _td = (_div).parent().removeAttr("width").parent().children("td")[1];
-                $(_td).removeAttr("width").css("min-width","30px");
-                $("div.DS_EstruturaCorpo > table").css({});
-                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','540px');
-                break;
-            case "AltListaDesejos":
-                _table = $(".DS_EstruturaCorpo").children("table")[0];
-                $(_table).find("tbody > tr > td > table[name='TabTitProd']").css('width','540px');
-			    $(_table).css({'float':'left'}).css({'width':'540px'});
-                _div = $("span.TextTahoma11Cinza").parent();
-                _td = (_div).parent().removeAttr("width").parent().children("td")[1];
-                $(_td).removeAttr("width").css("min-width","30px");
-                $("div.DS_EstruturaCorpo > table").css({})
-                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','540px');
-                break;
-            case "ConsListaDesejos":
-                _table = $(".DS_EstruturaCorpo").children("table")[0];
-			    $(_table).css({'float':'left'}).css({'width':'540px'});
-                _div = $("span.TextTahoma11Cinza").parent();
-                _td = (_div).parent().removeAttr("width").parent().children("td")[1];
-                $(_td).removeAttr("width").css("min-width","30px");
-                $("div.DS_EstruturaCorpo > table").css({})
-                $('.DS_EstruturaCorpo > table > tbody > tr > td > table:nth-child(2)').css('width','735px');
-                break;
-            default:
-                _table = $(".DS_EstruturaCorpo").children("table")[1];
-			    $(_table).css({'float':'left'}).css({'width':'540px'});
-                break;
-        }
-        
-        $("a#seloEbit").attr("href","http://www.ebit.com.br/rateloja.asp?PnumNUmEmpresa=31411");
-        
-	});
-	$(function() {
-		$('#DS_EstruturaCorpo table:eq(0)').css({'margin':'0 auto','width':'1000px','background':'#FFF'});
-		$('td').each(function() {
-			if ($(this).attr('style')=='border-bottom: solid 4px #9C9C9C;') {
-				$(this).css({'position':'relative', 'top':'-3px'});
 			}
-		});
-		_menu = getParam("Menu") != undefined ? getParam("Menu") : '';
-		switch(_menu)
-		{
-			case "Pagamento":
-			case "PagamentoMl":
-			$("#DSL_LateralDireita").css("display", "none");
-            $("table#tbProduto").css("background","none");
-            $("tr.CarrinhoFundoProduto,td.CarrinhoFundoProduto").css("background","#F7F5EE");
-            $("td.CarrinhoAdicional").css({"background":"#FFF"});
-            $("td.CarrinhoTit:first").css({"border-radius":"10px 0 0 0"}).parent().css({"background":"#FFF"});
-            $("td.CarrinhoTit:last").css({"border-radius":" 0 10px 0 0"});
-            $("td.CarrinhoFundoProduto:last").css({"border-radius":" 0 0 10px 10px","background":"none no-repeat scroll 0 0 #F7F5EE"}).parent().css({"background":"#FFF"});
-            $(".CarrinhoTotal > table").css("background","url('http://www.importadoagora.com.br/imagens/fundotabelapagamento.png') no-repeat scroll 0 -1px transparent");
-			$("label#ValorFrete").css({'padding-right':'10px'});
-            $("label#ValorTotal").css({'padding-right':'10px',"color":"#FFF"});
-       		_trValorFrete = $("tr#TRValorFreteTBA");
-            $(_trValorFrete).find("td:nth-child:first").css("color","#FFF");
-            $(_trValorFrete).parent().find("tr:nth-child(3) > td:nth-child(1)").css("color","#FFF");
-            $("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first").css({'background':'none'});
-			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first > td").css({'float':'left','padding-top':'6px'}).removeAttr('width');
-			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(5) > tbody > tr:first > td:nth-child(2) > strong > label").css({'color':'#333'});
-			$("div.DS_EstruturaCorpo > table > tbody > tr:nth-child(2) > td > table:nth-child(7)").prepend("<div class='escolhapagamento'>Escolha o meio de pagamento e pague em ambiente seguro</div>");
-			$("table.TbPagtoSel28 > tbody > tr:nth-child(2) > td:nth-child(1)").css({'width':'100%'});
-			//$("table.TbPagtoSel28 > tbody > tr:nth-child(3)").css({'color': '#FFFFFF','margin-top': '76px','position': 'absolute','right': '53px'});
-			$("table.TbPagtoSel28 > tbody > tr:nth-child(3) > td").css({'color': '#FFFFFF'});
-			//$("table.TbPagtoSel28 > tbody > tr:nth-child(6) > td").css({'border-bottom': '2px solid #386335'});
-			//$("table.TbPagtoSel28 > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
-			$("table.TbPagtoSel20 > tbody > tr:nth-child(2) > td:nth-child(1)").css({'width':'100%'});
-			//$("table.TbPagtoSel20 > tbody > tr:nth-child(4)").css({'color': '#FFFFFF','margin-top': '4px','position': 'absolute','right': '53px'});
-			$("table.TbPagtoSel20 > tbody > tr:nth-child(4) > td").css({'color': '#FFFFFF'});
-			//$("table.TbPagtoSel20 > tbody > tr:nth-child(6) > td").css({'border-bottom': '2px solid #386335'});
-			//$("table.TbPagtoSel20 > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
-			/*if($("table.TbPagtoSel28:first > tbody > tr:nth-child(4) > td > img").length != 0){
-				$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
-				$("table.TbPagtoSel28:first > tbody > tr:nth-child(5)").css({'float':'none','margin-top':'0'});
-			}else{
-				$("table.TbPagtoSel28:first > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
-				$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'none','margin-top':'0'});
-			}*/
-			//$("table.TbPagtoSel28:first > tbody > tr:nth-child(4)").css({'float':'right','margin-top':'-50px'});
-			/*$("table.TbPagtoSel20:last > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-50px'});
-			$("table.TbPagtoSel28:last > tbody > tr:nth-child(5)").css({'float':'right','margin-top':'-70px'});*/
-       		$('td[width="133"]').each(function(){
-				$(this).next().remove();
-			})
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last").css({"font-weight":"bold"});
-            //AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '110', '300');
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
-            {
-                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
-            });
-            
-            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
-            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
-            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
-            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
-            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
-            {
-                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
-            });
-            
-			//Bold font
-			$("input#Numero").parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().attr("style","font-weight: bold;");
-			
-			//Divisao da imagem de seguranÃ§a
-			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.jpg'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.jpg'></a></div>");
-			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.jpg'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.jpg'></a></div>");
-			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(2) > td:first").html("<div style='width: 236px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa331.jpg'></a></div><div style='width: 268px; height:33px; display:inline-block'></div><div style='width: 171px; height:33px; display:inline-block'><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.dotstore3.com.br/48799_importadoagora/imagens/visa332.jpg'></a></div>");
-			
-			
-			//InÃ­cio AlteraÃ§Ãµes 26/07/2012 - Formas de pagamento
-			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Visa.jpg');
-			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Mastercard.jpg');
-			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:first > img").attr('src','http://www.importadoagora.com.br/imagens/icoPag-Elo.jpg');
-			
-			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:nth-child(2)").css({'font-size':'16px'});
-			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first > td:nth-child(2)").css({'font-size':'16px'});
-			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(2) > td > table > tbody > tr:first >td:nth-child(2)").css({'font-size':'16px'});
-			
-			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
-			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
-			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table label").css({'color':'#6C6C6C'});
-			
-			/*
-            _num = $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
-$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(k)
-            {
-//            alert(k);
-
-			     if(k != "0" && k != _num-1 && k != _num-2)
-			         $(this).append('<td>*</td>');
-            });*/
-            
-            _numVisa = $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
-            $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kVisa)
+			else
 			{
-                if(_kVisa != "0" && _kVisa != _numVisa-1 && $(this).html() != "")
-                    $(this).append('<td>*</td>');
-            });
-            
-            
-            
-            _numMaster = $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
-            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kMaster)
-			{
-                if(_kMaster != "0" && _kMaster != _numMaster-1 && $(this).html() != "")
-                    $(this).append('<td>*</td>');
-            });
-            
-            
-            _numElo = $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").length;
-            $("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr").each(function(_kElo)
-			{
-                if(_kElo != "0" && _kElo != _numElo-1 && $(this).html() != "")
-                    $(this).append('<td>*</td>');
-            });
-            
-            
-            
-			//$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(2)").append('<td>*</td>');
-			
-			//$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(2)").append('<td>*</td>');
-			
-			
-			$("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
-			$("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
-			$("div.escolhapagamento").parent().find("form#formElo > table > tbody > tr:nth-child(3) > td > table > tbody > tr > td:first > table > tbody > tr:nth-child(7) label b").prepend('* ');
-			//Fim AlteraÃ§Ãµes 26/07/2012 - Formas de pagamento
-			
-            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:first > table").css({"margin-top":"20px"});
-            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table").css({"padding-left":"40px","padding-top":"15px"});
-            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:first").css("width","50px");
-            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").removeAttr("onclick");
-            $("div.escolhapagamento").parent().find("form#formMastercard > table > tbody > tr:last > td > table > tbody > tr > td:last > table > tbody > tr:first > td:last > table > tbody > tr:last > td > table > tbody > tr > td:last > img:last").bind("click",function()
-            {
-                AbreJanela('?Menu=CCVerificacao&Act=Pop', 'CCVerificacao', '160', '325');
-            });
-            
-            _numTab = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table").length;
-            for(_a=1;_a<=_numTab;_a++)
-            {
-                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:last").prev().prev().css({'float':'right','margin-top':'-20px','margin-right':'-180px'}).find("input#imageField").parent().after("<td id='valorT'></td>")
-                _form = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("form").attr("id");
-                switch(_form)
-                {
-                    case "formDeposito":
-                        _pag = "DepÃ³sito";
-                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(3) > td:first > table:first > tbody > tr:first > td:first").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-DepositoBancario.jpg' />");
-                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(3) > td:first > table:first > tbody > tr:nth-child(2) > td:first").html("");
-                        break;
-                    case "formMercadoPago":
-                        _pag = "MercadoPago";
-                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(2)").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-MercadoPago.jpg' />");
-                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(4)").hide();
-                        break;
-                    case "formMoIP":
-                        _pag = "MoIP";
-                        $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:nth-child(2)").html("<img src='http://www.importadoagora.com.br/imagens/icoPag-MoIP.jpg' />");
-                        break;			
-                    default:
-                        _pag = "";
-                    break;
-                    
-                }
-                
-                
-                
-                _val = $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("form").prev().html();
-                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr").find("td#valorT").html(_pag +" "+_val == "null" ? "" : _val).css({"float":"right","position":"relative","top":"40px","right":"162px","color":"#FFFFFF","font-weight":"bold","width":"180px","text-align":"center"});
-                $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first > table:nth-child("+_a+") > tbody > tr:last").prev().find("td").css({'border-bottom': '2px solid #386335'});
-
-            }
-            $("div.escolhapagamento").parent().find("tbody > tr:nth-child(2) > td:first").append("<table><tr><td><a href='http://www.importadoagora.com.br/pagina/9234/Politica-de-Privacidade' target='_blank'><img src='http://www.importadoagora.com.br/imagens/icoSiteSeguro.png' /></a></td></tr></table>");
-       		break;
+				VObjRegExp = new RegExp (VRegExp[VInt1]);
+				var VErro = VObjRegExp.exec(document.getElementById(VCampo[VInt1]).value);
+				if (!VErro)			
+				{
+					VStr1 = VStr1 + VMsg[VInt1] + " - Informação incorreta." + "<br>";						
+					document.images[VLinha[VInt1]].width = 16;
+					document.images[VLinha[VInt1]].height = 16;						
+					document.images[VLinha[VInt1]].src = VImgValErro;
+					//document.getElementById(VCampo[VInt1]).focus();
+					VOk = false;
+					VErroCount = VErroCount + 1;
+				}
+				else
+				{
+					if (document.getElementById(VCampo[VInt1]).id == "CPFCNPJ")
+					{
+						if (isCpfCnpj(document.getElementById(VCampo[VInt1]).value)==false)
+						{
+							VStr1 = VStr1 + VMsg[VInt1] + " - Informação incorreta." + "<br>";													
+							document.images[VLinha[VInt1]].width = 16;
+							document.images[VLinha[VInt1]].height = 16;						
+							document.images[VLinha[VInt1]].src = VImgValErro;
+							//document.getElementById(VCampo[VInt1]).focus();
+							VOk = false;
+							VErroCount = VErroCount + 1;
+						}
+					}	
+					if (document.getElementById(VCampo[VInt1]).id == "CNPJCPF")
+					{
+						if (isCpfCnpj(document.getElementById(VCampo[VInt1]).value)==false)
+						{
+							VStr1 = VStr1 + VMsg[VInt1] + " - Informação incorreta." + "<br>";													
+							document.images[VLinha[VInt1]].width = 16;
+							document.images[VLinha[VInt1]].height = 16;						
+							document.images[VLinha[VInt1]].src = VImgValErro;
+							//document.getElementById(VCampo[VInt1]).focus();
+							VOk = false;
+							VErroCount = VErroCount + 1;
+						}
+					}			
+					if (document.getElementById(VCampo[VInt1]).id == "CNPJ")
+					{
+						if (isCnpj(document.getElementById(VCampo[VInt1]).value)==false)
+						{
+							VStr1 = VStr1 + VMsg[VInt1] + " - Informação incorreta." + "<br>";													
+							document.images[VLinha[VInt1]].width = 16;
+							document.images[VLinha[VInt1]].height = 16;						
+							document.images[VLinha[VInt1]].src = VImgValErro;
+							//document.getElementById(VCampo[VInt1]).focus();
+							VOk = false;
+							VErroCount = VErroCount + 1;
+						}
+					}	
+					if (document.getElementById(VCampo[VInt1]).id == "CPF")
+					{
+						if (isCpf(document.getElementById(VCampo[VInt1]).value)==false)
+						{
+							VStr1 = VStr1 + VMsg[VInt1] + " - Informação incorreta." + "<br>";													
+							document.images[VLinha[VInt1]].width = 16;
+							document.images[VLinha[VInt1]].height = 16;						
+							document.images[VLinha[VInt1]].src = VImgValErro;
+							//document.getElementById(VCampo[VInt1]).focus();
+							VOk = false;
+							VErroCount = VErroCount + 1;
+						}
+					}						
+				}
+				if (PLookup != "" && VTipo[VInt1] == "3")
+				{
+					PegaLookup(PLookup, VMsg[VInt1], VLinha[VInt1]);
+				}
+			}
 		}
-	});
+		VStr1 = VStr1 + "</td>";
+		if(VOk)
+		{
+			VGravaOK = true
+		}
+		else
+		{
+			VGravaOK = false
+		}
+	}	
+
+	function Validacao007()
+	{	
+	
+			if (VTemCampoExtra1 == true)
+			{
+				var VStrCampo1 = "|CampoExtra1"
+				if (VCampoObrig1 == true)
+				{
+					var VStrObrig1 = "|2"
+				}	
+				else
+				{
+					var VStrObrig1 = "|1"
+				}
+				var VStrVal1 = "|"
+				var VStrLabel1 = "|"
+				var VStrLinha1 = "|linha29"			
+			}
+			else
+			{
+				var VStrLabel1 = ""			
+				var VStrCampo1 = ""
+				var VStrObrig1 = ""
+				var VStrVal1 = ""
+				var VStrLinha1 = ""							
+			}				
+			if (VTemCampoExtra2 == true)
+			{
+				var VStrCampo2 = "|CampoExtra2"
+				if (VCampoObrig2 == true)
+				{
+					var VStrObrig2 = "|2"
+				}	
+				else
+				{
+					var VStrObrig2 = "|1"
+				}
+				var VStrVal2 = "|"
+				var VStrLabel2 = "|"	
+				var VStrLinha2 = "|linha30"									
+			}		
+			else
+			{
+				var VStrLabel2 = ""						
+				var VStrVal2 = ""
+				var VStrCampo2 = ""
+				var VStrObrig2 = ""
+				var VStrLinha2 = ""							
+			}			
+		if (VTipo == "CPF")
+		{
+			ValidaForm007(this.form, 'Nome|Data|Prof|CPF|RG|Endereco|Numero|Complemento|Referencia|Bairro|Cidade|CEP|Pais|DDD|Telefone|Ramal|DDDFax|Fax|RamalFax|DDDCel|Celular|Senha|ConfirmaSenha'+VStrCampo1+VStrCampo2, '^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ]{2,50}$|||^[0-9_\.,\-\]{14,15}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{4,15}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$|||^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[0-9]{8,8}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9]{1,50}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[a-zA-Z 0-9]{6,20}$|^[a-zA-Z 0-9]{6,20}$'+VStrVal1+VStrVal2,'Nome|Data Nasc.|Profissão|CPF|RG|Email|Endereço|Nº|Complemento|Referência|Bairro|Cidade|CEP|País|DDD|Telefone|Ramal|DDD|Fax|Ramal Fax|DDD|Celular|Senha|Confirma senha'+VStrLabel1+VStrLabel2, 'linha5|linha22|linha23|linha6|linha7|linha9|linha21|linha10|linha11|linha12|linha13|linha14|linha15|linha16|linha17|linha18|linha28|linha19|linha31|linha27|linha20|linha24|linha26'+VStrLinha1+VStrLinha2, '2|2|1|3|2|2|2|1|1|2|2|2|2|2|2|1|1|1|1|1|1|2|2'+VStrObrig1+VStrObrig2, "");
+		
+			
+		}
+		else
+		{
+			ValidaForm007(this.form, 'RazaoSocial|Ramo|CNPJ|IE|Contato|Endereco|Numero|Complemento|Referencia|Bairro|Cidade|CEP|Pais|DDD|Telefone|Ramal|DDDFax|Fax|RamalFax|DDDCel|Celular|Senha|ConfirmaSenha'+VStrCampo1+VStrCampo2, '^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9.\'\&-@,&]{2,50}$||^[0-9_\.,\-/\]{18}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{2,15}$||^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$|||^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[0-9]{8,8}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9]{1,50}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[a-zA-Z 0-9]{6,20}$|^[a-zA-Z 0-9]{6,20}$'+VStrVal1+VStrVal2,'Razão Social|Ramo de Atividade|CNPJ|I.E.|Contato|Email|Endereço|Nº|Complemento|Referência|Bairro|Cidade|CEP|País|DDD|Telefone|Ramal|DDD|Fax|Ramal Fax|DDD|Celular|Senha|Confirma senha'+VStrLabel1+VStrLabel2, 'linha1|linha25|linha2|linha3|linha4|linha9|linha21|linha10|linha11|linha12|linha13|linha14|linha15|linha16|linha17|linha18|linha28|linha19|linha31|linha27|linha20|linha24|linha26'+VStrLinha1+VStrLinha2, '2|2|3|1|2|2|2|1|1|2|2|2|2|2|2|1|1|1|1|1|1|2|2'+VStrObrig1+VStrObrig2, "");
+		}	
+			if(VGravaOK == true){ 
+				if(document.getElementById('Senha').value != document.getElementById('ConfirmaSenha').value){
+					document.images["linha24"].width = 16;
+					document.images["linha24"].height = 16;						
+					document.images["linha24"].src = VImgValErro;
+					document.images["linha26"].width = 16;
+					document.images["linha26"].height = 16;						
+					document.images["linha26"].src = VImgValErro;
+					VGravaOK = false;
+					return;	
+				} else {
+					document.images["linha24"].width = 16;
+					document.images["linha24"].height = 16;						
+					document.images["linha24"].src = VImgValOK;
+					document.images["linha26"].width = 16;
+					document.images["linha26"].height = 16;						
+					document.images["linha26"].src = VImgValOK;
+					VGravaOK = true;
+				}
+				document.getElementById('Endereco2').value = document.getElementById('Endereco').value;
+				document.getElementById('Bairro2').value = document.getElementById('Bairro').value;				
+				document.getElementById('Cidade2').value = document.getElementById('Cidade').value;												
+				// Envia o form p/ passo 3
+				document.getElementById('fCadastro2').submit();
+			}else{
+				imagens_hint = document.getElementsByClassName("HintIMG");
+				quantidade = imagens_hint.length;
+				
+				for (i = 0; i < quantidade; i++){
+					linha = imagens_hint[i].getAttribute("linha_pai");
+//					document.getElementById(linha).style.borderTop = "0";
+					document.getElementById(linha).style.backgroundColor = "#FFFFFF";
+				}
+				
+				for (i = 0; i < quantidade; i++){
+					tamanho = imagens_hint[i].getAttribute("width");
+					linha = imagens_hint[i].getAttribute("linha_pai");
+					source = imagens_hint[i].getAttribute("src");
+					if ((imagens_hint[i].style.display != 'none') && (tamanho != 0)){
+						if (source == "imagens/BotCancel.gif")
+//							document.getElementById(linha).style.borderTop = "2px solid #FFFFFF";
+							document.getElementById(linha).style.backgroundColor = "#FFDDDD";
+					}
+				}
+			}
+	}
+
+	/*
+	*	Esta função precisa ser melhorada
+	*
+	*	Verifica se a página atual é a página de cadastro
+	*/
+	var novo_cadastro = false;
+	
+	function verificaTelaCadastro(){ 
+		url_dividida = document.location.href.split('?');
+		novo_cadastro = ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#"));
+		return ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar#"));
+	}
+
+	/*
+	*	Substitui o conteúdo da div que tem a classe DS_EstruturaCorpowrap pelo conteúdo da div de id modificacao_novoCadastro
+	*/
+	function substituiPagina(){
+//		alert(document.getElementById("modificacao_novoCadastro").innerHTML);
+		container_fonte = document.getElementById("modificacao_novoCadastro").innerHTML;
+		container_fonte = container_fonte.substr(0, container_fonte.length - 4); // -->
+		container_fonte = container_fonte.substring(5); // <!--
+		container_destino = document.getElementsByClassName("DS_EstruturaCorpowrap");
+
+		AbrePagina();
+		
+		aux_Nome = $("input#Nome").attr("value");
+		aux_CPF = $("input#CPF").attr("value");
+		aux_Data = $("input#Data").attr("value");
+		aux_RazaoSocial = $("input#RazaoSocial").attr("value");
+		aux_CNPJ = $("input#CNPJ").attr("value");
+		aux_IE = $("input#IE").attr("value");
+		aux_Contato = $("input#Contato").attr("value");
+		aux_DDD = $("input#DDD").attr("value");
+		aux_Telefone = $("input#Telefone").attr("value");
+		aux_DDDCel = $("input#DDDCel").attr("value");
+		aux_Celular = $("input#Celular").attr("value");
+		aux_CEP = $("input#CEP").attr("value");
+		aux_Endereco = $("input#Endereco").attr("value");
+		aux_Numero = $("input#Numero").attr("value");
+		aux_Complemento = $("input#Complemento").attr("value");
+		aux_Referencia = $("input#Referencia").attr("value");
+		aux_Bairro = $("input#Bairro").attr("value");
+		aux_Cidade = $("input#Cidade").attr("value");
+		aux_Estado = $("input#Estado").attr("value");
+		aux_Pais = $("input#Pais").attr("value");
+		
+		aux_BotSexoMasc = false;
+		aux_BotSexoFem = false;
+
+		if ($("input#BotSexoMasc").is(":checked")){
+			aux_BotSexoMasc = true;
+		}
+		if ($("input#BotSexoFem").is(":checked")){
+			aux_BotSexoFem = true;
+		}
+		
+		X = document.getElementById("CEP").value;
+		email_copiado = document.getElementById('Email').value;
+		container_destino[0].innerHTML = container_fonte;
+
+		AbrePagina();
+		document.getElementById('variavel_email').innerHTML = email_copiado;
+		document.getElementById('Email').value = email_copiado;
+		document.getElementById("CEP").value = X;
+
+		$("#container_cadastro").css("display","none");
+		$("div.DS_EstruturaEsquerda").css("display","none");
+		$("div.DS_EstruturaCorpowrap").css("width","100%");
+		
+//		container_destino[0].innerHTML = "<center>"+container_destino[0].innerHTML+"</center>";
+		
+//		$("div.DS_EstruturaCorpowrap").css("text-align","center");
+		$("div.DS_EstruturaCorpo").css("width","95%");
+		$("div.DS_EstruturaCorpo").css("margin-left","25px");
+		
+		$("#container_cadastro").css("width","100%");
+		$("#TabCadastroTag").css("width","100%");
+		$(".FundoBorda").css("width","100%");
+		$(".FundoBorda").css("padding","5px");
+
+		$("#TipoCPF").css("width","100%");
+		$("#TipoCNPJ").css("width","100%");
+		$("#tabelaCPF").css("width","100%");
+		$("#tabelaCNPJ").css("width","100%");
+		
+		$("#tabelaBotoes").css("width","100%");
+		$("#cabecalho_cadastro").css("width","100%");
+
+//cpf
+		$("input#Nome").attr("tabindex","1");
+		$("input#CPF").attr("tabindex","2");
+		$("input#Data").attr("tabindex","3");
+//cnpj
+		$("input#RazaoSocial").attr("tabindex","4");
+		$("input#CNPJ").attr("tabindex","5");
+		$("input#IE").attr("tabindex","6");
+		$("input#Contato").attr("tabindex","7");
+
+//geral					
+		$("input#DDD").attr("tabindex","8");
+		$("input#Telefone").attr("tabindex","9");
+		$("input#DDDCel").attr("tabindex","10");
+		$("input#Celular").attr("tabindex","11");
+		
+		$("input#CEP").attr("tabindex","12");
+		$("input#Endereco").attr("tabindex","13");
+		$("input#Numero").attr("tabindex","14");
+		$("input#Complemento").attr("tabindex","15");
+		$("input#Referencia").attr("tabindex","16");
+		$("input#Bairro").attr("tabindex","17");
+		$("input#Cidade").attr("tabindex","18");
+		$("input#Estado").attr("tabindex","19");
+		$("input#Pais").attr("tabindex","20");
+		
+		
+		$("input#Senha").attr("tabindex","21");
+		$("input#ConfirmaSenha").attr("tabindex","22");
+		
+		$("input#News").attr("tabindex","23");
+		
+		$("input#BotSexoMasc").removeAttr("checked");
+		$("input#BotSexoFem").removeAttr("checked");
+
+		
+		$("input#Nome").attr("value", aux_Nome);
+		$("input#CPF").attr("value", aux_CPF);
+		$("input#Data").attr("value", aux_Data);
+		$("input#RazaoSocial").attr("value", aux_RazaoSocial);
+		$("input#CNPJ").attr("value", aux_CNPJ);
+		$("input#IE").attr("value", aux_IE);
+		$("input#Contato").attr("value", aux_Contato);
+		$("input#DDD").attr("value", aux_DDD);
+		$("input#Telefone").attr("value", aux_Telefone);
+		$("input#DDDCel").attr("value", aux_DDDCel);
+		$("input#Celular").attr("value", aux_Celular);
+		$("input#CEP").attr("value", aux_CEP);
+		$("input#Endereco").attr("value", aux_Endereco);
+		$("input#Numero").attr("value", aux_Numero);
+		$("input#Complemento").attr("value", aux_Complemento);
+		$("input#Referencia").attr("value", aux_Referencia);
+		$("input#Bairro").attr("value", aux_Bairro);
+		$("input#Cidade").attr("value", aux_Cidade);
+		$("input#Estado").attr("value", aux_Estado);
+		$("input#Pais").attr("value", aux_Pais);
+
+		document.getElementById("CEP").onchange();
+		
+		if (!novo_cadastro){
+			if (aux_BotSexoMasc){
+				$("input#BotSexoMasc").attr("checked","true");
+			}
+			if (aux_BotSexoFem){
+				$("input#BotSexoMasc").attr("checked","true");
+			}
+			$("form#fCadastro2").attr("action","?Menu=Cadastro&Param=Upd&Act=Confirmado");
+		}
+		
+		try{
+			$("input#Data").on("keypress", function(evt){captureKeys(evt);});
+		}catch(e){}
+//		$("input#Data").on("keydown", function(evt){captureKeys(evt);});
+//		$("input#Data").on("keypress", captureKeys);
+//		document.getElementById('Data').addEventListener('keypress','captureKeys',false);
+		document.getElementById('Nome').focus();
+		
+		ajustaPopups();
+	}
+
+	
+	function ajustaPopups(){
+		$("#fundo_popup").click(function(){
+			escondePopups();
+		});
+		
+		$(".fechar_popup").click(function(){
+			escondePopups();
+		});
+	}
+	
+	function abrePopup(id){
+		$("#fundo_popup").fadeIn();
+		$("#popup_"+id).fadeIn();
+	}
+	
+	function escondePopups(){
+		$("#fundo_popup").fadeOut();
+		$(".ia_popup").fadeOut();
+	}
+	
+	
+	/*
+		Verifica se vai ou não fazer as alterações ma página
+	*/
+	function alteracoesNoCadastro(){
+		tela_cadastro = verificaTelaCadastro();
+		if (tela_cadastro){
+			substituiPagina();
+		}
+	}
+
+	function captureKeys (evt) {
+		var keyCode = evt.keyCode ? evt.keyCode :
+		evt.charCode ? evt.charCode : evt.which;
+
+		if ((keyCode < 48) || (keyCode > 58)){
+				evt.preventDefault(); 
+				return false;
+		}
+		return true;
+	}
+	
+</script>
+<script type="text/javascript">
+	function ValidaSexo()
+	{
+		if (document.getElementById('BotSexoMasc').checked == true || document.getElementById('BotSexoFem').checked == true || VTipo != "CPF")
+		{
+			Validacao007();
+		}
+		else
+		{
+			alert('Preencha o sexo');
+		}
+	}
+
 	$(document).ready(function(){
 		$("table#tbProduto").css({'margin-right':'0px','width':'730px'});
+		alteracoesNoCadastro();
 	})
 	
 </script>
@@ -512,6 +746,840 @@ $("div.escolhapagamento").parent().find("form#formVisa > table > tbody > tr:nth-
             </div>
 		</div>
 	</div>
+<div id="modificacao_novoCadastro" style="display:none">
+<!--
+                    <div class="DS_EstruturaCorpo">
+                        
+<link type='text/css' rel='stylesheet' href='/dotstore/Inc/Calendar.css'/>
+<script language="javascript" src="/dotstore/Inc/SetaFuncLoja.js"></script>
+<script language="javascript" src="/dotstore/Inc/SetaCalendar.js"></script>
+<script language="javascript" src="/dotstore/Inc/SetaCalendarLang.js"></script>
+<script language="javascript" src="/dotstore/Inc/SetaCalendarSetup.js"></script>
+<script language="javascript" src="/dotstore/Inc/SetaAjax.js"></script>
+<script language="javascript" src="/dotstore/Inc/SetaSack.js"></script>
+<script language="javascript" src="/dotstore/Inc/CNPJCPF.js"></script>
+<script>
+
+	var VAjaxObjects = new Array();
+	var VErroCount = 0;
+	var VGravaOK
+	var VTipo = "";
+	var VEnderecoID = "";
+	var VEstado = "";
+	var vtecla
+	var VTemCampoExtra1 = false
+	var VTemCampoExtra2 = false	
+	if (VTemCampoExtra1 == true)
+	{
+		var VCampoObrig1 = false
+	}
+	else
+	{
+		var VCampoObrig1 = false
+	}
+	if (VTemCampoExtra2 == true)
+	{		
+		var VCampoObrig2 = false	
+	}
+	else
+	{
+		var VCampoObrig2 = false
+	}	
+	
+	if(document.all){
+	document.onkeydown = PulaCampo;
+	}else if (document.layers || document.getElementById){
+	document.onkeypress = PulaCampo;
+	}		
+	
+	function CancelTab() {
+		var V1 = VerBrowser()
+		if(V1=="2")
+		{
+			if (event.keyCode==9) {
+				document.getElementById('CNPJ').focus()		
+				return false;
+			}
+		}	
+	}	
+	
+	function AbreTeclado()
+	{
+		if (document.getElementById('TRTeclado').style.display == 'block')
+		{
+			document.getElementById('TRTeclado').style.display = 'none'		
+			document.getElementById('TXTTeclado').innerHTML = 'Clique aqui para abrir o Teclado virtual'								
+		}
+		else
+		{
+			document.getElementById('TRTeclado').style.display = 'block'
+			document.getElementById('TXTTeclado').innerHTML = 'Teclado virtual'
+		}	
+	}
+	
+	function PulaCampo(e)
+	{
+//	 if (!e) e = window.event;
+//   if (e.keyCode) vtecla = e.keyCode;
+//   else if (e.which) vtecla = e.which; // Netscape 4.?
+		vtecla = (window.event) ? window.event : e;
+		var nKeyCode = vtecla.keyCode ? vtecla.keyCode :
+		vtecla.which ? vtecla.which :
+		void 0;
+		vtecla = vtecla.keyCode
+	}			
+	
+	//--- mostra tipo (CNPJ - CPF)
+	function MostraTipo(PTipo)
+	{
+		if (PTipo == "CNPJ")
+		{
+			document.getElementById("TipoCNPJ").style.display = "block";
+			document.getElementById("TipoCPF").style.display = "none";
+			document.getElementById("BotTipoCNPJ").checked = true;		
+			document.getElementById("BotTipoCPF").checked = false;	
+			VTipo = "CNPJ"
+			document.getElementById("Tipo").value = VTipo;		// p/ passar o parâmetro p/ Passo3
+		}
+		if (PTipo == "CPF")
+		{	
+		  document.getElementById("TipoCNPJ").style.display = "none";
+		  document.getElementById("TipoCPF").style.display = "block";
+			document.getElementById("BotTipoCNPJ").checked = false;		
+			document.getElementById("BotTipoCPF").checked = true;			
+			VTipo = "CPF"		
+			document.getElementById("Tipo").value = VTipo;	// p/ passar o parâmetro p/ Passo3
+		}		
+	}
+	
+	//--- mostra tipo (CNPJ - CPF)
+	function MostraTipo2(PTipo)
+	{
+		if (PTipo == "CNPJ")
+		{
+			document.getElementById("TipoCNPJ").style.display = "block";
+			document.getElementById("TipoCPF").style.display = "none";
+		}
+		if (PTipo == "CPF")
+		{	
+		  document.getElementById("TipoCNPJ").style.display = "none";
+		  document.getElementById("TipoCPF").style.display = "block";
+		}		
+	}
+	
+	//--- mostra sexo
+	function MostraSexo(PTipo)
+	{
+		if (PTipo == "0")
+		{
+			VSexo = "0";
+			document.getElementById("BotSexoFem").checked = true;		
+			document.getElementById("BotSexoMasc").checked = false;	
+			document.getElementById("Sexo").value = VSexo;		// p/ passar o parâmetro p/ Passo3
+		}
+		if (PTipo == "1")
+		{	
+			VSexo = "1";		
+			document.getElementById("BotSexoFem").checked = false;		
+			document.getElementById("BotSexoMasc").checked = true;	
+			document.getElementById("Sexo").value = VSexo;		// p/ passar o parâmetro p/ Passo3
+		}		
+	}	
+	
+	function AtribuiEstado(vCod) {
+		document.getElementById("EstadoUF").value = vCod;
+	}
+
+	function PegaTextEstado()
+	{
+		var v1 = document.getElementById("Estado").value
+		document.getElementById("EstadoUF").value = document.getElementById(v1).innerHTML
+	}
+
+	function RecuperaDadosErro() {
+		
+			document.getElementById("EmailCad").value = "";
+			document.getElementById("Email").value = "";
+			document.getElementById("CEP").value = "";
+		
+		document.getElementById("OP").value = "0";
+	}
+
+	//--- carregacombo (modificado p/ esta pg em especial)
+	function CarregaCombo10(PCod,PHab)
+	{
+		var VIndex = VAjaxObjects.length;
+		VAjaxObjects[VIndex] = new sack();
+		VAjaxObjects[VIndex].onLoading = function(){ SackLoad(); };
+		VAjaxObjects[VIndex].onLoaded = function(){ SackLoaded(); };	
+		VAjaxObjects[VIndex].requestFile = '../dotstore/Inc/RetornoLoja.asp?Param1=5&Param2=Estado';
+		VAjaxObjects[VIndex].onCompletion = function(){ RetornoCombo10(VIndex); } ;	
+		VAjaxObjects[VIndex].runAJAX();	
+		function RetornoCombo10(PIndex)
+		{
+			var formObj = document.forms['form'];	
+			eval(VAjaxObjects[PIndex].response);			
+			var VStr1 = VSplitGetVal.split("!");
+			var VCount = parseInt(VStr1[0])
+			var VStr2 = VStr1[1].split("~");
+			var VInt1 = 0;
+			var VStr3 = "";
+			var VStr4 = "";
+			var VStr5 = "";			
+			for(var VInt1=0;VInt1 < VCount;VInt1++)
+			{							
+				VStr3 = VStr2[VInt1].split("|")
+				if (VStr3[0] == PCod)
+				{
+					VStr5 = "selected='selected'";
+					AtribuiEstado(VStr3[1])
+				}
+				else
+				{
+					VStr5 = "";
+				}
+				if(VStr3[1]!='')
+				{
+					VStr4 = VStr4 + "<option id='"+ VStr3[0] +"' value='"+ VStr3[0] +"'" + VStr5 + ">"+ VStr3[1] +"</option>"
+				}
+			}
+			if(PHab == true)
+			{
+				var VHTML = "<select name='Estado' id='Estado' disabled='disabled' class='FCampos' onchange=PegaTextEstado()>";			
+			}
+			else
+			{
+				var VHTML = "<select name='Estado' id='Estado' class='FCampos' onchange=PegaTextEstado()>";			
+			}
+			VHTML = VHTML + VStr4;
+			VHTML = VHTML + "</select>";
+			document.getElementById("CbEstado").innerHTML = VHTML;	
+			PegaTextEstado()
+		}
+	}
+	
+		//--- grava registro
+	function Validacao()
+	{	
+	
+			if (VTemCampoExtra1 == true)
+			{
+				var VStrCampo1 = "|CampoExtra1"
+				if (VCampoObrig1 == true)
+				{
+					var VStrObrig1 = "|2"
+				}	
+				else
+				{
+					var VStrObrig1 = "|1"
+				}
+				var VStrVal1 = "|"
+				var VStrLabel1 = "|"
+				var VStrLinha1 = "|linha29"			
+			}
+			else
+			{
+				var VStrLabel1 = ""			
+				var VStrCampo1 = ""
+				var VStrObrig1 = ""
+				var VStrVal1 = ""
+				var VStrLinha1 = ""							
+			}				
+			if (VTemCampoExtra2 == true)
+			{
+				var VStrCampo2 = "|CampoExtra2"
+				if (VCampoObrig2 == true)
+				{
+					var VStrObrig2 = "|2"
+				}	
+				else
+				{
+					var VStrObrig2 = "|1"
+				}
+				var VStrVal2 = "|"
+				var VStrLabel2 = "|"	
+				var VStrLinha2 = "|linha30"									
+			}		
+			else
+			{
+				var VStrLabel2 = ""						
+				var VStrVal2 = ""
+				var VStrCampo2 = ""
+				var VStrObrig2 = ""
+				var VStrLinha2 = ""							
+			}			
+		if (VTipo == "CPF")
+		{
+			ValidaForm(this.form, 'Nome|Data|Prof|CPF|RG|Endereco|Numero|Complemento|Referencia|Bairro|Cidade|CEP|Pais|DDD|Telefone|Ramal|DDDFax|Fax|RamalFax|DDDCel|Celular|Senha|ConfirmaSenha'+VStrCampo1+VStrCampo2, '^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ]{2,50}$|||^[0-9_\.,\-\]{14,15}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{4,15}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$|||^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[0-9]{8,8}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9]{1,50}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[a-zA-Z 0-9]{6,20}$|^[a-zA-Z 0-9]{6,20}$'+VStrVal1+VStrVal2,'Nome|Data Nasc.|Profissão|CPF|RG|Email|Endereço|Nº|Complemento|Referência|Bairro|Cidade|CEP|País|DDD|Telefone|Ramal|DDD|Fax|Ramal Fax|DDD|Celular|Senha|Confirma senha'+VStrLabel1+VStrLabel2, 'linha5|linha22|linha23|linha6|linha7|linha9|linha21|linha10|linha11|linha12|linha13|linha14|linha15|linha16|linha17|linha18|linha28|linha19|linha31|linha27|linha20|linha24|linha26'+VStrLinha1+VStrLinha2, '2|2|1|3|2|2|2|1|1|2|2|2|2|2|2|1|1|1|1|1|1|2|2'+VStrObrig1+VStrObrig2, "");
+		
+			
+		}
+		else
+		{
+			ValidaForm(this.form, 'RazaoSocial|Ramo|CNPJ|IE|Contato|Endereco|Numero|Complemento|Referencia|Bairro|Cidade|CEP|Pais|DDD|Telefone|Ramal|DDDFax|Fax|RamalFax|DDDCel|Celular|Senha|ConfirmaSenha'+VStrCampo1+VStrCampo2, '^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9.\'\&-@,&]{2,50}$||^[0-9_\.,\-/\]{18}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{2,15}$||^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$|||^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$|^[0-9]{8,8}$|^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9]{1,50}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[0-9]{1,7}$|^[0-9]{2,5}$||^[a-zA-Z 0-9]{6,20}$|^[a-zA-Z 0-9]{6,20}$'+VStrVal1+VStrVal2,'Razão Social|Ramo de Atividade|CNPJ|I.E.|Contato|Email|Endereço|Nº|Complemento|Referência|Bairro|Cidade|CEP|País|DDD|Telefone|Ramal|DDD|Fax|Ramal Fax|DDD|Celular|Senha|Confirma senha'+VStrLabel1+VStrLabel2, 'linha1|linha25|linha2|linha3|linha4|linha9|linha21|linha10|linha11|linha12|linha13|linha14|linha15|linha16|linha17|linha18|linha28|linha19|linha31|linha27|linha20|linha24|linha26'+VStrLinha1+VStrLinha2, '2|2|3|1|2|2|2|1|1|2|2|2|2|2|2|1|1|1|1|1|1|2|2'+VStrObrig1+VStrObrig2, "");
+		}	
+			if(VGravaOK == true){ 
+				if(document.getElementById('Senha').value != document.getElementById('ConfirmaSenha').value){
+					document.images["linha24"].width = 16;
+					document.images["linha24"].height = 16;						
+					document.images["linha24"].src = VImgValErro;
+					document.images["linha26"].width = 16;
+					document.images["linha26"].height = 16;						
+					document.images["linha26"].src = VImgValErro;
+					VGravaOK = false;
+					return;	
+				} else {
+					document.images["linha24"].width = 16;
+					document.images["linha24"].height = 16;						
+					document.images["linha24"].src = VImgValOK;
+					document.images["linha26"].width = 16;
+					document.images["linha26"].height = 16;						
+					document.images["linha26"].src = VImgValOK;
+					VGravaOK = true;
+				}
+				document.getElementById('Endereco2').value = document.getElementById('Endereco').value;
+				document.getElementById('Bairro2').value = document.getElementById('Bairro').value;				
+				document.getElementById('Cidade2').value = document.getElementById('Cidade').value;												
+				// Envia o form p/ passo 3
+				document.getElementById('fCadastro2').submit();
+			}
+	}
+	
+		//--- grava registro
+	function Validacao2(vOP)
+	{			
+
+			if(vOP == "0"){
+					ValidaForm(this.form, 'EmailCad', '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$','Email', 'linha2', '2', "");
+					document.getElementById('OP').value = "0";
+			} else {
+					ValidaForm(this.form, 'Email', '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$','Email', 'linha1', '2', "");
+					document.getElementById('OP').value = "1";	
+			}
+				//	alert(document.getElementById('OP').value);	
+			if(VGravaOK == true){ 
+					document.getElementById('fCadastro').submit();
+			}
+	}
+	
+		//--- grava registro
+	function Validacao3()
+	{			
+			ValidaForm(this.form, 'Email', '^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$','Email', 'linha1', '2', "");
+
+			if(VGravaOK == true){ 
+					window.open("?Menu=Cadastro&Act=Lembrete")
+			}
+	}	
+	
+	function FinalizaCadastro(){
+		// Envia o form p/ passo 3
+		document.getElementById('fCadastro3').submit();
+	}
+	
+	function AbrePagina(){
+		var VTipoFormParam = "Ins";	
+		var VTipoForm = "Cadastrar";
+		var VFormErro = "";
+		var VStP = "94480560";
+		if(VTipoForm == "Cadastrar"){ 
+			if(VTipoFormParam=="Ins")
+			{
+				//--- Inicia c/ o 'CNPJ' como padrão
+				MostraTipo('CPF');
+				//--- Inicia c/ o 'Masculino' como padrão
+				
+					MostraSexo('1');
+				
+				if(VStP=="")
+				{
+					//--- Inicia combo estado
+					CarregaCombo10('');
+				}	
+				
+				//--- Inicia a função CEP
+				document.getElementById('CEP').value = "94480560";
+				PegaCep('94480560', '');
+				
+			}	
+			
+			
+		}
+		if(VTipoForm == "Confirmar"){ 
+			//--- Inicia c/ o que estiver preenchido
+			MostraTipo2('');
+		}		
+		if(VFormErro != ""){ 
+			//--- Recupera dados digitados - Erro
+			RecuperaDadosErro();
+		}	
+	}
+	
+</script>
+
+<style>
+.titulo_cadastro_modificado{
+	font-size: 14pt;
+	font-family: Arial;
+	color: #013F5E;
+	font-weight: bold;
+}
+
+.subtitulo_cadastro_modificado{
+	font-size: 10pt;
+	font-family: Arial;
+	font-weight: bold;
+	color: #000000;
+}
+
+.subtitulo_cadastro_modificado2{
+	font-size: 10pt;
+	font-family: Arial;
+	font-weight: normal;
+	color: #000000;
+}
+
+.dicas_cadastro_modificado{
+	font-size: 8pt;
+	font-family: Arial;
+	font-weight: normal;
+	color: #AAAAAA;
+}
+
+.duvidas_cadastro_modificado{
+	font-size: 10pt;
+	font-family: Arial;
+	font-weight: bold;
+	color: #013F5E;
+}
+ 
+.sinal_campo_obrigatorio{
+	font-weight: bold;
+	color: #DD1111;
+}
+
+#tituloCadastro{
+	font-size: 22pt;
+	font-family: Arial;
+	color: #4E4E4E;
+	font-weight: bold;	
+}
+
+.frase_titulo1{
+	font-size: 10pt;
+	color: #000000;
+}
+
+.frase_titulo2{
+	font-size: 8pt;
+	color: #000000;
+}
+
+#fundo_popup{
+	top: 0px;
+	left: 0px;
+	background-color: #000000;
+	opacity: 0.3;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 999;
+	display: none;
+}
+
+.ia_popup{
+	width: 400px;
+	height: 150px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -75px;
+	margin-left: -200px;
+	background-color: #FFFFFF;
+	padding: 10px;
+	z-index: 1000;
+	display: none;
+	
+	border-radius:7px;	
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	-o-border-radius:7px;
+	-ms-border-radius:7px;
+}
+
+.titulo_popup{
+	color: #222222;
+	width:100%;
+	padding: 5px;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 12pt;
+	display: table;
+
+	border: 0;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.fechar_popup{
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	float: right;
+}
+
+.conteudo_popup{
+	margin-top: 10px;
+	padding: 10px;
+	padding-top: 10px;
+
+/*
+	width:100%;
+	height: 100%;
+*/
+	font-size: 10pt;
+	font-family: Arial;
+	text-align: justify;
+
+	border: 1px solid #CCCCCC;
+	border-radius:7px;	
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	-o-border-radius:7px;
+	-ms-border-radius:7px;
+}
+
+</style>
+
+<form name="fCadastro2" id="fCadastro2" action="?Menu=Cadastro&Param=Ins&Act=Confirmado" method="POST">
+<table id="container_cadastro" width="100%" cellpadding="0" cellspacing="3" align="center">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+						<td align="center"></td>
+				</tr>
+				<tr>
+						<td><img src="imagens/shim.gif" width="1" height="14" /></td>
+				</tr>
+				<tr>
+					<td align="center">
+						<table width="100%" height="60" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+										<td width="27%" valign="top"><img src="imagens/TitCadastro.gif" alt='Cadastro do cliente' /></td>
+										<td >
+											<table align="right" cellpadding="0" cellspacing="0">
+												<tr>
+													<td class="TabelaCamposObrig"><img src="imagens/shim.gif" width="10" height="1" /></td>
+													<td class="TXTNomeCampos" nowrap="nowrap">&nbsp;= campo obrigat&oacute;rio&nbsp;&nbsp;</td>
+												</tr>
+												<tr>
+													<td height="10" colspan="2">&nbsp;</td>
+												</tr>
+												<tr>
+													<td><img src="imagens/BotCancel.gif" width="16" height="16" /></td>
+													<td class="TXTNomeCampos" nowrap="nowrap">= verifique os campos </td>
+												</tr>
+											</table>
+										</td>
+								</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<table width=100% cellspacing=0 cellpadding=2 class="TabelaQuadro1" id="TabCadastroTag">
+		<tr>
+			<table id="cabecalho_cadastro" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="left"><span id="tituloCadastro">Cadastro<br /><br /></span></td>
+				<td align="right"><img id="imagem_site_seguro" src="imagens/site_seguro.png" / ></td>
+			</tr>
+			<tr>
+				<td align="left"><span id="frase_titulo1">Preencha os campos abaixo e clique no botão "Continuar" para concluir.</span></td>
+				<td align="right"><span id="frase_titulo2">Todos os campos com asterisco( <span class="sinal_campo_obrigatorio">*</span> ) são de preenchimento obrigatório</span></td>
+			</tr>
+			</table>
+
+			<table width="100%" border="0" align="left" cellpadding="2" cellspacing="0" class="FundoBorda" style="margin-top:5px;">
+				<tr>
+					<td width="200" class="titulo_cadastro_modificado">&nbsp;&nbsp;Dados</td>
+					<td align="left">
+							<input name="BotTipoCPF" id="BotTipoCPF" type="radio" value="CPF" onClick="MostraTipo(this.value)" checked="checked"  />
+							<b>Pessoa f&iacute;sica &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+							<input name="BotTipoCNPJ" id="BotTipoCNPJ" type="radio" value="CNPJ" onClick="MostraTipo(this.value)"/>
+							<b>Pessoa jur&iacute;dica</b>
+							<input type="hidden" name="Tipo" id="Tipo" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div id="TipoCNPJ">
+							<table id="tabelaCNPJ" width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+								<tr id="mod_linha_1" >
+									<td width="200" height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Razão Social da Empresa<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td>
+										<input type='text' name='RazaoSocial' id='RazaoSocial' maxlength='100' size='40' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9.\'\&-@,&]{2,50}$','linha1')"  style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;">
+										<img class='HintIMG' id='linha1' name='linha1' style="float:left; margin-left:1px" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_1" />
+									</td>
+								</tr>
+								<tr id="mod_linha_2" >
+									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">CNPJ<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td>
+										<input type='text' name='CNPJ' id='CNPJ' maxlength='18' class='FCampos' onkeyup="FormataCNPJ(this,18,event)" onblur="formatCpfCnpj007(this, null, true)" onchange="ValidaCampo(this,'^[0-9_\.,\-/\]{18}$','linha2')" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+										<img class='HintIMG' id='linha2' name='linha2' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_2" />
+									</td>
+								</tr>
+								<tr id="mod_linha_3" >
+									<td height="25" align="right" class="subtitulo_cadastro_modificado2">Inscrição Estadual:</td>
+									<td>
+										<input type='text' name='IE' id='IE' maxlength='19' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,\-\]{2,15}$','linha3')" onkeydown='return CancelTab();'  style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+										<img class='HintIMG' id='linha3' name='linha3' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_3" />
+									</td>
+								</tr>
+								<tr id="mod_linha_4" >
+									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Responsável<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td>
+										<input type='text' name='Contato' id='Contato' maxlength='30' size='20' class='FCampos' onchange="ValidaCampo(this,'','linha4')"  style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+										<img class='HintIMG' id='linha4' name='linha4' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_4" />
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div id="TipoCPF">
+							<table id="tabelaCPF" width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+								<tr id="mod_linha_5" >
+									<td width="200" height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Nome Completo<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td>
+										<input type='text' name='Nome' id='Nome' maxlength='50' size='40' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ]{2,50}$','linha5')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;">
+										<img class='HintIMG' id='linha5' name='linha5' style="margin-left:1px;float:left; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_5"/>
+									</td>
+								</tr>
+								<tr id="mod_linha_6" >
+									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado" id="CamposObrigCPF">CPF<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td>
+										<input type='text' name='CPF' id='CPF' maxlength='14' class='FCampos' onkeyPress="FormataCpf(this,event)" onchange="ValidaCampo(this,'^[0-9_\.,\-\]{14,15}$','linha6')" onblur="formatCpfCnpj007(this, null, null)" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+										<a href="#" onclick="abrePopup(1);" class="duvidas_cadastro_modificado" style="float:left; position: relative; top: 5px; ">&gt; <span style="text-decoration:underline;">Porque pedimos o seu CPF?</span></a>
+										<img class='HintIMG' id='linha6' name='linha6' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_6" />
+									</td>
+								</tr>
+								<tr id="mod_linha_7" >
+									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado" nowrap="nowrap" id="DataNascDotCad">Data de Nascimento<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td>
+										<input type="text" name="Data" id="Data" maxlength="10" class="FCampos" onkeypress="FormataData(this,event);captureKeys(event);" onchange="ValidaCampo007(this,'','linha22')" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+										<span class="dicas_cadastro_modificado"  style="top: 6px; position: relative;float:left;" >&nbsp;"dd/mm/aaaa"&nbsp;</span>
+										<img class='HintIMG' id='linha22' name='linha22' style="margin-left:1px;float:left; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_7" />
+<script>
+Calendar.setup(
+{
+	inputField     :    "Data",
+	ifFormat       :    "%d/%m/%Y",
+	showsTime      :    false,
+	button         :    "BotDataHora",
+	singleClick    :    true,
+	step           :    1,
+	weekNumbers    :    false,
+	showsTime       :    false
+});
+</script>
+									</td>								
+								</tr>
+								<tr id="mod_linha_8" >
+									<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Sexo<span class="sinal_campo_obrigatorio">*</span>:</td>
+									<td align="left">
+										<table width="100%" border="0" align="left" cellpadding="2" cellspacing="0">
+										<tr align="left">
+											<td align="left">
+												<input name="BotSexoFem" id="BotSexoFem" type="radio"  value="0" onClick="MostraSexo(this.value)" /><b>Feminino</b>
+											</td>
+											<td align="left">
+												<input name="BotSexoMasc" id="BotSexoMasc" type="radio" value="1" onClick="MostraSexo(this.value)" /><b>Masculino</b>
+											</td>
+										</tr>
+										</table>
+										<img class='HintIMG' id='linha666' name='linha666' style="float:left;margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_8"/>
+										<input type="hidden" name="Sexo" id="Sexo"/>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+				<tr id="mod_linha_9" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Telefone Preferencial<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='DDD' id='DDD' maxlength='3' size='3' class='FCampos' onchange="ValidaCampo(this,'^[0-9]{2,5}$','linha16')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;">
+						<img class='HintIMG' id='linha16' name='linha16' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_9" />
+						&nbsp; <input type='Text' name='Telefone' id='Telefone' maxlength='15' size='12' class='FCampos' onchange="ValidaCampo(this,'','linha17')" style="float:left; width: 95px; padding: 6px; border: 0; background-image: url('imagens/bg_input4.gif'); background-repeat: no-repeat; margin-left: 15px;">
+						<img class='HintIMG' id='linha17' name='linha17' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_9" />
+					</td>
+				</tr>
+				<tr id="mod_linha_10" >
+					<td height="25" align="right" class="subtitulo_cadastro_modificado2">Telefone Alternativo:</td>
+					<td>
+						<input type='Text' name='DDDCel' id='DDDCel' maxlength='3' size='3' class='FCampos' onchange="ValidaCampo(this,'^[0-9]{2,5}$','linha27')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;">
+						<img class='HintIMG' id='linha27' name='linha27' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_10" />
+						&nbsp; <input type='Text' name='Celular' id='Celular' maxlength='15' size='12' class='FCampos' onchange="ValidaCampo(this,'','linha20')" style="float:left; width: 95px; padding: 6px; border: 0; background-image: url('imagens/bg_input4.gif'); background-repeat: no-repeat;margin-left: 15px;">
+						<img class='HintIMG' id='linha20' name='linha20' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_10" />
+					</td>
+				</tr>
+			</table>
+			<table width="100%" border="0" align="center" cellpadding="2" cellspacing="0" class="FundoBorda" style="margin-top:270px;">
+				<tr>
+					<td width="200" class="titulo_cadastro_modificado">&nbsp;&nbsp;Endereço</td>
+					<td align="center"></td>
+				</tr>
+				<tr id="mod_linha_11" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">CEP<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='CEP' id='CEP' maxlength='8' size='10' class='FCampos' onblur="PegaCep007(this.value);" onkeypress='ChkNumero(event)' onchange="ValidaCampo(this,'^[0-9]{8,8}$','linha14'); validaResto();" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+						<a class="duvidas_cadastro_modificado" href="http://www.buscacep.correios.com.br/" target="_blank" style=" position: relative; top: 5px; float:left;">&gt; <span style="text-decoration:underline">Não sei meu CEP</span></a>
+						<img class='HintIMG' id='linha14' name='linha14' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_11"/>
+						<input type="hidden" name="EnderecoCepID" id="EnderecoCepID" />
+					</td>
+				</tr>
+				<tr id="mod_linha_12" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Endereço<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='Endereco' id='Endereco' maxlength='72' size='40' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$','linha9')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;"/>
+						<img class='HintIMG' id='linha9' name='linha9' style="float:left;margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_12"/>
+						<input type="hidden" name="Endereco2" id="Endereco2" />																																				</td>
+					</td>
+				</tr>
+				<tr id="mod_linha_13" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Número<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='Numero' id='Numero' maxlength='6' class='FCampos' size='4' onchange="ValidaCampo(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_/\.,\-\]{1,7}$','linha21')" style="float:left; width: 50px; padding: 6px; border: 0; background-image: url('imagens/bg_input3.gif'); background-repeat: no-repeat;"/>
+						<img class='HintIMG' id='linha21' name='linha21' style="float: left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_13"/>
+					</td>
+				</tr>
+				<tr id="mod_linha_14" >
+					<td height="25" align="right" class="subtitulo_cadastro_modificado2">Complemento:</td>
+					<td>
+						<input type='Text' name='Complemento' id='Complemento' maxlength='72' size='40' class='FCampos' onchange="ValidaCampo(this,'','linha10')" style="float:left;  width: 256px; padding: 6px; border: 0; background-image: url('imagens/bg_input1.gif'); background-repeat: no-repeat;" />
+						<img class='HintIMG' id='linha10' name='linha10' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_14"/>
+					</td>
+				</tr>
+				<tr id="mod_linha_15" >
+					<td height="25" align="right" class="subtitulo_cadastro_modificado2">Referência:</td>
+					<td>
+						<input type='Text' name='Referencia' id='Referencia' maxlength='100' size='20' class='FCampos' onchange="ValidaCampo(this,'','linha11')" style="float:left; margin-left:1px; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat" />
+						<img class='HintIMG' id='linha11' name='linha11' style="float:left; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_15"/>
+					</td>
+				</tr>
+				<tr id="mod_linha_16" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Bairro<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='Bairro' id='Bairro' maxlength='72' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$','linha12')" style="float:left;  width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;"/>
+						<img class='HintIMG' id='linha12' name='linha12' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_16"/>
+						<input type="hidden" name="Bairro2" id="Bairro2" />
+					</td>
+				</tr>
+				<tr id="mod_linha_17" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Cidade<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='Cidade' id='Cidade' maxlength='72' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9_\.,()\-\]{1,72}$','linha13')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+						<img class='HintIMG' id='linha13' name='linha13' style="float: left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_17"/>
+						<input type="hidden" name="Cidade2" id="Cidade2" />
+					</td>
+				</tr>
+				<tr id="mod_linha_18" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Estado<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<label name='CbEstado' id='CbEstado'></label>
+						<input type="hidden" name="EstadoUF" class="FCampos" id="EstadoUF" />
+						<input type="hidden" name="EstadoUF2" id="EstadoUF2" class="FCampos" />
+						<input type="hidden" name="Estado2" id="Estado2" />
+					</td>
+				</tr>
+				<tr id="mod_linha_19" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">País<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='Text' name='Pais' id='Pais' maxlength='50' size='10' class='FCampos' onchange="ValidaCampo008(this,'^[a-zA-Z áàâäãçéèêëíìîïóòôöõúùûü ÁÀÂÃÄÇÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜ 0-9]{1,50}$','linha15')" style="float:left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+						<img class='HintIMG' id='linha15' name='linha15' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0' linha_pai="mod_linha_19" />
+						<input type="hidden" name="Pais2" id="Pais2" />
+					</td>
+				</tr>
+			</table>
+			<table width="100%" border="0" align="center" cellpadding="2" cellspacing="0" class="FundoBorda" style="margin-top:15px;">
+				<tr>
+					<td width="200" class="titulo_cadastro_modificado">&nbsp;&nbsp;Login</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Email:</td>
+					<td>
+						<span id="variavel_email" class="subtitulo_cadastro_modificado"></span> 
+						<input type="hidden" name="Email" id="Email" value="xvinadex6@hotmail.com" />
+					</td>
+				</tr>
+				<tr id="mod_linha_20" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Senha<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='password' name='Senha' id='Senha' maxlength='20' size='20' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z 0-9]{6,20}$','linha24')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;" />
+						<img class='HintIMG' id='linha24' name='linha24' style="float:left; margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_20"/>
+						<span class="dicas_cadastro_modificado"  style="top: 6px; position: relative;" >&nbsp;Mínimo de 6 caracteres</span>
+					</td>
+				</tr>
+				<tr id="mod_linha_21" >
+					<td height="25" align="right" class="TXTNomeCamposObrig subtitulo_cadastro_modificado">Confirmar senha<span class="sinal_campo_obrigatorio">*</span>:</td>
+					<td>
+						<input type='password' name='ConfirmaSenha' id='ConfirmaSenha' maxlength='20' size='20' class='FCampos' onchange="ValidaCampo(this,'^[a-zA-Z 0-9]{6,20}$','linha26')" style="float: left; width: 135px; padding: 6px; border: 0; background-image: url('imagens/bg_input2.gif'); background-repeat: no-repeat;">
+						<img class='HintIMG' id='linha26' name='linha26' style="float:left;margin-left:1px; margin-top: 6px;" src='imagens/Branco.gif' width='0' height='0'  linha_pai="mod_linha_21"/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+							<tr>
+								<td><input type='CheckBox' name='News' id='News' maxlength='' class='' checked='checked' ></td>
+								<td><span class="TXTCampos2" id="BoletimDotCad2">Desejo receber boletins com ofertas, promoções e informações da Importado Agora</span></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</tr>
+	</table>
+	<input type='hidden' name='Ramo' id='Ramo' class='FCampos' value="xxxxxxxxxxx" />
+	<input type='hidden' name='Prof' id='Prof' class='FCampos' value="xxxxxxxxxxx" />
+	<input type='hidden' name='RG' id='RG' class='FCampos' value="00000000000" />
+	<input type='hidden' name='DDDFax' id='DDDFax' class='FCampos' value="00" />
+	<input type='hidden' name='Fax' id='Fax' class='FCampos' value="000000000" />
+	<input type='hidden' name='Ramal' id='Ramal' class='FCampos' value="000" />
+	<input type='hidden' name='RamalFax' id='RamalFax' class='FCampos' value="000" />
+	
+<br />	
+	<table id="tabelaBotoes" width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
+		<tbody>
+			<tr>
+				<td id="espaco_voltar" align="center">
+					<a href='javascript:history.back()'><img src='imagens/BTVoltar.png' border=0 hspace=5 align=absbottom></a>
+				</td>
+				<td id="espaco_continuar" align="center">
+					<a href='#' onclick='ValidaSexo();'><img src='imagens/BTContinuar.png' align='absbottom' border='0' hspace='5'></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</table>
+</form>
+
+<div id="fundo_popup"></div>
+<div id="popup_1" class="ia_popup">
+	<div class="titulo_popup">Porque pedimos seu CPF:<img src="imagens/fechar_popup.png" class="fechar_popup"/></div>
+	<div class="conteudo_popup">&nbsp;&nbsp;&nbsp;&nbsp;A Importado Agora pede seu CPF para a segurança do contato entre você e nossa loja, assim
+como para a emissão da Nota Fiscal Eletrônica. Mantemos total sigilo das informações fornecidas, descartamos as informações assim que a compra é finalizada.
+</div>
+
+
+<script>
+	AbrePagina();
+</script>
+                        <div class="DS_EstruturaDireita"></div>
+                    </div>
+-->
+</div>
 </div>
 
 
