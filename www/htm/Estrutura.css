@@ -30,6 +30,11 @@ table#TbFaleConoscoVal
 .DS_BannerPublicidadeLateralUL{margin:0px; padding:0px;}
 .DS_BannerPublicidadeLateralLI{margin:0px; padding:0px; list-style:none;}
 
+.colmid{
+/*	display: none; */
+	visibility: hidden;
+}
+
 
 /* holy grail 3 column settings */
 	.holygrail .colmid {
