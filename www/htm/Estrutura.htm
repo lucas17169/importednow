@@ -552,7 +552,9 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 	function verificaTelaCadastro(){ 
 		url_dividida = document.location.href.split('?');
 		novo_cadastro = ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#"));
-		return ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar#"));
+		return ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Act=Cadastrar#"));
+		
+		//
 	}
 
 	/*
