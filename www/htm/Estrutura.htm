@@ -1,5 +1,30 @@
 <script type="text/javascript" src="https://www.dotstore.com.br/dotstore/inc/extras/jquery.min.js"></script>
 <script type="text/javascript">
+var testeIE = false;
+function getInternetExplorerVersion() {
+  var rv = -1;
+  if (navigator.appName == 'Microsoft Internet Explorer')
+  {
+    var ua = navigator.userAgent;
+    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  return rv;
+}
+function checkVersion() {
+  var ver = getInternetExplorerVersion();
+
+  if ( ver > -1 )
+  {
+    if ( ver >= 10.0 )
+      testeIE = false;
+    else
+      testeIE = true;
+  }
+
+}
+
 function ValidaCampo008(PObj, PRegExp, PLinha)
 	{		
 		if (PObj.value != "")
@@ -536,8 +561,8 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 	function substituiPagina(){
 //		alert(document.getElementById("modificacao_novoCadastro").innerHTML);
 		container_fonte = document.getElementById("modificacao_novoCadastro").innerHTML;
-		container_fonte = container_fonte.substr(0, container_fonte.length - 4); // -->
-		container_fonte = container_fonte.substring(5); // <!--
+		container_fonte = container_fonte.substr(0, container_fonte.length - 4); //
+		container_fonte = container_fonte.substring(5); // 
 		container_destino = document.getElementsByClassName("DS_EstruturaCorpowrap");
 
 		AbrePagina();
@@ -760,7 +785,8 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 
 	$(document).ready(function(){
 		$("table#tbProduto").css({'margin-right':'0px','width':'730px'});
-		alteracoesNoCadastro();
+		if (!testeIE)
+			alteracoesNoCadastro();
 		$('.DS_EstruturaCorpo > table:first').css('margin-left','-3px');
 	})
 	
