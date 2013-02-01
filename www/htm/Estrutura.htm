@@ -562,6 +562,8 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 		pgretorno_pagamento = false;
 	
 		url_dividida = document.location.href.split('?');
+		if (url_dividida.length == 1)
+			return false;
 		str_parametros = url_dividida[1].replace("#","");
 		parametros = str_parametros.split("&");
 		
