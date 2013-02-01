@@ -547,14 +547,43 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 	*
 	*	Verifica se a página atual é a página de cadastro
 	*/
-	var novo_cadastro = false;
+	var pg_cadastro = false;
+	var edicao_cadastro = false;
+	var produto_cadastro = false;
 	
-	function verificaTelaCadastro(){ 
-		url_dividida = document.location.href.split('?');
-		novo_cadastro = ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#"));
-		return ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Act=Cadastrar#"));
+	function verificaTelaCadastro(){
+		pg_cadastro = false;
+		edicao_cadastro = false;
+		produto_cadastro = false;
 		
-		//
+		act_cadastrar = false;
+		menu_cadastro = false;
+		param_ins = false;
+		pgretorno_pagamento = false;
+	
+		url_dividida = document.location.href.split('?');
+		str_parametros = url_dividida[1].replace("#","");
+		parametros = str_parametros.split("&");
+		
+		tamanho = parametros.length;
+		
+		for ( i = 0; i < tamanho; i++ ){
+			menu_cadastro 		= (parametros[i] == "Menu=Cadastro") || menu_cadastro;
+			act_cadastrar 		= (parametros[i] == "Act=Cadastrar") || act_cadastrar;
+			param_ins 		= (parametros[i] == "Param=Ins") || param_ins;
+			pgretorno_pagamento 	= (parametros[i] == "PGRetorno=Pagamento") || pgretorno_pagamento;
+		}
+		
+		if (menu_cadastro && act_cadastrar){
+			pg_cadastro = true;
+			edicao_cadastro = !param_ins;
+			produto_cadastro = pgretorno_pagamento;
+		}
+		
+		//novo_cadastro = ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#"));
+		//return ((url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Cadastrar#")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Act=Cadastrar")||(url_dividida[1] == "Menu=Cadastro&PGRetorno=Pagamento&Act=Cadastrar#"));
+		
+		return pg_cadastro;
 	}
 
 	/*
@@ -707,7 +736,7 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 		document.getElementById("Complemento").onchange();
 		document.getElementById("Referencia").onchange();
 		
-		if (!novo_cadastro){
+		if (edicao_cadastro){
 			if (aux_BotSexoMasc){
 				$("input#BotSexoMasc").attr("checked","true");
 			}
@@ -715,6 +744,10 @@ function formatCpfCnpj007(objeto, pUseSepar, pIsCnpj){
 				$("input#BotSexoMasc").attr("checked","true");
 			}
 			$("form#fCadastro2").attr("action","?Menu=Cadastro&Param=Upd&Act=Confirmado");
+		}
+		
+		if (produto_cadastro){
+			$("form#fCadastro2").attr("action","?Menu=Cadastro&PGRetorno=Pagamento&Param=Ins&Act=Confirmado");
 		}
 		
 		try{
