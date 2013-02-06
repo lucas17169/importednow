@@ -1,16 +1,5 @@
 <script type="text/javascript" src="https://www.dotstore.com.br/dotstore/inc/extras/jquery.min.js"></script>
-<script type="text/javascript" src="imagens/produto.js"></script>
 <script type="text/javascript">
-
-	function ajustaPaginaProdutos(){
-
-		if ((document.location.href.split("#").length < 2) || (document.location.href.split("#")[1] != "mod")) // verifica se é um teste
-			return 0;
-		
-		modificaProduto();	// é teste
-	}
-
-
 	$(document).ready(function () {
 		if ($('.DS_EstruturaDireita').text() == "") {
 			$('.DS_EstruturaCorpo').addClass('DS_Destrava');
@@ -43,8 +32,8 @@
 				//$('td[height="30"]').css({'float':'left','width':'125px','text-align':'center','margin-top':'10px'});
 			break;			
 		}
-		
-		ajustaPaginaProdutos();
+
+		document.getElementById("btComprar").style.display = "block";
 	});
 </script>
 <div id="DS_EstruturaTopo">##BarraTopo##</div>
